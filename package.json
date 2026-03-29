@@ -1,0 +1,11 @@
+{
+  "name": "shaml-store",
+  "version": "1.0.0",
+  "description": "SMM Store with Stripe + PayPal + Crypto payments",
+  "dependencies": {
+    "stripe": "^14.0.0"
+  },
+  "engines": {
+    "node": "18.x"
+  }
+}
