@@ -326,33 +326,6 @@ body{font-family:'Cairo',sans-serif;background:var(--dark);color:#fff;overflow-x
     <div class="stat"><span class="stat-num">⚡</span><div class="stat-lbl">فوري</div></div>
   </div>
 
-  <!-- MAIN CATEGORY TABS -->
-  <div style="padding:16px 16px 4px">
-    <div style="font-family:'Tajawal',sans-serif;font-size:17px;font-weight:900;padding-right:11px;border-right:3px solid var(--primary);margin-bottom:12px" id="cats-anchor">اختر القسم</div>
-  </div>
-  <div class="main-tabs">
-    <div class="main-tab active" onclick="switchMainTab('social',this)">
-      <div class="main-tab-icon">📱</div>
-      <div class="main-tab-name">سوشيال ميديا</div>
-    </div>
-    <div class="main-tab" onclick="switchMainTab('ai',this)">
-      <div class="main-tab-icon">🤖</div>
-      <div class="main-tab-name">خدمات AI</div>
-    </div>
-    <div class="main-tab" onclick="switchMainTab('design',this)">
-      <div class="main-tab-icon">🎨</div>
-      <div class="main-tab-name">تصاميم</div>
-    </div>
-    <div class="main-tab" onclick="switchMainTab('video',this)">
-      <div class="main-tab-icon">🎬</div>
-      <div class="main-tab-name">فيديو</div>
-    </div>
-    <div class="main-tab" onclick="switchMainTab('accounts',this)">
-      <div class="main-tab-icon">🔑</div>
-      <div class="main-tab-name">حسابات</div>
-    </div>
-  </div>
-
   <!-- SOCIAL TAB -->
   <div id="tab-social">
     <div class="section"><div class="section-head"><div class="section-title">منصات التواصل الاجتماعي</div></div></div>
@@ -365,58 +338,6 @@ body{font-family:'Cairo',sans-serif;background:var(--dark);color:#fff;overflow-x
       <div class="platform-card pc-yt" onclick="openPlatform('youtube')"><div class="pc-deco pc-deco-1"></div><div class="pc-deco pc-deco-2"></div><div class="pc-icon">▶️</div><div><div class="pc-name">يوتيوب</div><div class="pc-count">7 خدمة</div></div></div>
     </div>
   </div>
-
-  <!-- AI TAB -->
-  <div id="tab-ai" style="display:none">
-    <div class="section"><div class="section-head"><div class="section-title">🤖 خدمات الذكاء الاصطناعي</div></div></div>
-    <div class="digital-grid">
-      <div class="digital-card dc-ai" onclick="openDigital('ai-content')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-badge">🔥 الأكثر طلباً</div><div class="dc-icon">✍️</div><div><div class="dc-name">كتابة محتوى AI</div><div class="dc-sub">مقالات، بوستات، سكريبتات</div><div class="dc-profit">ربح حتى 10x</div></div></div>
-      <div class="digital-card dc-ai" onclick="openDigital('ai-images')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">🖼️</div><div><div class="dc-name">صور AI احترافية</div><div class="dc-sub">Midjourney، DALL-E</div><div class="dc-profit">ربح حتى 8x</div></div></div>
-      <div class="digital-card dc-ai" onclick="openDigital('ai-prompts')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">💬</div><div><div class="dc-name">Prompts احترافية</div><div class="dc-sub">ChatGPT، Claude، Gemini</div><div class="dc-profit">ربح حتى 15x</div></div></div>
-      <div class="digital-card dc-ai" onclick="openDigital('ai-voice')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">🎙️</div><div><div class="dc-name">تحويل نص لصوت AI</div><div class="dc-sub">أصوات عربية احترافية</div><div class="dc-profit">ربح حتى 12x</div></div></div>
-    </div>
-  </div>
-
-  <!-- DESIGN TAB -->
-  <div id="tab-design" style="display:none">
-    <div class="section"><div class="section-head"><div class="section-title">🎨 خدمات التصميم</div></div></div>
-    <div class="digital-grid">
-      <div class="digital-card dc-design" onclick="openDigital('design-logo')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-badge">⭐ مميز</div><div class="dc-icon">🏷️</div><div><div class="dc-name">تصميم لوغو</div><div class="dc-sub">احترافي مع ملفات كاملة</div><div class="dc-profit">ربح حتى 5x</div></div></div>
-      <div class="digital-card dc-design" onclick="openDigital('design-social')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">📱</div><div><div class="dc-name">قوالب سوشيال ميديا</div><div class="dc-sub">Canva جاهزة للتعديل</div><div class="dc-profit">ربح حتى 8x</div></div></div>
-      <div class="digital-card dc-design" onclick="openDigital('design-identity')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">🎯</div><div><div class="dc-name">هوية بصرية كاملة</div><div class="dc-sub">لوغو + ألوان + خطوط</div><div class="dc-profit">ربح حتى 6x</div></div></div>
-      <div class="digital-card dc-design" onclick="openDigital('design-banner')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">🖼️</div><div><div class="dc-name">بانرات وإعلانات</div><div class="dc-sub">احترافية لحملاتك</div><div class="dc-profit">ربح حتى 7x</div></div></div>
-    </div>
-  </div>
-
-  <!-- VIDEO TAB -->
-  <div id="tab-video" style="display:none">
-    <div class="section"><div class="section-head"><div class="section-title">🎬 خدمات الفيديو</div></div></div>
-    <div class="digital-grid">
-      <div class="digital-card dc-video" onclick="openDigital('video-reels')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-badge">🔥 ترند</div><div class="dc-icon">🎞️</div><div><div class="dc-name">مونتاج ريلز وتيك توك</div><div class="dc-sub">احترافي مع موسيقى</div><div class="dc-profit">ربح حتى 10x</div></div></div>
-      <div class="digital-card dc-video" onclick="openDigital('video-ads')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">📺</div><div><div class="dc-name">فيديو إعلاني</div><div class="dc-sub">للمنتجات والخدمات</div><div class="dc-profit">ربح حتى 8x</div></div></div>
-      <div class="digital-card dc-video" onclick="openDigital('video-intro')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">🎬</div><div><div class="dc-name">إنترو احترافي</div><div class="dc-sub">لقناتك أو علامتك</div><div class="dc-profit">ربح حتى 12x</div></div></div>
-      <div class="digital-card dc-video" onclick="openDigital('video-subtitle')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">💬</div><div><div class="dc-name">ترجمة وترجمة فيديو</div><div class="dc-sub">عربي وإنجليزي</div><div class="dc-profit">ربح حتى 6x</div></div></div>
-    </div>
-  </div>
-
-  <!-- ACCOUNTS TAB -->
-  <div id="tab-accounts" style="display:none">
-    <div class="section"><div class="section-head"><div class="section-title">🔑 حسابات وأرقام</div></div></div>
-    <div class="digital-grid">
-      <div class="digital-card dc-accounts" onclick="openDigital('acc-whatsapp')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-badge">💰 طلب يومي</div><div class="dc-icon">📱</div><div><div class="dc-name">أرقام واتساب أمريكية</div><div class="dc-sub">جاهزة للاستخدام فوراً</div><div class="dc-profit">ربح حتى 10x</div></div></div>
-      <div class="digital-card dc-accounts" onclick="openDigital('acc-chatgpt')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">🤖</div><div><div class="dc-name">حسابات ChatGPT Plus</div><div class="dc-sub">جاهزة مفعلة</div><div class="dc-profit">ربح حتى 5x</div></div></div>
-      <div class="digital-card dc-accounts" onclick="openDigital('acc-netflix')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">🎬</div><div><div class="dc-name">اشتراكات نتفليكس</div><div class="dc-sub">شهري وسنوي</div><div class="dc-profit">ربح حتى 4x</div></div></div>
-      <div class="digital-card dc-accounts" onclick="openDigital('acc-spotify')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">🎵</div><div><div class="dc-name">اشتراكات سبوتيفاي</div><div class="dc-sub">بريميوم شهري</div><div class="dc-profit">ربح حتى 5x</div></div></div>
-    </div>
-  </div>
-
-  <div class="promo">
-    <div class="promo-tag">⚡ عرض خاص</div>
-    <div class="promo-title">باقات الخدمات المجمعة</div>
-    <div class="promo-sub">اشترِ باقة كاملة ووفّر أكثر</div>
-    <button class="btn-orange" onclick="openWA()">تواصل للباقات</button>
-  </div>
-
 
   <!-- PACKAGES SECTION -->
   <div class="section">
@@ -684,7 +605,7 @@ body{font-family:'Cairo',sans-serif;background:var(--dark);color:#fff;overflow-x
     <div class="bn-item" onclick="showCart()"><div class="bn-icon">🛒</div><div class="bn-label">عربتي</div></div>
     <div class="bn-item" onclick="openPlatform('instagram')"><div class="bn-icon">📱</div><div class="bn-label">سوشيال</div></div>
     <div class="bn-wa" onclick="openWA()">💬</div>
-    <div class="bn-item" onclick="switchMainTab('ai',null)"><div class="bn-icon">🤖</div><div class="bn-label">AI</div></div>
+    <div class="bn-item" onclick="openPlatform('instagram')"><div class="bn-icon">🤖</div><div class="bn-label">AI</div></div>
     <div class="bn-item active"><div class="bn-icon">🏠</div><div class="bn-label">الرئيسية</div></div>
   </nav>
 </div>
