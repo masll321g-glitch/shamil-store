@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>شامل ستور - خدمات رقمية متكاملة</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary:#6c3afc; --secondary:#ff6b35; --accent:#00e5ff;
+  --gold:#ffd700; --dark:#0a0a1a; --card-bg:#12122a;
+  --muted:#8892b0; --success:#00e676; --border:rgba(108,58,252,0.25);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Cairo',sans-serif;background:var(--dark);color:#fff;overflow-x:hidden;}
+.screen{display:none;min-height:100vh;padding-bottom:80px;}
+.screen.active{display:block;}
+
+/* HEADER */
+.header{position:sticky;top:0;z-index:100;background:rgba(10,10,26,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;}
+.logo-name{font-family:'Tajawal',sans-serif;font-weight:900;font-size:17px;background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer;}
+.logo-box{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:900;}
+.logo-wrap{display:flex;align-items:center;gap:7px;}
+.cart-btn{background:linear-gradient(135deg,var(--primary),#9b5de5);border:none;color:white;padding:7px 14px;border-radius:18px;font-family:'Cairo',sans-serif;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:5px;}
+.cart-count{background:var(--secondary);color:white;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#0d0d2e,#1a0a3e,#0d1a3e);padding:36px 20px 44px;position:relative;overflow:hidden;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(108,58,252,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(108,58,252,0.07) 1px,transparent 1px);background-size:36px 36px;}
+.hero-glow{position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(108,58,252,0.28),transparent 70%);left:-80px;top:-80px;}
+.hero-content{position:relative;z-index:2;}
+.hero-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(0,229,255,0.1);border:1px solid rgba(0,229,255,0.3);border-radius:18px;padding:3px 12px;font-size:11px;color:var(--accent);margin-bottom:12px;font-weight:700;}
+.hero h1{font-family:'Tajawal',sans-serif;font-size:24px;font-weight:900;line-height:1.45;margin-bottom:16px;}
+.hero h1 span{background:linear-gradient(90deg,var(--accent),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.btn-primary{background:linear-gradient(135deg,var(--primary),#9b5de5);color:white;border:none;padding:11px 22px;border-radius:22px;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 18px rgba(108,58,252,0.45);transition:transform 0.2s;}
+.btn-primary:hover{transform:scale(1.04);}
+.hero-trust{display:flex;gap:14px;margin-top:14px;flex-wrap:wrap;}
+.trust-item{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);}
+.trust-dot{width:6px;height:6px;border-radius:50%;background:var(--success);}
+
+/* STATS */
+.stats{display:flex;justify-content:space-around;padding:18px 16px;background:rgba(108,58,252,0.05);border-bottom:1px solid var(--border);}
+.stat{text-align:center;}
+.stat-num{font-family:'Tajawal',sans-serif;font-size:20px;font-weight:900;background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block;}
+.stat-lbl{font-size:10px;color:var(--muted);}
+
+/* MAIN CATEGORY TABS */
+.main-tabs{display:flex;gap:0;padding:0 16px 16px;margin-top:16px;overflow-x:auto;}
+.main-tabs::-webkit-scrollbar{display:none;}
+.main-tab{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 16px;border-radius:14px;cursor:pointer;transition:all 0.2s;white-space:nowrap;border:1px solid var(--border);margin-left:8px;background:rgba(255,255,255,0.02);}
+.main-tab:first-child{margin-left:0;}
+.main-tab.active{background:linear-gradient(135deg,var(--primary),#9b5de5);border-color:var(--primary);}
+.main-tab-icon{font-size:22px;}
+.main-tab-name{font-size:11px;font-weight:700;color:var(--muted);}
+.main-tab.active .main-tab-name{color:white;}
+
+/* SECTION */
+.section{padding:16px 16px 8px;}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
+.section-title{font-family:'Tajawal',sans-serif;font-size:17px;font-weight:900;padding-right:11px;border-right:3px solid var(--primary);}
+.see-all{font-size:12px;color:var(--accent);cursor:pointer;font-weight:600;}
+
+/* PLATFORM CARDS */
+.platforms-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;padding:0 16px 16px;}
+.platform-card{border-radius:16px;padding:16px 13px;cursor:pointer;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.06);transition:transform 0.22s,box-shadow 0.22s;min-height:130px;display:flex;flex-direction:column;justify-content:space-between;}
+.platform-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,0.4);}
+.pc-ig{background:linear-gradient(135deg,#8b2fc9,#5851db,#c13584);}
+.pc-tt{background:linear-gradient(135deg,#010101,#1a1a1a,#ff0050 130%);}
+.pc-sc{background:linear-gradient(135deg,#d4a017,#ffcc00);}
+.pc-tw{background:linear-gradient(135deg,#1565c0,#1da1f2);}
+.pc-fb{background:linear-gradient(135deg,#1877f2,#4267b2);}
+.pc-yt{background:linear-gradient(135deg,#c62828,#ff0000);}
+.pc-deco{position:absolute;border-radius:50%;background:rgba(255,255,255,0.06);}
+.pc-deco-1{width:70px;height:70px;top:-20px;left:-20px;}
+.pc-deco-2{width:45px;height:45px;bottom:5px;right:-8px;}
+.pc-icon{font-size:30px;margin-bottom:6px;}
+.pc-name{font-family:'Tajawal',sans-serif;font-size:14px;font-weight:900;color:white;}
+.pc-count{font-size:10px;color:rgba(255,255,255,0.55);margin-top:2px;}
+
+/* DIGITAL SERVICE CARDS */
+.digital-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;padding:0 16px 16px;}
+.digital-card{border-radius:16px;padding:16px 14px;cursor:pointer;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.06);transition:transform 0.22s,box-shadow 0.22s;min-height:140px;display:flex;flex-direction:column;justify-content:space-between;}
+.digital-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,0.4);}
+.dc-ai{background:linear-gradient(135deg,#1a0547,#4a1090,#7c3aed);}
+.dc-design{background:linear-gradient(135deg,#0f4c81,#1565c0,#42a5f5);}
+.dc-video{background:linear-gradient(135deg,#1a0000,#7f0000,#c62828);}
+.dc-accounts{background:linear-gradient(135deg,#014d40,#00695c,#26a69a);}
+.dc-deco{position:absolute;border-radius:50%;background:rgba(255,255,255,0.06);}
+.dc-deco-1{width:80px;height:80px;top:-25px;left:-25px;}
+.dc-deco-2{width:50px;height:50px;bottom:5px;right:-10px;}
+.dc-badge{position:absolute;top:10px;left:10px;background:rgba(255,215,0,0.2);border:1px solid rgba(255,215,0,0.4);color:var(--gold);padding:2px 8px;border-radius:8px;font-size:9px;font-weight:700;}
+.dc-icon{font-size:32px;margin-bottom:8px;}
+.dc-name{font-family:'Tajawal',sans-serif;font-size:14px;font-weight:900;color:white;}
+.dc-sub{font-size:10px;color:rgba(255,255,255,0.55);margin-top:2px;}
+.dc-profit{font-size:10px;color:var(--gold);margin-top:4px;font-weight:700;}
+
+/* PROMO */
+.promo{margin:8px 16px 16px;border-radius:18px;padding:22px 18px;background:linear-gradient(135deg,#1a0547,#2d0a7a,#1a0547);border:1px solid var(--border);position:relative;overflow:hidden;}
+.promo::before{content:'⚡';position:absolute;font-size:80px;opacity:0.06;top:-10px;right:20px;}
+.promo-tag{display:inline-block;background:rgba(255,107,53,0.2);border:1px solid var(--secondary);color:var(--secondary);padding:3px 12px;border-radius:15px;font-size:10px;font-weight:700;margin-bottom:8px;}
+.promo-title{font-family:'Tajawal',sans-serif;font-size:22px;font-weight:900;color:var(--gold);margin-bottom:4px;}
+.promo-sub{font-size:11px;color:var(--muted);margin-bottom:14px;}
+.btn-orange{background:linear-gradient(135deg,var(--secondary),#ff8c42);color:white;border:none;padding:10px 22px;border-radius:22px;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 15px rgba(255,107,53,0.4);}
+
+/* SERVICES SCREEN */
+.platform-hero{padding:20px 16px 16px;position:relative;overflow:hidden;}
+.ph-back{background:none;border:none;color:var(--accent);font-family:'Cairo',sans-serif;font-size:13px;cursor:pointer;margin-bottom:12px;display:flex;align-items:center;gap:3px;}
+.ph-info{display:flex;align-items:center;gap:12px;}
+.ph-icon{font-size:38px;}
+.ph-name{font-family:'Tajawal',sans-serif;font-size:20px;font-weight:900;}
+.ph-sub{font-size:11px;color:rgba(255,255,255,0.6);margin-top:2px;}
+.ph-count{display:inline-block;background:rgba(108,58,252,0.2);border:1px solid var(--border);border-radius:9px;padding:2px 9px;font-size:11px;color:var(--accent);margin-top:3px;}
+
+/* API STATUS */
+.api-status{margin:0 16px 14px;padding:9px 13px;border-radius:11px;display:flex;align-items:center;gap:7px;font-size:12px;}
+.api-status.loading{background:rgba(255,193,7,0.1);border:1px solid rgba(255,193,7,0.3);color:#ffc107;}
+.api-status.loaded{background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.3);color:var(--success);}
+.api-dot{width:7px;height:7px;border-radius:50%;}
+.api-status.loading .api-dot{background:#ffc107;animation:blink 1s infinite;}
+.api-status.loaded .api-dot{background:var(--success);}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+
+/* FILTER TABS */
+.filter-tabs{display:flex;gap:7px;padding:0 16px 14px;overflow-x:auto;}
+.filter-tabs::-webkit-scrollbar{display:none;}
+.filter-tab{background:rgba(108,58,252,0.1);border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:18px;font-family:'Cairo',sans-serif;font-size:11px;cursor:pointer;white-space:nowrap;transition:all 0.2s;}
+.filter-tab.active{background:var(--primary);border-color:var(--primary);color:white;font-weight:700;}
+
+/* SERVICE LIST */
+.services-list{padding:0 16px;display:flex;flex-direction:column;gap:11px;}
+.service-card{background:var(--card-bg);border:1px solid var(--border);border-radius:15px;padding:14px;cursor:pointer;transition:all 0.2s;}
+.service-card:hover{border-color:var(--primary);transform:translateY(-2px);}
+.sc-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:9px;}
+.sc-name{font-weight:700;font-size:13px;line-height:1.4;flex:1;margin-left:8px;}
+.sc-badge{background:rgba(0,230,118,0.15);border:1px solid rgba(0,230,118,0.3);color:var(--success);padding:2px 9px;border-radius:9px;font-size:9px;font-weight:700;white-space:nowrap;}
+.sc-badge.slow{background:rgba(255,193,7,0.15);border-color:rgba(255,193,7,0.3);color:#ffc107;}
+.sc-details{display:flex;gap:14px;margin-bottom:11px;}
+.sc-detail-val{font-size:12px;font-weight:700;color:var(--accent);}
+.sc-detail-lbl{font-size:10px;color:var(--muted);}
+.sc-price-row{display:flex;justify-content:space-between;align-items:center;}
+.sc-price{font-family:'Tajawal',sans-serif;font-size:17px;font-weight:900;color:var(--gold);}
+.sc-per{font-size:10px;color:var(--muted);}
+.btn-add{background:linear-gradient(135deg,var(--primary),#9b5de5);color:white;border:none;padding:7px 16px;border-radius:18px;font-family:'Cairo',sans-serif;font-size:11px;font-weight:700;cursor:pointer;}
+
+/* DIGITAL SERVICE DETAIL */
+.digital-detail{padding:0 16px;display:flex;flex-direction:column;gap:11px;}
+.dd-card{background:var(--card-bg);border:1px solid var(--border);border-radius:15px;padding:16px;cursor:pointer;transition:all 0.2s;}
+.dd-card:hover{border-color:var(--primary);transform:translateY(-2px);}
+.dd-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
+.dd-name{font-weight:700;font-size:14px;flex:1;margin-left:8px;}
+.dd-profit-badge{background:rgba(255,215,0,0.15);border:1px solid rgba(255,215,0,0.3);color:var(--gold);padding:2px 9px;border-radius:9px;font-size:9px;font-weight:700;}
+.dd-desc{font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5;}
+.dd-price-row{display:flex;justify-content:space-between;align-items:center;}
+.dd-buy{font-size:11px;color:var(--muted);}
+.dd-buy span{color:#ff5252;font-weight:700;}
+.dd-sell{font-family:'Tajawal',sans-serif;font-size:18px;font-weight:900;color:var(--success);}
+.dd-sell-lbl{font-size:10px;color:var(--muted);}
+.btn-order{background:linear-gradient(135deg,var(--primary),#9b5de5);color:white;border:none;padding:8px 18px;border-radius:18px;font-family:'Cairo',sans-serif;font-size:12px;font-weight:700;cursor:pointer;}
+
+/* ORDER */
+.order-wrap{padding:0 16px 20px;}
+.order-back{background:none;border:none;color:var(--accent);font-family:'Cairo',sans-serif;font-size:13px;cursor:pointer;padding:14px 0 8px;display:flex;align-items:center;gap:3px;}
+.order-title{font-family:'Tajawal',sans-serif;font-size:19px;font-weight:900;margin-bottom:16px;}
+.order-card{background:var(--card-bg);border:1px solid var(--border);border-radius:15px;padding:15px;margin-bottom:12px;}
+.order-card-title{font-weight:700;font-size:13px;margin-bottom:12px;color:var(--accent);}
+.form-group{margin-bottom:12px;}
+.form-label{font-size:11px;color:var(--muted);margin-bottom:5px;display:block;}
+.form-input{width:100%;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:9px;padding:10px 13px;color:white;font-family:'Cairo',sans-serif;font-size:13px;outline:none;transition:border-color 0.2s;}
+.form-input:focus{border-color:var(--primary);}
+.form-input::placeholder{color:var(--muted);}
+.form-textarea{width:100%;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:9px;padding:10px 13px;color:white;font-family:'Cairo',sans-serif;font-size:13px;outline:none;resize:none;min-height:80px;}
+.form-textarea:focus{border-color:var(--primary);}
+.qty-row{display:flex;align-items:center;gap:9px;}
+.qty-btn{width:34px;height:34px;border-radius:50%;background:rgba(108,58,252,0.2);border:1px solid var(--border);color:white;font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.qty-btn:hover{background:var(--primary);}
+.qty-val{font-family:'Tajawal',sans-serif;font-size:19px;font-weight:900;min-width:55px;text-align:center;}
+.qty-total-lbl{font-size:11px;color:var(--muted);}
+.summary-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
+.summary-row:last-child{border:none;padding-top:10px;}
+.summary-label{font-size:12px;color:var(--muted);}
+.summary-val{font-size:12px;font-weight:700;}
+.summary-total .summary-label{font-size:14px;color:white;font-weight:700;}
+.summary-total .summary-val{font-family:'Tajawal',sans-serif;font-size:19px;color:var(--gold);}
+
+/* PAYMENT */
+.payment-option{display:flex;align-items:center;gap:11px;padding:13px;background:rgba(255,255,255,0.03);border:1.5px solid var(--border);border-radius:11px;cursor:pointer;transition:all 0.2s;margin-bottom:9px;}
+.payment-option.selected{border-color:var(--primary);background:rgba(108,58,252,0.08);}
+.payment-radio{width:17px;height:17px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
+.payment-option.selected .payment-radio{border-color:var(--primary);background:var(--primary);}
+.payment-radio-dot{width:7px;height:7px;border-radius:50%;background:white;display:none;}
+.payment-option.selected .payment-radio-dot{display:block;}
+.payment-icon{font-size:20px;}
+.payment-name{font-weight:700;font-size:13px;}
+.payment-sub{font-size:10px;color:var(--muted);}
+.payment-rec{margin-right:auto;background:rgba(0,230,118,0.15);border:1px solid rgba(0,230,118,0.3);color:var(--success);padding:2px 7px;border-radius:7px;font-size:9px;}
+.usdt-box{background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.2);border-radius:11px;padding:14px;margin-top:10px;}
+.usdt-address{font-size:11px;color:var(--accent);word-break:break-all;margin:8px 0;background:rgba(0,229,255,0.05);padding:8px;border-radius:7px;cursor:pointer;}
+.usdt-copy-btn{background:rgba(108,58,252,0.2);border:1px solid var(--border);color:white;padding:6px 14px;border-radius:15px;font-family:'Cairo',sans-serif;font-size:11px;cursor:pointer;margin-top:6px;}
+.payment-error{background:rgba(255,82,82,0.1);border:1px solid rgba(255,82,82,0.3);color:#ff5252;border-radius:9px;padding:10px 13px;font-size:12px;margin-top:8px;display:none;}
+.place-order-btn{width:100%;background:linear-gradient(135deg,var(--primary),#9b5de5);color:white;border:none;padding:15px;border-radius:22px;font-family:'Cairo',sans-serif;font-size:15px;font-weight:900;cursor:pointer;box-shadow:0 4px 22px rgba(108,58,252,0.5);transition:transform 0.2s;margin-top:8px;}
+.place-order-btn:disabled{opacity:0.6;cursor:not-allowed;}
+
+/* SUCCESS */
+.success-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;padding:30px 20px;text-align:center;}
+.success-icon{font-size:65px;margin-bottom:18px;animation:pop-in 0.5s cubic-bezier(0.36,0.07,0.19,0.97);}
+@keyframes pop-in{0%{transform:scale(0)}60%{transform:scale(1.2)}100%{transform:scale(1)}}
+.success-title{font-family:'Tajawal',sans-serif;font-size:24px;font-weight:900;margin-bottom:7px;}
+.success-sub{color:var(--muted);font-size:13px;margin-bottom:24px;line-height:1.6;}
+.order-id-box{background:var(--card-bg);border:1px solid var(--border);border-radius:13px;padding:14px 22px;margin-bottom:22px;}
+.order-id-lbl{font-size:11px;color:var(--muted);margin-bottom:3px;}
+.order-id-val{font-family:'Tajawal',sans-serif;font-size:21px;font-weight:900;color:var(--accent);}
+.btn-outline{background:transparent;color:var(--accent);border:1px solid var(--accent);padding:11px 22px;border-radius:22px;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;cursor:pointer;width:100%;}
+
+/* BOTTOM NAV */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,26,0.97);backdrop-filter:blur(16px);border-top:1px solid var(--border);padding:9px 16px 16px;display:flex;justify-content:space-around;align-items:center;z-index:200;}
+.bn-item{display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;color:var(--muted);transition:color 0.2s;}
+.bn-item.active{color:var(--accent);}
+.bn-icon{font-size:19px;}
+.bn-label{font-size:9px;font-weight:600;}
+.bn-wa{width:46px;height:46px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;margin-top:-14px;box-shadow:0 4px 16px rgba(37,211,102,0.5);cursor:pointer;}
+
+/* SKELETON */
+.skeleton{background:linear-gradient(90deg,rgba(255,255,255,0.05) 25%,rgba(255,255,255,0.1) 50%,rgba(255,255,255,0.05) 75%);background-size:200% 100%;animation:skel 1.5s infinite;border-radius:7px;}
+@keyframes skel{0%{background-position:200% 0}100%{background-position:-200% 0}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp 0.35s ease both;}
+</style>
+</head>
+<body>
+
+<!-- ===== HOME ===== -->
+<div id="screen-home" class="screen active">
+  <header class="header">
+    <button class="cart-btn" onclick="showCart()">🛒<div class="cart-count" id="cc-home">0</div></button>
+    <div class="logo-wrap"><div class="logo-name">شامل ستور</div><div class="logo-box">ش</div></div>
+  </header>
+
+  <div class="hero">
+    <div class="hero-grid"></div><div class="hero-glow"></div>
+    <div class="hero-content fade-up">
+      <div class="hero-badge">✦ متجرك الرقمي الشامل</div>
+      <h1>كل خدماتك الرقمية<br><span>في مكان واحد</span></h1>
+      <button class="btn-primary" onclick="scrollToCategories()">تصفح الخدمات ←</button>
+      <div class="hero-trust">
+        <div class="trust-item"><div class="trust-dot"></div>تنفيذ فوري</div>
+        <div class="trust-item"><div class="trust-dot"></div>جودة عالية</div>
+        <div class="trust-item"><div class="trust-dot"></div>دعم 24/7</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><span class="stat-num">+5K</span><div class="stat-lbl">عميل</div></div>
+    <div class="stat"><span class="stat-num">+800</span><div class="stat-lbl">خدمة</div></div>
+    <div class="stat"><span class="stat-num">24/7</span><div class="stat-lbl">دعم</div></div>
+    <div class="stat"><span class="stat-num">⚡</span><div class="stat-lbl">فوري</div></div>
+  </div>
+
+  <!-- MAIN CATEGORY TABS -->
+  <div style="padding:16px 16px 4px">
+    <div style="font-family:'Tajawal',sans-serif;font-size:17px;font-weight:900;padding-right:11px;border-right:3px solid var(--primary);margin-bottom:12px" id="cats-anchor">اختر القسم</div>
+  </div>
+  <div class="main-tabs">
+    <div class="main-tab active" onclick="switchMainTab('social',this)">
+      <div class="main-tab-icon">📱</div>
+      <div class="main-tab-name">سوشيال ميديا</div>
+    </div>
+    <div class="main-tab" onclick="switchMainTab('ai',this)">
+      <div class="main-tab-icon">🤖</div>
+      <div class="main-tab-name">خدمات AI</div>
+    </div>
+    <div class="main-tab" onclick="switchMainTab('design',this)">
+      <div class="main-tab-icon">🎨</div>
+      <div class="main-tab-name">تصاميم</div>
+    </div>
+    <div class="main-tab" onclick="switchMainTab('video',this)">
+      <div class="main-tab-icon">🎬</div>
+      <div class="main-tab-name">فيديو</div>
+    </div>
+    <div class="main-tab" onclick="switchMainTab('accounts',this)">
+      <div class="main-tab-icon">🔑</div>
+      <div class="main-tab-name">حسابات</div>
+    </div>
+  </div>
+
+  <!-- SOCIAL TAB -->
+  <div id="tab-social">
+    <div class="section"><div class="section-head"><div class="section-title">منصات التواصل الاجتماعي</div></div></div>
+    <div class="platforms-grid">
+      <div class="platform-card pc-ig" onclick="openPlatform('instagram')"><div class="pc-deco pc-deco-1"></div><div class="pc-deco pc-deco-2"></div><div class="pc-icon">📸</div><div><div class="pc-name">انستقرام</div><div class="pc-count">12 خدمة</div></div></div>
+      <div class="platform-card pc-tt" onclick="openPlatform('tiktok')"><div class="pc-deco pc-deco-1"></div><div class="pc-deco pc-deco-2"></div><div class="pc-icon">🎵</div><div><div class="pc-name">تيك توك</div><div class="pc-count">10 خدمة</div></div></div>
+      <div class="platform-card pc-sc" onclick="openPlatform('snapchat')"><div class="pc-deco pc-deco-1"></div><div class="pc-deco pc-deco-2"></div><div class="pc-icon">👻</div><div><div class="pc-name">سناب شات</div><div class="pc-count">8 خدمة</div></div></div>
+      <div class="platform-card pc-tw" onclick="openPlatform('twitter')"><div class="pc-deco pc-deco-1"></div><div class="pc-deco pc-deco-2"></div><div class="pc-icon">🐦</div><div><div class="pc-name">تويتر / X</div><div class="pc-count">9 خدمة</div></div></div>
+      <div class="platform-card pc-fb" onclick="openPlatform('facebook')"><div class="pc-deco pc-deco-1"></div><div class="pc-deco pc-deco-2"></div><div class="pc-icon">📘</div><div><div class="pc-name">فيسبوك</div><div class="pc-count">11 خدمة</div></div></div>
+      <div class="platform-card pc-yt" onclick="openPlatform('youtube')"><div class="pc-deco pc-deco-1"></div><div class="pc-deco pc-deco-2"></div><div class="pc-icon">▶️</div><div><div class="pc-name">يوتيوب</div><div class="pc-count">7 خدمة</div></div></div>
+    </div>
+  </div>
+
+  <!-- AI TAB -->
+  <div id="tab-ai" style="display:none">
+    <div class="section"><div class="section-head"><div class="section-title">🤖 خدمات الذكاء الاصطناعي</div></div></div>
+    <div class="digital-grid">
+      <div class="digital-card dc-ai" onclick="openDigital('ai-content')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-badge">🔥 الأكثر طلباً</div><div class="dc-icon">✍️</div><div><div class="dc-name">كتابة محتوى AI</div><div class="dc-sub">مقالات، بوستات، سكريبتات</div><div class="dc-profit">ربح حتى 10x</div></div></div>
+      <div class="digital-card dc-ai" onclick="openDigital('ai-images')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">🖼️</div><div><div class="dc-name">صور AI احترافية</div><div class="dc-sub">Midjourney، DALL-E</div><div class="dc-profit">ربح حتى 8x</div></div></div>
+      <div class="digital-card dc-ai" onclick="openDigital('ai-prompts')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">💬</div><div><div class="dc-name">Prompts احترافية</div><div class="dc-sub">ChatGPT، Claude، Gemini</div><div class="dc-profit">ربح حتى 15x</div></div></div>
+      <div class="digital-card dc-ai" onclick="openDigital('ai-voice')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">🎙️</div><div><div class="dc-name">تحويل نص لصوت AI</div><div class="dc-sub">أصوات عربية احترافية</div><div class="dc-profit">ربح حتى 12x</div></div></div>
+    </div>
+  </div>
+
+  <!-- DESIGN TAB -->
+  <div id="tab-design" style="display:none">
+    <div class="section"><div class="section-head"><div class="section-title">🎨 خدمات التصميم</div></div></div>
+    <div class="digital-grid">
+      <div class="digital-card dc-design" onclick="openDigital('design-logo')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-badge">⭐ مميز</div><div class="dc-icon">🏷️</div><div><div class="dc-name">تصميم لوغو</div><div class="dc-sub">احترافي مع ملفات كاملة</div><div class="dc-profit">ربح حتى 5x</div></div></div>
+      <div class="digital-card dc-design" onclick="openDigital('design-social')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">📱</div><div><div class="dc-name">قوالب سوشيال ميديا</div><div class="dc-sub">Canva جاهزة للتعديل</div><div class="dc-profit">ربح حتى 8x</div></div></div>
+      <div class="digital-card dc-design" onclick="openDigital('design-identity')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">🎯</div><div><div class="dc-name">هوية بصرية كاملة</div><div class="dc-sub">لوغو + ألوان + خطوط</div><div class="dc-profit">ربح حتى 6x</div></div></div>
+      <div class="digital-card dc-design" onclick="openDigital('design-banner')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">🖼️</div><div><div class="dc-name">بانرات وإعلانات</div><div class="dc-sub">احترافية لحملاتك</div><div class="dc-profit">ربح حتى 7x</div></div></div>
+    </div>
+  </div>
+
+  <!-- VIDEO TAB -->
+  <div id="tab-video" style="display:none">
+    <div class="section"><div class="section-head"><div class="section-title">🎬 خدمات الفيديو</div></div></div>
+    <div class="digital-grid">
+      <div class="digital-card dc-video" onclick="openDigital('video-reels')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-badge">🔥 ترند</div><div class="dc-icon">🎞️</div><div><div class="dc-name">مونتاج ريلز وتيك توك</div><div class="dc-sub">احترافي مع موسيقى</div><div class="dc-profit">ربح حتى 10x</div></div></div>
+      <div class="digital-card dc-video" onclick="openDigital('video-ads')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">📺</div><div><div class="dc-name">فيديو إعلاني</div><div class="dc-sub">للمنتجات والخدمات</div><div class="dc-profit">ربح حتى 8x</div></div></div>
+      <div class="digital-card dc-video" onclick="openDigital('video-intro')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">🎬</div><div><div class="dc-name">إنترو احترافي</div><div class="dc-sub">لقناتك أو علامتك</div><div class="dc-profit">ربح حتى 12x</div></div></div>
+      <div class="digital-card dc-video" onclick="openDigital('video-subtitle')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">💬</div><div><div class="dc-name">ترجمة وترجمة فيديو</div><div class="dc-sub">عربي وإنجليزي</div><div class="dc-profit">ربح حتى 6x</div></div></div>
+    </div>
+  </div>
+
+  <!-- ACCOUNTS TAB -->
+  <div id="tab-accounts" style="display:none">
+    <div class="section"><div class="section-head"><div class="section-title">🔑 حسابات وأرقام</div></div></div>
+    <div class="digital-grid">
+      <div class="digital-card dc-accounts" onclick="openDigital('acc-whatsapp')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-badge">💰 طلب يومي</div><div class="dc-icon">📱</div><div><div class="dc-name">أرقام واتساب أمريكية</div><div class="dc-sub">جاهزة للاستخدام فوراً</div><div class="dc-profit">ربح حتى 10x</div></div></div>
+      <div class="digital-card dc-accounts" onclick="openDigital('acc-chatgpt')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">🤖</div><div><div class="dc-name">حسابات ChatGPT Plus</div><div class="dc-sub">جاهزة مفعلة</div><div class="dc-profit">ربح حتى 5x</div></div></div>
+      <div class="digital-card dc-accounts" onclick="openDigital('acc-netflix')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">🎬</div><div><div class="dc-name">اشتراكات نتفليكس</div><div class="dc-sub">شهري وسنوي</div><div class="dc-profit">ربح حتى 4x</div></div></div>
+      <div class="digital-card dc-accounts" onclick="openDigital('acc-spotify')"><div class="dc-deco dc-deco-1"></div><div class="dc-deco dc-deco-2"></div><div class="dc-icon">🎵</div><div><div class="dc-name">اشتراكات سبوتيفاي</div><div class="dc-sub">بريميوم شهري</div><div class="dc-profit">ربح حتى 5x</div></div></div>
+    </div>
+  </div>
+
+  <div class="promo">
+    <div class="promo-tag">⚡ عرض خاص</div>
+    <div class="promo-title">باقات الخدمات المجمعة</div>
+    <div class="promo-sub">اشترِ باقة كاملة ووفّر أكثر</div>
+    <button class="btn-orange" onclick="openWA()">تواصل للباقات</button>
+  </div>
+
+  <nav class="bottom-nav">
+    <div class="bn-item" onclick="showCart()"><div class="bn-icon">🛒</div><div class="bn-label">عربتي</div></div>
+    <div class="bn-item" onclick="openPlatform('instagram')"><div class="bn-icon">📱</div><div class="bn-label">سوشيال</div></div>
+    <div class="bn-wa" onclick="openWA()">💬</div>
+    <div class="bn-item" onclick="switchMainTab('ai',null)"><div class="bn-icon">🤖</div><div class="bn-label">AI</div></div>
+    <div class="bn-item active"><div class="bn-icon">🏠</div><div class="bn-label">الرئيسية</div></div>
+  </nav>
+</div>
+
+<!-- ===== SERVICES (Social) ===== -->
+<div id="screen-services" class="screen">
+  <header class="header">
+    <button class="cart-btn" onclick="showCart()">🛒<div class="cart-count" id="cc-svc">0</div></button>
+    <div class="logo-wrap" onclick="showScreen('screen-home')"><div class="logo-name">شامل ستور</div><div class="logo-box">ش</div></div>
+  </header>
+  <div class="platform-hero" id="platform-hero">
+    <button class="ph-back" onclick="showScreen('screen-home')">← رجوع</button>
+    <div class="ph-info">
+      <div class="ph-icon" id="ph-icon">📸</div>
+      <div><div class="ph-name" id="ph-name">انستقرام</div><div class="ph-sub">اختر الخدمة المناسبة</div><div class="ph-count" id="ph-count">— خدمة</div></div>
+    </div>
+  </div>
+  <div class="api-status loading" id="api-status"><div class="api-dot"></div><span id="api-txt">جاري التحميل...</span></div>
+  <div class="filter-tabs">
+    <div class="filter-tab active" onclick="filterSvc('all',this)">الكل</div>
+    <div class="filter-tab" onclick="filterSvc('متابعين',this)">متابعين</div>
+    <div class="filter-tab" onclick="filterSvc('لايكات',this)">لايكات</div>
+    <div class="filter-tab" onclick="filterSvc('مشاهدات',this)">مشاهدات</div>
+    <div class="filter-tab" onclick="filterSvc('تعليقات',this)">تعليقات</div>
+  </div>
+  <div class="services-list" id="services-list"></div>
+  <nav class="bottom-nav">
+    <div class="bn-item" onclick="showCart()"><div class="bn-icon">🛒</div><div class="bn-label">عربتي</div></div>
+    <div class="bn-item active"><div class="bn-icon">📱</div><div class="bn-label">سوشيال</div></div>
+    <div class="bn-wa" onclick="openWA()">💬</div>
+    <div class="bn-item"><div class="bn-icon">🤖</div><div class="bn-label">AI</div></div>
+    <div class="bn-item" onclick="showScreen('screen-home')"><div class="bn-icon">🏠</div><div class="bn-label">الرئيسية</div></div>
+  </nav>
+</div>
+
+<!-- ===== DIGITAL SERVICE DETAIL ===== -->
+<div id="screen-digital" class="screen">
+  <header class="header">
+    <button class="cart-btn" onclick="showCart()">🛒<div class="cart-count" id="cc-dig">0</div></button>
+    <div class="logo-wrap" onclick="showScreen('screen-home')"><div class="logo-name">شامل ستور</div><div class="logo-box">ش</div></div>
+  </header>
+  <div class="platform-hero" id="digital-hero" style="background:linear-gradient(135deg,#1a0547,#4a1090,#7c3aed)">
+    <button class="ph-back" onclick="showScreen('screen-home')">← رجوع</button>
+    <div class="ph-info">
+      <div class="ph-icon" id="dig-icon">🤖</div>
+      <div><div class="ph-name" id="dig-name">خدمات AI</div><div class="ph-sub" id="dig-sub">اختر الخدمة المناسبة</div></div>
+    </div>
+  </div>
+  <div style="height:14px"></div>
+  <div class="digital-detail" id="digital-detail"></div>
+  <nav class="bottom-nav">
+    <div class="bn-item" onclick="showCart()"><div class="bn-icon">🛒</div><div class="bn-label">عربتي</div></div>
+    <div class="bn-item"><div class="bn-icon">📱</div><div class="bn-label">سوشيال</div></div>
+    <div class="bn-wa" onclick="openWA()">💬</div>
+    <div class="bn-item active"><div class="bn-icon">🤖</div><div class="bn-label">رقمي</div></div>
+    <div class="bn-item" onclick="showScreen('screen-home')"><div class="bn-icon">🏠</div><div class="bn-label">الرئيسية</div></div>
+  </nav>
+</div>
+
+<!-- ===== ORDER ===== -->
+<div id="screen-order" class="screen">
+  <header class="header">
+    <div></div>
+    <div class="logo-wrap" onclick="showScreen('screen-home')"><div class="logo-name">شامل ستور</div><div class="logo-box">ش</div></div>
+  </header>
+  <div class="order-wrap">
+    <button class="order-back" id="order-back-btn">← رجوع</button>
+    <div class="order-title">تفاصيل الطلب</div>
+    <div class="order-card">
+      <div class="order-card-title">📦 الخدمة</div>
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div><div style="font-weight:700;font-size:14px" id="ord-name">—</div><div style="font-size:11px;color:var(--muted);margin-top:3px" id="ord-cat">—</div></div>
+        <div style="text-align:left"><div style="font-size:10px;color:var(--muted)" id="ord-price-lbl">السعر</div><div style="font-family:'Tajawal',sans-serif;font-size:17px;font-weight:900;color:var(--gold)" id="ord-price">—</div></div>
+      </div>
+    </div>
+
+    <!-- Social order fields -->
+    <div id="social-fields">
+      <div class="order-card">
+        <div class="order-card-title">🔗 تفاصيل</div>
+        <div class="form-group">
+          <label class="form-label">رابط الحساب أو المنشور</label>
+          <input class="form-input" id="ord-link" type="url" placeholder="https://www.instagram.com/yourprofile"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">الكمية</label>
+          <div class="qty-row">
+            <button class="qty-btn" onclick="changeQty(-100)">−</button>
+            <div class="qty-val" id="qty-disp">1000</div>
+            <button class="qty-btn" onclick="changeQty(100)">+</button>
+            <div class="qty-total-lbl" id="qty-lbl">= $0.00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Digital order fields -->
+    <div id="digital-fields" style="display:none">
+      <div class="order-card">
+        <div class="order-card-title">📝 تفاصيل الطلب</div>
+        <div class="form-group">
+          <label class="form-label">اسمك أو اسم المشروع</label>
+          <input class="form-input" id="dig-name-input" placeholder="مثال: متجر الشامل"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label">تفاصيل ما تريده</label>
+          <textarea class="form-textarea" id="dig-details" placeholder="اشرح بالتفصيل ما تحتاجه..."></textarea>
+        </div>
+        <div class="form-group">
+          <label class="form-label">واتساب للتواصل</label>
+          <input class="form-input" id="dig-wa" placeholder="+966XXXXXXXXX" type="tel"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="order-card">
+      <div class="order-card-title">🧾 الملخص</div>
+      <div class="summary-row"><div class="summary-label" id="sum-qty-lbl">الكمية</div><div class="summary-val" id="sum-qty">—</div></div>
+      <div class="summary-row"><div class="summary-label">السعر</div><div class="summary-val" id="sum-rate">—</div></div>
+      <div class="summary-row summary-total"><div class="summary-label">الإجمالي</div><div class="summary-val" id="sum-total">—</div></div>
+    </div>
+
+    <div class="order-card">
+      <div class="order-card-title">💳 طريقة الدفع</div>
+      <div class="payment-option selected" onclick="selectPay(this,'usdt')">
+        <div class="payment-radio"><div class="payment-radio-dot"></div></div>
+        <div class="payment-icon">🪙</div>
+        <div><div class="payment-name">USDT (TRC20)</div><div class="payment-sub">دفع فوري بدون حدود</div></div>
+        <div class="payment-rec">موصى به</div>
+      </div>
+      <div id="usdt-box" class="usdt-box">
+        <div style="font-size:12px;color:var(--muted)">أرسل المبلغ لهذا العنوان:</div>
+        <div class="usdt-address" onclick="copyAddress()" id="usdt-addr">YOUR_USDT_WALLET_ADDRESS_HERE</div>
+        <div style="font-size:11px;color:var(--muted)">⚠️ شبكة TRC20 فقط | بعد الدفع أرسل صورة التحويل على واتساب</div>
+        <button class="usdt-copy-btn" onclick="copyAddress()">📋 نسخ العنوان</button>
+      </div>
+      <div class="payment-option" onclick="selectPay(this,'paypal')">
+        <div class="payment-radio"><div class="payment-radio-dot"></div></div>
+        <div class="payment-icon">🅿️</div>
+        <div><div class="payment-name">PayPal</div><div class="payment-sub">آمن وسريع</div></div>
+      </div>
+      <div class="payment-error" id="pay-error"></div>
+    </div>
+
+    <button class="place-order-btn" id="place-btn" onclick="placeOrder()">✅ تأكيد الطلب</button>
+  </div>
+</div>
+
+<!-- ===== SUCCESS ===== -->
+<div id="screen-success" class="screen">
+  <header class="header"><div></div><div class="logo-wrap" onclick="showScreen('screen-home')"><div class="logo-name">شامل ستور</div><div class="logo-box">ش</div></div></header>
+  <div class="success-wrap fade-up">
+    <div class="success-icon">✅</div>
+    <div class="success-title">تم استلام طلبك!</div>
+    <div class="success-sub" id="suc-sub">بعد تأكيد الدفع سيتم تنفيذ طلبك فوراً.<br>تواصل معنا على واتساب لتأكيد التحويل.</div>
+    <div class="order-id-box"><div class="order-id-lbl">رقم الطلب</div><div class="order-id-val" id="suc-id">#SH-000000</div></div>
+    <button class="btn-primary" onclick="openWA()" style="width:100%;margin-bottom:10px">💬 أرسل إيصال الدفع</button>
+    <button class="btn-outline" onclick="showScreen('screen-home')">العودة للرئيسية</button>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// CONFIG
+// ============================================================
+const CFG = {
+  whatsapp: '966537387647',
+  usdtAddress: 'YOUR_USDT_WALLET_ADDRESS_HERE', // ← ضع عنوان محفظتك هنا
+  markup: 30,
+};
+
+// ============================================================
+// DEMO DATA
+// ============================================================
+const SOCIAL_DATA = {
+  instagram:[
+    {id:1,name:'متابعين عرب حقيقيون',type:'متابعين',rate:1.20,min:100,max:50000,speed:'سريع',quality:'عالية'},
+    {id:2,name:'متابعين عالميون مع ضمان',type:'متابعين',rate:0.80,min:100,max:100000,speed:'فوري',quality:'عادية'},
+    {id:3,name:'لايكات عرب حقيقيون',type:'لايكات',rate:0.50,min:50,max:20000,speed:'فوري',quality:'عالية'},
+    {id:4,name:'لايكات عالميون',type:'لايكات',rate:0.20,min:50,max:50000,speed:'فوري',quality:'عادية'},
+    {id:5,name:'مشاهدات ريلز',type:'مشاهدات',rate:0.15,min:1000,max:1000000,speed:'فوري',quality:'عالية'},
+    {id:6,name:'تعليقات عشوائية',type:'تعليقات',rate:3.00,min:10,max:500,speed:'بطيء',quality:'عالية'},
+  ],
+  tiktok:[
+    {id:7,name:'متابعين تيك توك عرب',type:'متابعين',rate:1.50,min:100,max:50000,speed:'سريع',quality:'عالية'},
+    {id:8,name:'لايكات تيك توك',type:'لايكات',rate:0.30,min:100,max:100000,speed:'فوري',quality:'عالية'},
+    {id:9,name:'مشاهدات فيديو',type:'مشاهدات',rate:0.05,min:1000,max:10000000,speed:'فوري',quality:'عادية'},
+  ],
+  snapchat:[
+    {id:10,name:'متابعين سناب',type:'متابعين',rate:2.00,min:100,max:10000,speed:'سريع',quality:'عالية'},
+    {id:11,name:'مشاهدات قصة',type:'مشاهدات',rate:0.20,min:500,max:100000,speed:'فوري',quality:'عادية'},
+  ],
+  twitter:[
+    {id:12,name:'متابعين تويتر عرب',type:'متابعين',rate:1.80,min:100,max:50000,speed:'سريع',quality:'عالية'},
+    {id:13,name:'لايكات تويتر',type:'لايكات',rate:0.40,min:50,max:50000,speed:'فوري',quality:'عادية'},
+  ],
+  facebook:[
+    {id:15,name:'لايكات صفحة فيسبوك',type:'لايكات',rate:1.50,min:100,max:50000,speed:'سريع',quality:'عالية'},
+    {id:16,name:'متابعين صفحة',type:'متابعين',rate:1.20,min:100,max:50000,speed:'سريع',quality:'عالية'},
+  ],
+  youtube:[
+    {id:18,name:'مشاهدات يوتيوب',type:'مشاهدات',rate:2.00,min:500,max:1000000,speed:'بطيء',quality:'عالية'},
+    {id:19,name:'مشتركين',type:'متابعين',rate:3.50,min:50,max:5000,speed:'بطيء',quality:'عالية'},
+  ],
+};
+
+const DIGITAL_DATA = {
+  'ai-content': {icon:'✍️',name:'كتابة محتوى AI',cat:'خدمات AI',bg:'linear-gradient(135deg,#1a0547,#4a1090)',services:[
+    {id:'ai1',name:'كتابة 10 بوستات سوشيال ميديا',buy:2,sell:15,desc:'بوستات احترافية بالذكاء الاصطناعي لمنصاتك'},
+    {id:'ai2',name:'سكريبت فيديو تيك توك (60 ثانية)',buy:1,sell:10,desc:'سكريبت جذاب ومحكم لفيديو تيك توك'},
+    {id:'ai3',name:'مقال SEO (1000 كلمة)',buy:3,sell:25,desc:'مقال متوافق مع محركات البحث'},
+  ]},
+  'ai-images': {icon:'🖼️',name:'صور AI',cat:'خدمات AI',bg:'linear-gradient(135deg,#1a0547,#4a1090)',services:[
+    {id:'ai4',name:'5 صور Midjourney احترافية',buy:5,sell:30,desc:'صور عالية الجودة لمنتجاتك أو علامتك'},
+    {id:'ai5',name:'10 صور لمنتج',buy:8,sell:50,desc:'صور منتج احترافية جاهزة للمتجر'},
+  ]},
+  'ai-prompts': {icon:'💬',name:'Prompts احترافية',cat:'خدمات AI',bg:'linear-gradient(135deg,#1a0547,#4a1090)',services:[
+    {id:'ai6',name:'حزمة 20 Prompt للتسويق',buy:1,sell:15,desc:'prompts جاهزة لإنشاء محتوى تسويقي'},
+    {id:'ai7',name:'Prompt مخصص لنشاطك',buy:2,sell:20,desc:'prompt مخصص حسب طلبك'},
+  ]},
+  'ai-voice': {icon:'🎙️',name:'تحويل نص لصوت',cat:'خدمات AI',bg:'linear-gradient(135deg,#1a0547,#4a1090)',services:[
+    {id:'ai8',name:'تحويل نص عربي لصوت (دقيقة)',buy:1,sell:8,desc:'صوت عربي احترافي طبيعي'},
+  ]},
+  'design-logo': {icon:'🏷️',name:'تصميم لوغو',cat:'تصاميم',bg:'linear-gradient(135deg,#0f4c81,#1565c0)',services:[
+    {id:'d1',name:'لوغو احترافي بسيط',buy:10,sell:50,desc:'لوغو بملفات PNG+SVG+PDF'},
+    {id:'d2',name:'لوغو مع هوية بصرية',buy:25,sell:120,desc:'لوغو + بطاقة عمل + ورق رسمي'},
+  ]},
+  'design-social': {icon:'📱',name:'قوالب سوشيال',cat:'تصاميم',bg:'linear-gradient(135deg,#0f4c81,#1565c0)',services:[
+    {id:'d3',name:'10 قوالب Canva انستقرام',buy:5,sell:30,desc:'قوالب جاهزة قابلة للتعديل'},
+    {id:'d4',name:'30 قالب شهري',buy:12,sell:80,desc:'مكتبة كاملة لشهر كامل'},
+  ]},
+  'design-identity': {icon:'🎯',name:'هوية بصرية',cat:'تصاميم',bg:'linear-gradient(135deg,#0f4c81,#1565c0)',services:[
+    {id:'d5',name:'هوية بصرية كاملة',buy:30,sell:150,desc:'لوغو+ألوان+خطوط+أنماط'},
+  ]},
+  'design-banner': {icon:'🖼️',name:'بانرات',cat:'تصاميم',bg:'linear-gradient(135deg,#0f4c81,#1565c0)',services:[
+    {id:'d6',name:'بانر إعلاني (5 أحجام)',buy:5,sell:25,desc:'بانرات لجميع منصات الإعلان'},
+  ]},
+  'video-reels': {icon:'🎞️',name:'مونتاج ريلز',cat:'فيديو',bg:'linear-gradient(135deg,#7f0000,#c62828)',services:[
+    {id:'v1',name:'مونتاج ريلز 30 ثانية',buy:5,sell:35,desc:'مونتاج احترافي مع موسيقى وتأثيرات'},
+    {id:'v2',name:'مونتاج تيك توك 60 ثانية',buy:8,sell:50,desc:'ريلز جاهز للنشر'},
+  ]},
+  'video-ads': {icon:'📺',name:'فيديو إعلاني',cat:'فيديو',bg:'linear-gradient(135deg,#7f0000,#c62828)',services:[
+    {id:'v3',name:'فيديو إعلاني 30 ثانية',buy:15,sell:80,desc:'فيديو إعلاني احترافي لمنتجك'},
+  ]},
+  'video-intro': {icon:'🎬',name:'إنترو',cat:'فيديو',bg:'linear-gradient(135deg,#7f0000,#c62828)',services:[
+    {id:'v4',name:'إنترو قناة يوتيوب',buy:8,sell:40,desc:'إنترو احترافي 5-10 ثوانٍ'},
+  ]},
+  'video-subtitle': {icon:'💬',name:'ترجمة فيديو',cat:'فيديو',bg:'linear-gradient(135deg,#7f0000,#c62828)',services:[
+    {id:'v5',name:'ترجمة فيديو (دقيقتين)',buy:3,sell:15,desc:'ترجمة دقيقة عربي/إنجليزي'},
+  ]},
+  'acc-whatsapp': {icon:'📱',name:'أرقام واتساب',cat:'حسابات',bg:'linear-gradient(135deg,#014d40,#00695c)',services:[
+    {id:'a1',name:'رقم واتساب أمريكي',buy:2,sell:15,desc:'رقم جاهز للتفعيل فوراً'},
+    {id:'a2',name:'5 أرقام واتساب',buy:8,sell:60,desc:'حزمة 5 أرقام بسعر مخفض'},
+  ]},
+  'acc-chatgpt': {icon:'🤖',name:'ChatGPT Plus',cat:'حسابات',bg:'linear-gradient(135deg,#014d40,#00695c)',services:[
+    {id:'a3',name:'حساب ChatGPT Plus شهر',buy:15,sell:50,desc:'حساب مفعل GPT-4 جاهز'},
+  ]},
+  'acc-netflix': {icon:'🎬',name:'نتفليكس',cat:'حسابات',bg:'linear-gradient(135deg,#014d40,#00695c)',services:[
+    {id:'a4',name:'اشتراك نتفليكس شهر',buy:8,sell:25,desc:'حساب 4K جاهز للاستخدام'},
+  ]},
+  'acc-spotify': {icon:'🎵',name:'سبوتيفاي',cat:'حسابات',bg:'linear-gradient(135deg,#014d40,#00695c)',services:[
+    {id:'a5',name:'سبوتيفاي بريميوم شهر',buy:4,sell:15,desc:'حساب بريميوم جاهز'},
+  ]},
+};
+
+const PI = {
+  instagram:{name:'انستقرام',icon:'📸',bg:'linear-gradient(135deg,#8b2fc9,#5851db,#c13584)'},
+  tiktok:{name:'تيك توك',icon:'🎵',bg:'linear-gradient(135deg,#010101,#1a1a1a,#ff0050 130%)'},
+  snapchat:{name:'سناب شات',icon:'👻',bg:'linear-gradient(135deg,#d4a017,#ffcc00)'},
+  twitter:{name:'تويتر / X',icon:'🐦',bg:'linear-gradient(135deg,#1565c0,#1da1f2)'},
+  facebook:{name:'فيسبوك',icon:'📘',bg:'linear-gradient(135deg,#1877f2,#4267b2)'},
+  youtube:{name:'يوتيوب',icon:'▶️',bg:'linear-gradient(135deg,#c62828,#ff0000)'},
+};
+
+// STATE
+let platform=null, service=null, qty=1000, payMethod='usdt', cart=[], allSvc=[], orderType='social';
+
+// ============================================================
+// NAVIGATION
+// ============================================================
+function showScreen(id){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  window.scrollTo(0,0);
+}
+function showCart(){ if(!cart.length){alert('عربتك فارغة!');return;} openOrder(cart[cart.length-1]); }
+function scrollToCategories(){ document.getElementById('cats-anchor').scrollIntoView({behavior:'smooth'}); }
+
+// ============================================================
+// MAIN TAB SWITCH
+// ============================================================
+function switchMainTab(tab, btn){
+  ['social','ai','design','video','accounts'].forEach(t=>{
+    const el=document.getElementById('tab-'+t);
+    if(el) el.style.display = t===tab ? 'block' : 'none';
+  });
+  if(btn){
+    document.querySelectorAll('.main-tab').forEach(t=>t.classList.remove('active'));
+    btn.classList.add('active');
+  }
+  if(tab!=='social') showScreen('screen-home');
+}
+
+// ============================================================
+// SOCIAL PLATFORM
+// ============================================================
+function openPlatform(p){
+  platform=p;
+  const info=PI[p];
+  document.getElementById('ph-icon').textContent=info.icon;
+  document.getElementById('ph-name').textContent=info.name;
+  document.getElementById('platform-hero').style.background=info.bg;
+  showScreen('screen-services');
+  loadServices(p);
+}
+
+async function loadServices(p){
+  const st=document.getElementById('api-status'),tx=document.getElementById('api-txt'),li=document.getElementById('services-list');
+  st.className='api-status loading'; tx.textContent='جاري التحميل...';
+  li.innerHTML='<div class="skeleton" style="height:110px;margin-bottom:10px"></div>'.repeat(3);
+  await new Promise(r=>setTimeout(r,800));
+  allSvc=(SOCIAL_DATA[p]||[]).map(s=>({...s,rate:+(s.rate*(1+CFG.markup/100)).toFixed(4)}));
+  st.className='api-status loaded'; tx.textContent=`✓ تم تحميل ${allSvc.length} خدمة`;
+  document.getElementById('ph-count').textContent=`${allSvc.length} خدمة متاحة`;
+  renderSvc(allSvc);
+}
+
+function renderSvc(list){
+  const li=document.getElementById('services-list');
+  if(!list.length){li.innerHTML='<div style="text-align:center;color:var(--muted);padding:30px">لا توجد خدمات</div>';return;}
+  li.innerHTML=list.map(s=>`
+    <div class="service-card fade-up" onclick='openSocialOrder(${JSON.stringify(s)})'>
+      <div class="sc-head"><div class="sc-name">${s.name}</div><div class="sc-badge ${s.speed==='بطيء'?'slow':''}">${s.speed}</div></div>
+      <div class="sc-details">
+        <div><div class="sc-detail-val">${s.min.toLocaleString()}</div><div class="sc-detail-lbl">أدنى</div></div>
+        <div><div class="sc-detail-val">${(s.max/1000).toFixed(0)}K</div><div class="sc-detail-lbl">أقصى</div></div>
+        <div><div class="sc-detail-val">${s.quality}</div><div class="sc-detail-lbl">الجودة</div></div>
+      </div>
+      <div class="sc-price-row">
+        <div><div class="sc-price">$${s.rate.toFixed(3)}</div><div class="sc-per">لكل 1000</div></div>
+        <button class="btn-add">اطلب →</button>
+      </div>
+    </div>`).join('');
+}
+
+function filterSvc(type,btn){
+  document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  renderSvc(type==='all'?allSvc:allSvc.filter(s=>s.type===type));
+}
+
+// ============================================================
+// DIGITAL SERVICE
+// ============================================================
+function openDigital(key){
+  const data=DIGITAL_DATA[key];
+  if(!data) return;
+  document.getElementById('dig-icon').textContent=data.icon;
+  document.getElementById('dig-name').textContent=data.name;
+  document.getElementById('dig-sub').textContent=data.cat;
+  document.getElementById('digital-hero').style.background=data.bg;
+  document.getElementById('digital-detail').innerHTML=data.services.map(s=>`
+    <div class="dd-card fade-up" onclick='openDigitalOrder(${JSON.stringify({...s,cat:data.cat,icon:data.icon})})'>
+      <div class="dd-head">
+        <div class="dd-name">${s.name}</div>
+        <div class="dd-profit-badge">ربح ${Math.round((s.sell-s.buy)/s.buy*100)}%</div>
+      </div>
+      <div class="dd-desc">${s.desc}</div>
+      <div class="dd-price-row">
+        <div>
+          <div class="dd-buy">تكلفتك: <span>$${s.buy}</span></div>
+          <div style="font-size:10px;color:var(--muted)">سعر البيع</div>
+          <div class="dd-sell">$${s.sell}</div>
+        </div>
+        <button class="btn-order">اطلب الآن →</button>
+      </div>
+    </div>`).join('');
+  showScreen('screen-digital');
+}
+
+// ============================================================
+// ORDER
+// ============================================================
+function openSocialOrder(svc){
+  orderType='social';
+  service=typeof svc==='string'?JSON.parse(svc):svc;
+  qty=service.min||1000;
+  const info=PI[platform]||{};
+  document.getElementById('ord-name').textContent=service.name;
+  document.getElementById('ord-cat').textContent=info.name||'';
+  document.getElementById('ord-price-lbl').textContent='السعر / 1000';
+  document.getElementById('ord-price').textContent=`$${service.rate.toFixed(3)}`;
+  document.getElementById('social-fields').style.display='block';
+  document.getElementById('digital-fields').style.display='none';
+  document.getElementById('order-back-btn').onclick=()=>showScreen('screen-services');
+  updateSummary();
+  showScreen('screen-order');
+}
+
+function openDigitalOrder(svc){
+  orderType='digital';
+  service=typeof svc==='string'?JSON.parse(svc):svc;
+  document.getElementById('ord-name').textContent=service.name;
+  document.getElementById('ord-cat').textContent=service.cat||'خدمة رقمية';
+  document.getElementById('ord-price-lbl').textContent='سعر البيع';
+  document.getElementById('ord-price').textContent=`$${service.sell}`;
+  document.getElementById('social-fields').style.display='none';
+  document.getElementById('digital-fields').style.display='block';
+  document.getElementById('sum-qty-lbl').textContent='النوع';
+  document.getElementById('sum-qty').textContent=service.name;
+  document.getElementById('sum-rate').textContent=`$${service.sell}`;
+  document.getElementById('sum-total').textContent=`$${service.sell}`;
+  document.getElementById('order-back-btn').onclick=()=>showScreen('screen-digital');
+  showScreen('screen-order');
+}
+
+function changeQty(d){
+  if(orderType!=='social') return;
+  qty=Math.min(service.max,Math.max(service.min,qty+d));
+  updateSummary();
+}
+
+function updateSummary(){
+  if(orderType!=='social') return;
+  const total=+((qty/1000)*service.rate).toFixed(3);
+  document.getElementById('qty-disp').textContent=qty.toLocaleString();
+  document.getElementById('qty-lbl').textContent=`= $${total}`;
+  document.getElementById('sum-qty-lbl').textContent='الكمية';
+  document.getElementById('sum-qty').textContent=qty.toLocaleString();
+  document.getElementById('sum-rate').textContent=`$${service.rate.toFixed(3)}`;
+  document.getElementById('sum-total').textContent=`$${total}`;
+}
+
+function getTotal(){ return orderType==='social' ? +((qty/1000)*service.rate).toFixed(3) : service.sell; }
+
+// ============================================================
+// PAYMENT
+// ============================================================
+function selectPay(el,method){
+  document.querySelectorAll('.payment-option').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected');
+  payMethod=method;
+  document.getElementById('usdt-box').style.display=method==='usdt'?'block':'none';
+}
+
+function copyAddress(){
+  navigator.clipboard.writeText(CFG.usdtAddress).then(()=>alert('✅ تم نسخ العنوان!')).catch(()=>{
+    const el=document.getElementById('usdt-addr');
+    const range=document.createRange(); range.selectNode(el);
+    window.getSelection().removeAllRanges(); window.getSelection().addRange(range);
+  });
+}
+
+async function placeOrder(){
+  if(orderType==='social'){
+    const link=document.getElementById('ord-link').value.trim();
+    if(!link){showError('يرجى إدخال الرابط');return;}
+  } else {
+    const name=document.getElementById('dig-name-input').value.trim();
+    const wa=document.getElementById('dig-wa').value.trim();
+    if(!name||!wa){showError('يرجى إدخال الاسم والواتساب');return;}
+  }
+  hideError();
+  const btn=document.getElementById('place-btn');
+  btn.disabled=true; btn.textContent='⏳ جاري المعالجة...';
+  await new Promise(r=>setTimeout(r,1200));
+  const orderId='SH-'+Math.random().toString(36).substr(2,6).toUpperCase();
+  cart.push({...service, qty, orderType});
+  updateCartCounts();
+  document.getElementById('suc-id').textContent='#'+orderId;
+  document.getElementById('suc-sub').textContent = payMethod==='usdt'
+    ? 'أرسل المبلغ للعنوان أعلاه ثم تواصل معنا على واتساب مع صورة التحويل لتأكيد الطلب.'
+    : 'سيتم التواصل معك قريباً لإتمام الدفع وتنفيذ طلبك.';
+  btn.disabled=false; btn.textContent='✅ تأكيد الطلب';
+  showScreen('screen-success');
+}
+
+function updateCartCounts(){
+  ['cc-home','cc-svc','cc-dig'].forEach(id=>{
+    const el=document.getElementById(id); if(el) el.textContent=cart.length;
+  });
+}
+function showError(msg){const e=document.getElementById('pay-error');e.textContent=msg;e.style.display='block';}
+function hideError(){document.getElementById('pay-error').style.display='none';}
+function openWA(){window.open(`https://wa.me/${CFG.whatsapp}?text=مرحباً، أريد الاستفسار عن الخدمات`,'_blank');}
+</script>
+</body>
+</html>
