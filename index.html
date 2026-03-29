@@ -3,297 +3,297 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>شامل ستور - خدمات رقمية متكاملة</title>
+<title>بريميوم ستور - خدمات السوشيال ميديا</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 :root {
-  --primary:#6c3afc; --secondary:#ff6b35; --accent:#00e5ff;
-  --gold:#ffd700; --dark:#0a0a1a; --card-bg:#12122a;
-  --muted:#8892b0; --success:#00e676; --border:rgba(108,58,252,0.25);
+  --primary:#6c3afc; --gold:#ffd700; --dark:#0a0a1a;
+  --card-bg:#12122a; --muted:#8892b0; --success:#00e676;
+  --border:rgba(108,58,252,0.2); --accent:#00e5ff;
+  --secondary:#ff6b35;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:'Cairo',sans-serif;background:var(--dark);color:#fff;overflow-x:hidden;}
-.screen{display:none;min-height:100vh;padding-bottom:80px;}
+body{font-family:'Cairo',sans-serif;background:#f0f2f5;color:#1a1a2e;overflow-x:hidden;}
+.screen{display:none;min-height:100vh;padding-bottom:70px;}
 .screen.active{display:block;}
 
 /* HEADER */
-.header{position:sticky;top:0;z-index:100;background:rgba(10,10,26,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:12px 16px;display:flex;align-items:center;justify-content:space-between;}
-.logo-name{font-family:'Tajawal',sans-serif;font-weight:900;font-size:17px;background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;cursor:pointer;}
-.logo-box{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:900;}
-.logo-wrap{display:flex;align-items:center;gap:7px;}
-.cart-btn{background:linear-gradient(135deg,var(--primary),#9b5de5);border:none;color:white;padding:7px 14px;border-radius:18px;font-family:'Cairo',sans-serif;font-size:12px;cursor:pointer;display:flex;align-items:center;gap:5px;}
-.cart-count{background:var(--secondary);color:white;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;}
+.header{background:#1a0a3e;padding:12px 16px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;}
+.header-logo{display:flex;align-items:center;gap:10px;}
+.logo-icon{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;color:white;}
+.logo-text{font-family:'Tajawal',sans-serif;font-weight:900;font-size:18px;color:white;}
+.logo-text span{color:var(--gold);}
+.header-phone{display:flex;align-items:center;gap:6px;color:var(--accent);font-size:13px;font-weight:700;cursor:pointer;}
 
-/* HERO */
-.hero{background:linear-gradient(135deg,#0d0d2e,#1a0a3e,#0d1a3e);padding:36px 20px 44px;position:relative;overflow:hidden;}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(108,58,252,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(108,58,252,0.07) 1px,transparent 1px);background-size:36px 36px;}
-.hero-glow{position:absolute;width:350px;height:350px;border-radius:50%;background:radial-gradient(circle,rgba(108,58,252,0.28),transparent 70%);left:-80px;top:-80px;}
-.hero-content{position:relative;z-index:2;}
-.hero-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(0,229,255,0.1);border:1px solid rgba(0,229,255,0.3);border-radius:18px;padding:3px 12px;font-size:11px;color:var(--accent);margin-bottom:12px;font-weight:700;}
-.hero h1{font-family:'Tajawal',sans-serif;font-size:24px;font-weight:900;line-height:1.45;margin-bottom:16px;}
-.hero h1 span{background:linear-gradient(90deg,var(--accent),var(--primary));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.btn-primary{background:linear-gradient(135deg,var(--primary),#9b5de5);color:white;border:none;padding:11px 22px;border-radius:22px;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 18px rgba(108,58,252,0.45);transition:transform 0.2s;}
-.btn-primary:hover{transform:scale(1.04);}
-.hero-trust{display:flex;gap:14px;margin-top:14px;flex-wrap:wrap;}
-.trust-item{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted);}
-.trust-dot{width:6px;height:6px;border-radius:50%;background:var(--success);}
+/* HERO BANNER */
+.hero-banner{background:linear-gradient(135deg,#1a0547,#2d0a7a,#1a0547);margin:0;padding:20px 16px 24px;position:relative;overflow:hidden;}
+.hero-banner::before{content:'⚡';position:absolute;font-size:120px;opacity:0.04;top:-20px;left:20px;}
+.hero-tag{display:inline-flex;align-items:center;gap:5px;background:rgba(255,107,53,0.2);border:1px solid rgba(255,107,53,0.5);color:#ff6b35;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:700;margin-bottom:10px;}
+.hero-title{font-family:'Tajawal',sans-serif;font-size:26px;font-weight:900;color:var(--gold);margin-bottom:6px;line-height:1.3;}
+.hero-sub{font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:16px;}
+.hero-sub span{color:var(--accent);}
+.hero-btn{display:inline-block;background:linear-gradient(135deg,#ff6b35,#ff8c42);color:white;padding:11px 28px;border-radius:25px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:700;border:none;cursor:pointer;box-shadow:0 4px 15px rgba(255,107,53,0.4);}
+.hero-mega{position:absolute;left:16px;bottom:16px;font-size:45px;opacity:0.7;animation:bounce 2s ease-in-out infinite;}
+@keyframes bounce{0%,100%{transform:translateY(0) rotate(-10deg)}50%{transform:translateY(-8px) rotate(-10deg)}}
 
 /* STATS */
-.stats{display:flex;justify-content:space-around;padding:18px 16px;background:rgba(108,58,252,0.05);border-bottom:1px solid var(--border);}
-.stat{text-align:center;}
-.stat-num{font-family:'Tajawal',sans-serif;font-size:20px;font-weight:900;background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block;}
+.stats-bar{background:white;padding:16px;display:flex;justify-content:space-around;border-bottom:1px solid #eee;}
+.stat-item{text-align:center;}
+.stat-num{font-family:'Tajawal',sans-serif;font-size:20px;font-weight:900;color:var(--primary);display:block;}
 .stat-lbl{font-size:10px;color:var(--muted);}
 
-/* MAIN CATEGORY TABS */
-.main-tabs{display:flex;gap:0;padding:0 16px 16px;margin-top:16px;overflow-x:auto;}
-.main-tabs::-webkit-scrollbar{display:none;}
-.main-tab{display:flex;flex-direction:column;align-items:center;gap:4px;padding:10px 16px;border-radius:14px;cursor:pointer;transition:all 0.2s;white-space:nowrap;border:1px solid var(--border);margin-left:8px;background:rgba(255,255,255,0.02);}
-.main-tab:first-child{margin-left:0;}
-.main-tab.active{background:linear-gradient(135deg,var(--primary),#9b5de5);border-color:var(--primary);}
-.main-tab-icon{font-size:22px;}
-.main-tab-name{font-size:11px;font-weight:700;color:var(--muted);}
-.main-tab.active .main-tab-name{color:white;}
+/* SECTION HEADER */
+.sec-head{display:flex;justify-content:space-between;align-items:center;padding:16px 16px 10px;}
+.sec-title{font-family:'Tajawal',sans-serif;font-size:17px;font-weight:900;color:#1a1a2e;}
+.sec-more{font-size:12px;color:var(--primary);font-weight:700;cursor:pointer;display:flex;align-items:center;gap:3px;}
 
-/* SECTION */
-.section{padding:16px 16px 8px;}
-.section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;}
-.section-title{font-family:'Tajawal',sans-serif;font-size:17px;font-weight:900;padding-right:11px;border-right:3px solid var(--primary);}
-.see-all{font-size:12px;color:var(--accent);cursor:pointer;font-weight:600;}
 
-/* PLATFORM CARDS */
-.platforms-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;padding:0 16px 16px;}
-.platform-card{border-radius:16px;padding:16px 13px;cursor:pointer;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.06);transition:transform 0.22s,box-shadow 0.22s;min-height:130px;display:flex;flex-direction:column;justify-content:space-between;}
-.platform-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,0.4);}
-.pc-ig{background:linear-gradient(135deg,#8b2fc9,#5851db,#c13584);}
-.pc-tt{background:linear-gradient(135deg,#010101,#1a1a1a,#ff0050 130%);}
-.pc-sc{background:linear-gradient(135deg,#d4a017,#ffcc00);}
-.pc-tw{background:linear-gradient(135deg,#1565c0,#1da1f2);}
-.pc-fb{background:linear-gradient(135deg,#1877f2,#4267b2);}
-.pc-yt{background:linear-gradient(135deg,#c62828,#ff0000);}
-.pc-deco{position:absolute;border-radius:50%;background:rgba(255,255,255,0.06);}
-.pc-deco-1{width:70px;height:70px;top:-20px;left:-20px;}
-.pc-deco-2{width:45px;height:45px;bottom:5px;right:-8px;}
-.pc-icon{font-size:30px;margin-bottom:6px;}
-.pc-name{font-family:'Tajawal',sans-serif;font-size:14px;font-weight:900;color:white;}
-.pc-count{font-size:10px;color:rgba(255,255,255,0.55);margin-top:2px;}
+/* NEW PLATFORM CARDS - shamlstore style */
+.platforms-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:0 16px 16px;}
+.platform-card{border-radius:20px;overflow:hidden;cursor:pointer;position:relative;min-height:180px;display:flex;flex-direction:column;justify-content:space-between;padding:14px;transition:transform 0.2s;border:none;}
+.platform-card:hover{transform:scale(1.02);}
+.pc-top{display:flex;justify-content:space-between;align-items:flex-start;}
+.pc-brand-txt{font-size:9px;color:rgba(255,255,255,0.5);font-weight:600;letter-spacing:0.5px;}
+.pc-logo-box{width:52px;height:52px;border-radius:14px;background:rgba(0,0,0,0.25);display:flex;align-items:center;justify-content:center;font-size:28px;backdrop-filter:blur(5px);}
+.pc-bottom{margin-top:auto;}
+.pc-name-big{font-family:'Tajawal',sans-serif;font-size:18px;font-weight:900;color:white;margin-bottom:4px;text-shadow:0 2px 8px rgba(0,0,0,0.3);}
+.pc-site{font-size:11px;color:rgba(255,255,255,0.45);}
 
-/* DIGITAL SERVICE CARDS */
-.digital-grid{display:grid;grid-template-columns:1fr 1fr;gap:11px;padding:0 16px 16px;}
-.digital-card{border-radius:16px;padding:16px 14px;cursor:pointer;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,0.06);transition:transform 0.22s,box-shadow 0.22s;min-height:140px;display:flex;flex-direction:column;justify-content:space-between;}
-.digital-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,0.4);}
-.dc-ai{background:linear-gradient(135deg,#1a0547,#4a1090,#7c3aed);}
-.dc-design{background:linear-gradient(135deg,#0f4c81,#1565c0,#42a5f5);}
-.dc-video{background:linear-gradient(135deg,#1a0000,#7f0000,#c62828);}
-.dc-accounts{background:linear-gradient(135deg,#014d40,#00695c,#26a69a);}
-.dc-deco{position:absolute;border-radius:50%;background:rgba(255,255,255,0.06);}
-.dc-deco-1{width:80px;height:80px;top:-25px;left:-25px;}
-.dc-deco-2{width:50px;height:50px;bottom:5px;right:-10px;}
-.dc-badge{position:absolute;top:10px;left:10px;background:rgba(255,215,0,0.2);border:1px solid rgba(255,215,0,0.4);color:var(--gold);padding:2px 8px;border-radius:8px;font-size:9px;font-weight:700;}
-.dc-icon{font-size:32px;margin-bottom:8px;}
-.dc-name{font-family:'Tajawal',sans-serif;font-size:14px;font-weight:900;color:white;}
-.dc-sub{font-size:10px;color:rgba(255,255,255,0.55);margin-top:2px;}
-.dc-profit{font-size:10px;color:var(--gold);margin-top:4px;font-weight:700;}
+/* Platform backgrounds */
+.pc-tiktok{background:linear-gradient(160deg,#1a1a1a 0%,#2d2d2d 50%,#3d0015 100%);}
+.pc-instagram{background:linear-gradient(160deg,#405de6 0%,#833ab4 50%,#e1306c 100%);}
+.pc-twitter{background:linear-gradient(160deg,#1565c0 0%,#1e88e5 100%);}
+.pc-snapchat{background:linear-gradient(160deg,#d4a017 0%,#ffcc00 100%);}
+.pc-facebook{background:linear-gradient(160deg,#1877f2 0%,#4267b2 100%);}
+.pc-youtube{background:linear-gradient(160deg,#b71c1c 0%,#f44336 100%);}
+.pc-telegram{background:linear-gradient(160deg,#006699 0%,#00b0f0 100%);}
+.pc-google{background:linear-gradient(160deg,#1b5e20 0%,#43a047 100%);}
 
-/* PROMO */
-.promo{margin:8px 16px 16px;border-radius:18px;padding:22px 18px;background:linear-gradient(135deg,#1a0547,#2d0a7a,#1a0547);border:1px solid var(--border);position:relative;overflow:hidden;}
-.promo::before{content:'⚡';position:absolute;font-size:80px;opacity:0.06;top:-10px;right:20px;}
-.promo-tag{display:inline-block;background:rgba(255,107,53,0.2);border:1px solid var(--secondary);color:var(--secondary);padding:3px 12px;border-radius:15px;font-size:10px;font-weight:700;margin-bottom:8px;}
-.promo-title{font-family:'Tajawal',sans-serif;font-size:22px;font-weight:900;color:var(--gold);margin-bottom:4px;}
-.promo-sub{font-size:11px;color:var(--muted);margin-bottom:14px;}
-.btn-orange{background:linear-gradient(135deg,var(--secondary),#ff8c42);color:white;border:none;padding:10px 22px;border-radius:22px;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;cursor:pointer;box-shadow:0 4px 15px rgba(255,107,53,0.4);}
-
-/* SERVICES SCREEN */
-.platform-hero{padding:20px 16px 16px;position:relative;overflow:hidden;}
-.ph-back{background:none;border:none;color:var(--accent);font-family:'Cairo',sans-serif;font-size:13px;cursor:pointer;margin-bottom:12px;display:flex;align-items:center;gap:3px;}
-.ph-info{display:flex;align-items:center;gap:12px;}
-.ph-icon{font-size:38px;}
-.ph-name{font-family:'Tajawal',sans-serif;font-size:20px;font-weight:900;}
-.ph-sub{font-size:11px;color:rgba(255,255,255,0.6);margin-top:2px;}
-.ph-count{display:inline-block;background:rgba(108,58,252,0.2);border:1px solid var(--border);border-radius:9px;padding:2px 9px;font-size:11px;color:var(--accent);margin-top:3px;}
-
-/* API STATUS */
-.api-status{margin:0 16px 14px;padding:9px 13px;border-radius:11px;display:flex;align-items:center;gap:7px;font-size:12px;}
-.api-status.loading{background:rgba(255,193,7,0.1);border:1px solid rgba(255,193,7,0.3);color:#ffc107;}
-.api-status.loaded{background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.3);color:var(--success);}
-.api-dot{width:7px;height:7px;border-radius:50%;}
-.api-status.loading .api-dot{background:#ffc107;animation:blink 1s infinite;}
-.api-status.loaded .api-dot{background:var(--success);}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
-
-/* FILTER TABS */
-.filter-tabs{display:flex;gap:7px;padding:0 16px 14px;overflow-x:auto;}
-.filter-tabs::-webkit-scrollbar{display:none;}
-.filter-tab{background:rgba(108,58,252,0.1);border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:18px;font-family:'Cairo',sans-serif;font-size:11px;cursor:pointer;white-space:nowrap;transition:all 0.2s;}
-.filter-tab.active{background:var(--primary);border-color:var(--primary);color:white;font-weight:700;}
-
-/* SERVICE LIST */
-.services-list{padding:0 16px;display:flex;flex-direction:column;gap:11px;}
-.service-card{background:var(--card-bg);border:1px solid var(--border);border-radius:15px;padding:14px;cursor:pointer;transition:all 0.2s;}
-.service-card:hover{border-color:var(--primary);transform:translateY(-2px);}
-.sc-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:9px;}
-.sc-name{font-weight:700;font-size:13px;line-height:1.4;flex:1;margin-left:8px;}
-.sc-badge{background:rgba(0,230,118,0.15);border:1px solid rgba(0,230,118,0.3);color:var(--success);padding:2px 9px;border-radius:9px;font-size:9px;font-weight:700;white-space:nowrap;}
-.sc-badge.slow{background:rgba(255,193,7,0.15);border-color:rgba(255,193,7,0.3);color:#ffc107;}
-.sc-details{display:flex;gap:14px;margin-bottom:11px;}
-.sc-detail-val{font-size:12px;font-weight:700;color:var(--accent);}
-.sc-detail-lbl{font-size:10px;color:var(--muted);}
-.sc-price-row{display:flex;justify-content:space-between;align-items:center;}
-.sc-price{font-family:'Tajawal',sans-serif;font-size:17px;font-weight:900;color:var(--gold);}
-.sc-per{font-size:10px;color:var(--muted);}
-.btn-add{background:linear-gradient(135deg,var(--primary),#9b5de5);color:white;border:none;padding:7px 16px;border-radius:18px;font-family:'Cairo',sans-serif;font-size:11px;font-weight:700;cursor:pointer;}
-
-/* DIGITAL SERVICE DETAIL */
-.digital-detail{padding:0 16px;display:flex;flex-direction:column;gap:11px;}
-.dd-card{background:var(--card-bg);border:1px solid var(--border);border-radius:15px;padding:16px;cursor:pointer;transition:all 0.2s;}
-.dd-card:hover{border-color:var(--primary);transform:translateY(-2px);}
-.dd-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
-.dd-name{font-weight:700;font-size:14px;flex:1;margin-left:8px;}
-.dd-profit-badge{background:rgba(255,215,0,0.15);border:1px solid rgba(255,215,0,0.3);color:var(--gold);padding:2px 9px;border-radius:9px;font-size:9px;font-weight:700;}
-.dd-desc{font-size:12px;color:var(--muted);margin-bottom:12px;line-height:1.5;}
-.dd-price-row{display:flex;justify-content:space-between;align-items:center;}
-.dd-buy{font-size:11px;color:var(--muted);}
-.dd-buy span{color:#ff5252;font-weight:700;}
-.dd-sell{font-family:'Tajawal',sans-serif;font-size:18px;font-weight:900;color:var(--success);}
-.dd-sell-lbl{font-size:10px;color:var(--muted);}
-.btn-order{background:linear-gradient(135deg,var(--primary),#9b5de5);color:white;border:none;padding:8px 18px;border-radius:18px;font-family:'Cairo',sans-serif;font-size:12px;font-weight:700;cursor:pointer;}
-
-/* ORDER */
-.order-wrap{padding:0 16px 20px;}
-.order-back{background:none;border:none;color:var(--accent);font-family:'Cairo',sans-serif;font-size:13px;cursor:pointer;padding:14px 0 8px;display:flex;align-items:center;gap:3px;}
-.order-title{font-family:'Tajawal',sans-serif;font-size:19px;font-weight:900;margin-bottom:16px;}
-.order-card{background:var(--card-bg);border:1px solid var(--border);border-radius:15px;padding:15px;margin-bottom:12px;}
-.order-card-title{font-weight:700;font-size:13px;margin-bottom:12px;color:var(--accent);}
-.form-group{margin-bottom:12px;}
-.form-label{font-size:11px;color:var(--muted);margin-bottom:5px;display:block;}
-.form-input{width:100%;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:9px;padding:10px 13px;color:white;font-family:'Cairo',sans-serif;font-size:13px;outline:none;transition:border-color 0.2s;}
-.form-input:focus{border-color:var(--primary);}
-.form-input::placeholder{color:var(--muted);}
-.form-textarea{width:100%;background:rgba(255,255,255,0.05);border:1px solid var(--border);border-radius:9px;padding:10px 13px;color:white;font-family:'Cairo',sans-serif;font-size:13px;outline:none;resize:none;min-height:80px;}
-.form-textarea:focus{border-color:var(--primary);}
-.qty-row{display:flex;align-items:center;gap:9px;}
-.qty-btn{width:34px;height:34px;border-radius:50%;background:rgba(108,58,252,0.2);border:1px solid var(--border);color:white;font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;}
-.qty-btn:hover{background:var(--primary);}
-.qty-val{font-family:'Tajawal',sans-serif;font-size:19px;font-weight:900;min-width:55px;text-align:center;}
-.qty-total-lbl{font-size:11px;color:var(--muted);}
-.summary-row{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(255,255,255,0.05);}
-.summary-row:last-child{border:none;padding-top:10px;}
-.summary-label{font-size:12px;color:var(--muted);}
-.summary-val{font-size:12px;font-weight:700;}
-.summary-total .summary-label{font-size:14px;color:white;font-weight:700;}
-.summary-total .summary-val{font-family:'Tajawal',sans-serif;font-size:19px;color:var(--gold);}
-
-/* PAYMENT */
-.payment-option{display:flex;align-items:center;gap:11px;padding:13px;background:rgba(255,255,255,0.03);border:1.5px solid var(--border);border-radius:11px;cursor:pointer;transition:all 0.2s;margin-bottom:9px;}
-.payment-option.selected{border-color:var(--primary);background:rgba(108,58,252,0.08);}
-.payment-radio{width:17px;height:17px;border-radius:50%;border:2px solid var(--border);display:flex;align-items:center;justify-content:center;transition:all 0.2s;flex-shrink:0;}
-.payment-option.selected .payment-radio{border-color:var(--primary);background:var(--primary);}
-.payment-radio-dot{width:7px;height:7px;border-radius:50%;background:white;display:none;}
-.payment-option.selected .payment-radio-dot{display:block;}
-.payment-icon{font-size:20px;}
-.payment-name{font-weight:700;font-size:13px;}
-.payment-sub{font-size:10px;color:var(--muted);}
-.payment-rec{margin-right:auto;background:rgba(0,230,118,0.15);border:1px solid rgba(0,230,118,0.3);color:var(--success);padding:2px 7px;border-radius:7px;font-size:9px;}
-.usdt-box{background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.2);border-radius:11px;padding:14px;margin-top:10px;}
-.usdt-address{font-size:11px;color:var(--accent);word-break:break-all;margin:8px 0;background:rgba(0,229,255,0.05);padding:8px;border-radius:7px;cursor:pointer;}
-.usdt-copy-btn{background:rgba(108,58,252,0.2);border:1px solid var(--border);color:white;padding:6px 14px;border-radius:15px;font-family:'Cairo',sans-serif;font-size:11px;cursor:pointer;margin-top:6px;}
-.payment-error{background:rgba(255,82,82,0.1);border:1px solid rgba(255,82,82,0.3);color:#ff5252;border-radius:9px;padding:10px 13px;font-size:12px;margin-top:8px;display:none;}
-.place-order-btn{width:100%;background:linear-gradient(135deg,var(--primary),#9b5de5);color:white;border:none;padding:15px;border-radius:22px;font-family:'Cairo',sans-serif;font-size:15px;font-weight:900;cursor:pointer;box-shadow:0 4px 22px rgba(108,58,252,0.5);transition:transform 0.2s;margin-top:8px;}
-.place-order-btn:disabled{opacity:0.6;cursor:not-allowed;}
-
-/* SUCCESS */
-.success-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;padding:30px 20px;text-align:center;}
-.success-icon{font-size:65px;margin-bottom:18px;animation:pop-in 0.5s cubic-bezier(0.36,0.07,0.19,0.97);}
-@keyframes pop-in{0%{transform:scale(0)}60%{transform:scale(1.2)}100%{transform:scale(1)}}
-.success-title{font-family:'Tajawal',sans-serif;font-size:24px;font-weight:900;margin-bottom:7px;}
-.success-sub{color:var(--muted);font-size:13px;margin-bottom:24px;line-height:1.6;}
-.order-id-box{background:var(--card-bg);border:1px solid var(--border);border-radius:13px;padding:14px 22px;margin-bottom:22px;}
-.order-id-lbl{font-size:11px;color:var(--muted);margin-bottom:3px;}
-.order-id-val{font-family:'Tajawal',sans-serif;font-size:21px;font-weight:900;color:var(--accent);}
-.btn-outline{background:transparent;color:var(--accent);border:1px solid var(--accent);padding:11px 22px;border-radius:22px;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;cursor:pointer;width:100%;}
-
-/* BOTTOM NAV */
-.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:rgba(10,10,26,0.97);backdrop-filter:blur(16px);border-top:1px solid var(--border);padding:9px 16px 16px;display:flex;justify-content:space-around;align-items:center;z-index:200;}
-.bn-item{display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;color:var(--muted);transition:color 0.2s;}
-.bn-item.active{color:var(--accent);}
-.bn-icon{font-size:19px;}
-.bn-label{font-size:9px;font-weight:600;}
-.bn-wa{width:46px;height:46px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px;margin-top:-14px;box-shadow:0 4px 16px rgba(37,211,102,0.5);cursor:pointer;}
-
-/* SKELETON */
-.skeleton{background:linear-gradient(90deg,rgba(255,255,255,0.05) 25%,rgba(255,255,255,0.1) 50%,rgba(255,255,255,0.05) 75%);background-size:200% 100%;animation:skel 1.5s infinite;border-radius:7px;}
-@keyframes skel{0%{background-position:200% 0}100%{background-position:-200% 0}}
-@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
-.fade-up{animation:fadeUp 0.35s ease both;}
 
 /* PACKAGES */
-.packages-section{padding:0 16px 20px;}
-.packages-title{font-family:'Tajawal',sans-serif;font-size:17px;font-weight:900;padding-right:11px;border-right:3px solid var(--primary);margin-bottom:14px;}
-.packages-tabs{display:flex;gap:7px;margin-bottom:14px;overflow-x:auto;}
-.packages-tabs::-webkit-scrollbar{display:none;}
-.pkg-tab{background:rgba(108,58,252,0.1);border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:18px;font-family:'Cairo',sans-serif;font-size:11px;cursor:pointer;white-space:nowrap;transition:all 0.2s;}
+.pkg-section{padding:0 16px 16px;}
+.pkg-tabs{display:flex;gap:7px;margin-bottom:14px;overflow-x:auto;padding-bottom:2px;}
+.pkg-tabs::-webkit-scrollbar{display:none;}
+.pkg-tab{background:white;border:1.5px solid #e0e0e0;color:#666;padding:7px 16px;border-radius:20px;font-family:'Cairo',sans-serif;font-size:11px;cursor:pointer;white-space:nowrap;transition:all 0.2s;font-weight:600;}
 .pkg-tab.active{background:var(--primary);border-color:var(--primary);color:white;font-weight:700;}
-.packages-grid{display:flex;flex-direction:column;gap:12px;}
-.pkg-card{border-radius:18px;padding:20px;position:relative;overflow:hidden;border:2px solid transparent;transition:all 0.3s;cursor:pointer;}
-.pkg-card:hover{transform:translateY(-3px);}
-.pkg-bronze{background:linear-gradient(135deg,#1a0e00,#3d2000);border-color:#cd7f32;}
-.pkg-silver{background:linear-gradient(135deg,#0d1117,#1e2a3a);border-color:#c0c0c0;}
-.pkg-gold{background:linear-gradient(135deg,#1a1400,#3d3000);border-color:#ffd700;}
-.pkg-diamond{background:linear-gradient(135deg,#0a001a,#1a0040);border-color:#b9f2ff;}
-.pkg-badge{position:absolute;top:14px;left:14px;padding:3px 10px;border-radius:10px;font-size:10px;font-weight:700;}
-.pkg-bronze .pkg-badge{background:rgba(205,127,50,0.2);color:#cd7f32;border:1px solid #cd7f32;}
-.pkg-silver .pkg-badge{background:rgba(192,192,192,0.2);color:#c0c0c0;border:1px solid #c0c0c0;}
-.pkg-gold .pkg-badge{background:rgba(255,215,0,0.2);color:#ffd700;border:1px solid #ffd700;}
-.pkg-diamond .pkg-badge{background:rgba(185,242,255,0.2);color:#b9f2ff;border:1px solid #b9f2ff;}
-.pkg-icon{font-size:40px;margin-bottom:10px;}
-.pkg-name{font-family:'Tajawal',sans-serif;font-size:20px;font-weight:900;color:white;margin-bottom:4px;}
-.pkg-platform{font-size:11px;color:var(--muted);margin-bottom:14px;}
-.pkg-items{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+.pkg-grid{display:flex;flex-direction:column;gap:12px;}
+.pkg-card{border-radius:18px;padding:18px;position:relative;overflow:hidden;cursor:pointer;transition:transform 0.2s;}
+.pkg-card:hover{transform:translateY(-2px);}
+.pkg-bronze{background:linear-gradient(135deg,#2d1800,#4a2800);border:1.5px solid #cd7f32;}
+.pkg-silver{background:linear-gradient(135deg,#1a1a2e,#252545);border:1.5px solid #c0c0c0;}
+.pkg-gold{background:linear-gradient(135deg,#1a1200,#332200);border:1.5px solid #ffd700;}
+.pkg-diamond{background:linear-gradient(135deg,#0a0020,#150035);border:1.5px solid #b9f2ff;}
+.pkg-tier{position:absolute;top:14px;left:14px;padding:3px 10px;border-radius:10px;font-size:10px;font-weight:700;}
+.pkg-bronze .pkg-tier{background:rgba(205,127,50,0.2);color:#cd7f32;border:1px solid rgba(205,127,50,0.4);}
+.pkg-silver .pkg-tier{background:rgba(192,192,192,0.2);color:#c0c0c0;border:1px solid rgba(192,192,192,0.4);}
+.pkg-gold .pkg-tier{background:rgba(255,215,0,0.2);color:#ffd700;border:1px solid rgba(255,215,0,0.4);}
+.pkg-diamond .pkg-tier{background:rgba(185,242,255,0.2);color:#b9f2ff;border:1px solid rgba(185,242,255,0.4);}
+.pkg-body{margin-top:24px;}
+.pkg-emoji{font-size:32px;margin-bottom:8px;display:flex;justify-content:flex-end;}
+.pkg-name{font-family:'Tajawal',sans-serif;font-size:19px;font-weight:900;color:white;margin-bottom:3px;}
+.pkg-platform{font-size:11px;color:rgba(255,255,255,0.5);margin-bottom:14px;}
+.pkg-items{display:flex;flex-direction:column;gap:7px;margin-bottom:16px;}
 .pkg-item{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,0.8);}
-.pkg-check{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;}
-.pkg-bronze .pkg-check{background:rgba(205,127,50,0.3);color:#cd7f32;}
-.pkg-silver .pkg-check{background:rgba(192,192,192,0.3);color:#c0c0c0;}
-.pkg-gold .pkg-check{background:rgba(255,215,0,0.3);color:#ffd700;}
-.pkg-diamond .pkg-check{background:rgba(185,242,255,0.3);color:#b9f2ff;}
+.pkg-check{width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:9px;flex-shrink:0;}
+.pkg-bronze .pkg-check{background:rgba(205,127,50,0.25);color:#cd7f32;}
+.pkg-silver .pkg-check{background:rgba(192,192,192,0.25);color:#ddd;}
+.pkg-gold .pkg-check{background:rgba(255,215,0,0.25);color:#ffd700;}
+.pkg-diamond .pkg-check{background:rgba(185,242,255,0.25);color:#b9f2ff;}
 .pkg-footer{display:flex;justify-content:space-between;align-items:center;}
-.pkg-price{font-family:'Tajawal',sans-serif;font-size:26px;font-weight:900;}
+.pkg-price-wrap{}
+.pkg-price{font-family:'Tajawal',sans-serif;font-size:28px;font-weight:900;}
 .pkg-bronze .pkg-price{color:#cd7f32;}
-.pkg-silver .pkg-price{color:#c0c0c0;}
+.pkg-silver .pkg-price{color:#ddd;}
 .pkg-gold .pkg-price{color:#ffd700;}
 .pkg-diamond .pkg-price{color:#b9f2ff;}
-.pkg-currency{font-size:13px;font-weight:700;}
-.pkg-btn{padding:10px 20px;border-radius:20px;border:none;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;cursor:pointer;}
+.pkg-currency{font-size:14px;font-weight:700;}
+.pkg-old{font-size:11px;color:rgba(255,255,255,0.3);text-decoration:line-through;}
+.pkg-btn{padding:10px 20px;border-radius:18px;border:none;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;cursor:pointer;}
 .pkg-bronze .pkg-btn{background:#cd7f32;color:white;}
-.pkg-silver .pkg-btn{background:#c0c0c0;color:#0d1117;}
-.pkg-gold .pkg-btn{background:#ffd700;color:#1a1400;}
-.pkg-diamond .pkg-btn{background:#b9f2ff;color:#0a001a;}
+.pkg-silver .pkg-btn{background:#c0c0c0;color:#1a1a2e;}
+.pkg-gold .pkg-btn{background:#ffd700;color:#1a1200;}
+.pkg-diamond .pkg-btn{background:#b9f2ff;color:#0a0020;}
 
 /* FAQ */
-.faq-section{padding:0 16px 20px;}
-.faq-title{font-family:'Tajawal',sans-serif;font-size:17px;font-weight:900;padding-right:11px;border-right:3px solid var(--primary);margin-bottom:14px;}
-.faq-item{background:var(--card-bg);border:1px solid var(--border);border-radius:13px;margin-bottom:9px;overflow:hidden;}
-.faq-q{display:flex;justify-content:space-between;align-items:center;padding:14px;cursor:pointer;font-size:13px;font-weight:700;}
-.faq-icon{font-size:16px;transition:transform 0.3s;color:var(--accent);}
-.faq-item.open .faq-icon{transform:rotate(45deg);}
-.faq-a{padding:0 14px;max-height:0;overflow:hidden;transition:all 0.3s;font-size:12px;color:var(--muted);line-height:1.7;}
-.faq-item.open .faq-a{max-height:200px;padding:0 14px 14px;}
+.faq-section{padding:0 16px 16px;}
+.faq-card{background:white;border-radius:13px;margin-bottom:8px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;cursor:pointer;font-size:13px;font-weight:700;color:#1a1a2e;}
+.faq-icon{color:var(--primary);font-size:18px;transition:transform 0.3s;font-weight:400;}
+.faq-card.open .faq-icon{transform:rotate(45deg);}
+.faq-a{padding:0 16px;max-height:0;overflow:hidden;transition:all 0.3s;font-size:12px;color:#666;line-height:1.7;}
+.faq-card.open .faq-a{max-height:150px;padding:0 16px 14px;}
 
 /* REVIEWS */
-.reviews-section{padding:0 16px 20px;}
-.reviews-title{font-family:'Tajawal',sans-serif;font-size:17px;font-weight:900;padding-right:11px;border-right:3px solid var(--primary);margin-bottom:14px;}
-.review-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:10px;}
+.reviews-section{padding:0 16px 16px;}
+.review-card{background:white;border-radius:14px;padding:14px;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
 .review-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
-.review-name{font-weight:700;font-size:13px;}
-.review-stars{color:#ffd700;font-size:13px;}
-.review-text{font-size:12px;color:var(--muted);line-height:1.6;}
-.review-service{font-size:10px;color:var(--accent);margin-top:6px;}
+.review-name{font-weight:700;font-size:13px;color:#1a1a2e;}
+.review-stars{color:#ffd700;font-size:14px;}
+.review-text{font-size:12px;color:#666;line-height:1.6;}
+.review-badge{display:inline-block;background:#f0f0ff;color:var(--primary);font-size:10px;padding:2px 8px;border-radius:8px;margin-top:6px;font-weight:600;}
+
+/* FEATURES */
+.features-section{background:white;padding:20px 16px;margin-bottom:10px;}
+.features-title{font-family:'Tajawal',sans-serif;font-size:17px;font-weight:900;text-align:center;color:#1a1a2e;margin-bottom:16px;}
+.features-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;}
+.feature-item{text-align:center;}
+.feature-icon-wrap{width:50px;height:50px;border-radius:14px;background:linear-gradient(135deg,var(--primary),#9b5de5);display:flex;align-items:center;justify-content:center;font-size:22px;margin:0 auto 8px;}
+.feature-name{font-size:11px;font-weight:700;color:#1a1a2e;}
+.feature-sub{font-size:10px;color:var(--muted);}
 
 /* FOOTER */
-.site-footer{background:#060612;border-top:1px solid var(--border);padding:24px 16px;text-align:center;margin-top:10px;}
-.footer-logo{font-family:'Tajawal',sans-serif;font-size:20px;font-weight:900;background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;}
-.footer-desc{font-size:12px;color:var(--muted);margin-bottom:16px;}
-.footer-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:16px;}
-.footer-link{font-size:11px;color:var(--muted);cursor:pointer;}
+.site-footer{background:#1a0a3e;padding:24px 16px;text-align:center;}
+.footer-logo{font-family:'Tajawal',sans-serif;font-size:22px;font-weight:900;color:var(--gold);margin-bottom:6px;}
+.footer-desc{font-size:12px;color:rgba(255,255,255,0.4);margin-bottom:16px;}
+.footer-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:14px;}
+.footer-link{font-size:11px;color:rgba(255,255,255,0.5);cursor:pointer;}
+.footer-socials{display:flex;justify-content:center;gap:12px;margin-bottom:14px;}
+.footer-social{width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;}
 .footer-copy{font-size:10px;color:rgba(255,255,255,0.2);}
+
+/* SERVICES SCREEN */
+.svc-header{background:#1a0a3e;padding:16px;display:flex;align-items:center;gap:12px;}
+.svc-back{background:none;border:none;color:white;font-size:20px;cursor:pointer;}
+.svc-title{font-family:'Tajawal',sans-serif;font-size:18px;font-weight:900;color:white;flex:1;text-align:center;}
+.svc-hero{padding:16px;position:relative;overflow:hidden;min-height:100px;display:flex;align-items:center;gap:14px;}
+.svc-hero-icon{font-size:50px;}
+.svc-hero-name{font-family:'Tajawal',sans-serif;font-size:22px;font-weight:900;color:white;}
+.svc-hero-count{font-size:12px;color:rgba(255,255,255,0.6);margin-top:3px;}
+.api-bar{margin:0 16px 12px;padding:9px 13px;border-radius:11px;display:flex;align-items:center;gap:7px;font-size:12px;}
+.api-bar.loading{background:rgba(255,193,7,0.1);border:1px solid rgba(255,193,7,0.3);color:#ffc107;}
+.api-bar.loaded{background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.3);color:#00e676;}
+.api-dot{width:7px;height:7px;border-radius:50%;}
+.api-bar.loading .api-dot{background:#ffc107;animation:blink 1s infinite;}
+.api-bar.loaded .api-dot{background:#00e676;}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.filter-row{display:flex;gap:7px;padding:0 16px 12px;overflow-x:auto;}
+.filter-row::-webkit-scrollbar{display:none;}
+.filter-btn{background:white;border:1.5px solid #e0e0e0;color:#666;padding:6px 14px;border-radius:18px;font-family:'Cairo',sans-serif;font-size:11px;cursor:pointer;white-space:nowrap;font-weight:600;}
+.filter-btn.active{background:var(--primary);border-color:var(--primary);color:white;font-weight:700;}
+.svc-list{padding:0 16px;display:flex;flex-direction:column;gap:10px;}
+.svc-card{background:white;border-radius:14px;padding:14px;box-shadow:0 1px 4px rgba(0,0,0,0.06);cursor:pointer;transition:all 0.2s;border:1.5px solid transparent;}
+.svc-card:hover{border-color:var(--primary);transform:translateY(-1px);}
+.svc-card-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;}
+.svc-name{font-weight:700;font-size:13px;color:#1a1a2e;flex:1;margin-left:8px;line-height:1.4;}
+.svc-type{background:#f0f0ff;color:var(--primary);padding:2px 9px;border-radius:8px;font-size:9px;font-weight:700;white-space:nowrap;}
+.svc-details{display:flex;gap:14px;margin-bottom:12px;}
+.svc-detail-val{font-size:12px;font-weight:700;color:var(--primary);}
+.svc-detail-lbl{font-size:10px;color:var(--muted);}
+.svc-footer{display:flex;justify-content:space-between;align-items:center;}
+.svc-price{font-family:'Tajawal',sans-serif;font-size:18px;font-weight:900;color:#1a1a2e;}
+.svc-per{font-size:10px;color:var(--muted);}
+.svc-btn{background:var(--primary);color:white;border:none;padding:8px 18px;border-radius:18px;font-family:'Cairo',sans-serif;font-size:12px;font-weight:700;cursor:pointer;}
+
+/* ORDER SCREEN */
+.order-wrap{padding:0 16px 20px;background:#f0f2f5;min-height:100vh;}
+.order-back{background:none;border:none;color:var(--primary);font-family:'Cairo',sans-serif;font-size:13px;cursor:pointer;padding:14px 0 8px;display:flex;align-items:center;gap:3px;font-weight:700;}
+.order-title{font-family:'Tajawal',sans-serif;font-size:19px;font-weight:900;margin-bottom:16px;color:#1a1a2e;}
+.order-card{background:white;border-radius:15px;padding:15px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,0.06);}
+.order-card-title{font-weight:700;font-size:13px;margin-bottom:12px;color:var(--primary);}
+.form-group{margin-bottom:12px;}
+.form-label{font-size:11px;color:var(--muted);margin-bottom:5px;display:block;font-weight:600;}
+.form-input{width:100%;background:#f8f8f8;border:1.5px solid #e0e0e0;border-radius:10px;padding:11px 13px;color:#1a1a2e;font-family:'Cairo',sans-serif;font-size:13px;outline:none;transition:border-color 0.2s;}
+.form-input:focus{border-color:var(--primary);}
+.form-input::placeholder{color:#bbb;}
+.qty-row{display:flex;align-items:center;gap:10px;}
+.qty-btn{width:36px;height:36px;border-radius:50%;background:#f0f0ff;border:1.5px solid var(--primary);color:var(--primary);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-weight:700;}
+.qty-val{font-family:'Tajawal',sans-serif;font-size:20px;font-weight:900;min-width:60px;text-align:center;color:#1a1a2e;}
+.qty-lbl{font-size:11px;color:var(--muted);}
+.sum-row{display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid #f0f0f0;}
+.sum-row:last-child{border:none;padding-top:10px;}
+.sum-lbl{font-size:12px;color:var(--muted);}
+.sum-val{font-size:12px;font-weight:700;color:#1a1a2e;}
+.sum-total .sum-lbl{font-size:14px;color:#1a1a2e;font-weight:700;}
+.sum-total .sum-val{font-family:'Tajawal',sans-serif;font-size:20px;color:var(--primary);}
+.pay-option{display:flex;align-items:center;gap:11px;padding:13px;background:#f8f8f8;border:1.5px solid #e0e0e0;border-radius:12px;cursor:pointer;transition:all 0.2s;margin-bottom:9px;}
+.pay-option.selected{border-color:var(--primary);background:#f0f0ff;}
+.pay-radio{width:18px;height:18px;border-radius:50%;border:2px solid #ddd;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.pay-option.selected .pay-radio{border-color:var(--primary);background:var(--primary);}
+.pay-dot{width:8px;height:8px;border-radius:50%;background:white;display:none;}
+.pay-option.selected .pay-dot{display:block;}
+.pay-name{font-weight:700;font-size:13px;color:#1a1a2e;}
+.pay-sub{font-size:10px;color:var(--muted);}
+.pay-rec{margin-right:auto;background:#e8f5e9;color:#2e7d32;padding:2px 8px;border-radius:8px;font-size:9px;font-weight:700;}
+.usdt-box{background:#fffbf0;border:1px solid rgba(255,215,0,0.3);border-radius:11px;padding:14px;margin-top:10px;}
+.usdt-addr{font-size:11px;color:var(--primary);word-break:break-all;background:#f0f0ff;padding:8px;border-radius:7px;cursor:pointer;margin:8px 0;}
+.usdt-copy{background:var(--primary);color:white;border:none;padding:7px 16px;border-radius:15px;font-family:'Cairo',sans-serif;font-size:11px;cursor:pointer;margin-top:4px;}
+.pay-error{background:#fdecea;border:1px solid #f44336;color:#c62828;border-radius:9px;padding:10px 13px;font-size:12px;margin-top:8px;display:none;}
+.place-btn{width:100%;background:linear-gradient(135deg,var(--primary),#9b5de5);color:white;border:none;padding:16px;border-radius:25px;font-family:'Cairo',sans-serif;font-size:16px;font-weight:900;cursor:pointer;margin-top:8px;box-shadow:0 4px 20px rgba(108,58,252,0.4);}
+.place-btn:disabled{opacity:0.6;cursor:not-allowed;}
+
+/* SUCCESS */
+.success-wrap{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:80vh;padding:30px 20px;text-align:center;background:#f0f2f5;}
+.success-icon{font-size:70px;margin-bottom:18px;animation:pop 0.5s cubic-bezier(0.36,0.07,0.19,0.97);}
+@keyframes pop{0%{transform:scale(0)}60%{transform:scale(1.2)}100%{transform:scale(1)}}
+.success-title{font-family:'Tajawal',sans-serif;font-size:24px;font-weight:900;margin-bottom:7px;color:#1a1a2e;}
+.success-sub{color:var(--muted);font-size:13px;margin-bottom:24px;line-height:1.6;}
+.order-id-box{background:white;border-radius:14px;padding:16px 24px;margin-bottom:22px;box-shadow:0 1px 4px rgba(0,0,0,0.08);}
+.order-id-lbl{font-size:11px;color:var(--muted);margin-bottom:4px;}
+.order-id-val{font-family:'Tajawal',sans-serif;font-size:22px;font-weight:900;color:var(--primary);}
+.btn-primary{background:linear-gradient(135deg,var(--primary),#9b5de5);color:white;border:none;padding:13px 22px;border-radius:22px;font-family:'Cairo',sans-serif;font-size:14px;font-weight:700;cursor:pointer;width:100%;margin-bottom:10px;}
+.btn-outline{background:transparent;color:var(--primary);border:1.5px solid var(--primary);padding:12px 22px;border-radius:22px;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;cursor:pointer;width:100%;}
+
+/* BOTTOM NAV */
+.bottom-nav{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid #eee;padding:8px 10px 12px;display:flex;justify-content:space-around;align-items:center;z-index:200;box-shadow:0 -2px 10px rgba(0,0,0,0.06);}
+.bn-item{display:flex;flex-direction:column;align-items:center;gap:3px;cursor:pointer;color:#bbb;transition:color 0.2s;min-width:45px;}
+.bn-item.active{color:var(--primary);}
+.bn-icon{font-size:20px;}
+.bn-label{font-size:9px;font-weight:700;}
+.bn-wa{width:48px;height:48px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin-top:-16px;box-shadow:0 4px 16px rgba(37,211,102,0.5);cursor:pointer;}
+
+.skeleton{background:linear-gradient(90deg,#f0f0f0 25%,#e0e0e0 50%,#f0f0f0 75%);background-size:200% 100%;animation:skel 1.5s infinite;border-radius:8px;}
+@keyframes skel{0%{background-position:200% 0}100%{background-position:-200% 0}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+.fade-up{animation:fadeUp 0.35s ease both;}
+
+/* POPUP */
+.popup-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:500;display:none;align-items:flex-end;justify-content:center;}
+.popup-overlay.active{display:flex;}
+.popup-sheet{background:white;border-radius:24px 24px 0 0;width:100%;max-height:90vh;overflow-y:auto;padding:20px 16px 30px;animation:slideUp 0.3s ease;}
+@keyframes slideUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.popup-handle{width:40px;height:4px;background:#e0e0e0;border-radius:2px;margin:0 auto 16px;}
+.popup-title{font-family:'Tajawal',sans-serif;font-size:20px;font-weight:900;text-align:center;color:#1a1a2e;margin-bottom:4px;}
+.popup-sub{font-size:12px;color:var(--muted);text-align:center;margin-bottom:16px;}
+.popup-type-tabs{display:flex;gap:8px;margin-bottom:14px;}
+.popup-type-tab{flex:1;text-align:center;padding:10px;border-radius:12px;font-family:'Cairo',sans-serif;font-size:12px;font-weight:700;cursor:pointer;background:#f0f0f5;color:#666;border:none;}
+.popup-type-tab.active{background:var(--primary);color:white;}
+.popup-platform-tabs{display:flex;gap:7px;margin-bottom:14px;overflow-x:auto;}
+.popup-platform-tabs::-webkit-scrollbar{display:none;}
+.popup-platform-tab{background:#f0f0f5;border:none;color:#666;padding:6px 14px;border-radius:18px;font-family:'Cairo',sans-serif;font-size:11px;cursor:pointer;white-space:nowrap;font-weight:600;}
+.popup-platform-tab.active{background:var(--primary);color:white;font-weight:700;}
+.popup-pkgs{display:flex;flex-direction:column;gap:10px;}
+.popup-pkg{border-radius:14px;padding:14px;cursor:pointer;border:2px solid transparent;transition:all 0.2s;display:flex;justify-content:space-between;align-items:center;}
+.popup-pkg:hover{transform:scale(1.01);}
+.popup-pkg-bronze{background:linear-gradient(135deg,#2d1800,#4a2800);border-color:#cd7f32;}
+.popup-pkg-silver{background:linear-gradient(135deg,#1a1a2e,#252545);border-color:#c0c0c0;}
+.popup-pkg-gold{background:linear-gradient(135deg,#1a1200,#332200);border-color:#ffd700;}
+.popup-pkg-diamond{background:linear-gradient(135deg,#0a0020,#150035);border-color:#b9f2ff;}
+.popup-pkg-saving{background:linear-gradient(135deg,#1a0a3e,#2d1060);border-color:#9b5de5;}
+.popup-pkg-left{}
+.popup-pkg-tier{font-size:10px;font-weight:700;margin-bottom:4px;}
+.popup-pkg-bronze .popup-pkg-tier{color:#cd7f32;}
+.popup-pkg-silver .popup-pkg-tier{color:#c0c0c0;}
+.popup-pkg-gold .popup-pkg-tier{color:#ffd700;}
+.popup-pkg-diamond .popup-pkg-tier{color:#b9f2ff;}
+.popup-pkg-saving .popup-pkg-tier{color:#9b5de5;}
+.popup-pkg-name{font-family:'Tajawal',sans-serif;font-size:16px;font-weight:900;color:white;margin-bottom:6px;}
+.popup-pkg-items{display:flex;flex-direction:column;gap:3px;}
+.popup-pkg-item{font-size:11px;color:rgba(255,255,255,0.7);}
+.popup-pkg-right{text-align:left;display:flex;flex-direction:column;align-items:flex-end;gap:8px;}
+.popup-pkg-price{font-family:'Tajawal',sans-serif;font-size:20px;font-weight:900;}
+.popup-pkg-bronze .popup-pkg-price{color:#cd7f32;}
+.popup-pkg-silver .popup-pkg-price{color:#c0c0c0;}
+.popup-pkg-gold .popup-pkg-price{color:#ffd700;}
+.popup-pkg-diamond .popup-pkg-price{color:#b9f2ff;}
+.popup-pkg-saving .popup-pkg-price{color:#9b5de5;}
+.popup-pkg-old{font-size:10px;color:rgba(255,255,255,0.3);text-decoration:line-through;}
+.popup-order-btn{padding:8px 16px;border-radius:15px;border:none;font-family:'Cairo',sans-serif;font-size:12px;font-weight:700;cursor:pointer;white-space:nowrap;}
+.popup-pkg-bronze .popup-order-btn{background:#cd7f32;color:white;}
+.popup-pkg-silver .popup-order-btn{background:#c0c0c0;color:#1a1a2e;}
+.popup-pkg-gold .popup-order-btn{background:#ffd700;color:#1a1200;}
+.popup-pkg-diamond .popup-order-btn{background:#b9f2ff;color:#0a0020;}
+.popup-pkg-saving .popup-order-btn{background:#9b5de5;color:white;}
+.popup-close{position:absolute;top:16px;left:16px;background:none;border:none;font-size:20px;cursor:pointer;color:#999;}
 </style>
 </head>
 <body>
@@ -301,65 +301,98 @@ body{font-family:'Cairo',sans-serif;background:var(--dark);color:#fff;overflow-x
 <!-- ===== HOME ===== -->
 <div id="screen-home" class="screen active">
   <header class="header">
-    <button class="cart-btn" onclick="showCart()">🛒<div class="cart-count" id="cc-home">0</div></button>
-    <div class="logo-wrap"><div class="logo-name">شامل ستور</div><div class="logo-box">ش</div></div>
+    <div class="header-phone" onclick="openWA()">
+      <span>📞</span>
+      <span id="phone-display" style="display:none">اتصل بنا</span>
+    </div>
+    <div class="header-logo">
+      <div class="logo-text">بريميوم <span>ستور</span></div>
+      <div class="logo-icon">ب</div>
+    </div>
   </header>
 
-  <div class="hero">
-    <div class="hero-grid"></div><div class="hero-glow"></div>
-    <div class="hero-content fade-up">
-      <div class="hero-badge">✦ متجرك الرقمي الشامل</div>
-      <h1>كل خدماتك الرقمية<br><span>في مكان واحد</span></h1>
-      <button class="btn-primary" onclick="scrollToCategories()">تصفح الخدمات ←</button>
-      <div class="hero-trust">
-        <div class="trust-item"><div class="trust-dot"></div>تنفيذ فوري</div>
-        <div class="trust-item"><div class="trust-dot"></div>جودة عالية</div>
-        <div class="trust-item"><div class="trust-dot"></div>دعم 24/7</div>
-      </div>
+  <!-- Hero Banner -->
+  <div class="hero-banner">
+    <div class="hero-tag">⚡ تنفيذ فوري</div>
+    <div class="hero-title">البكجات وعروض التوفير</div>
+    <div class="hero-sub">باقات الاكسيلور: حلول إبداعية لزيادة ظهورك <span>وتفاعل جمهورك!</span></div>
+    <button class="hero-btn" onclick="openPopup()">للطلب اضغط هنا</button>
+    <div class="hero-mega">📣</div>
+  </div>
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat-item"><span class="stat-num">+5K</span><div class="stat-lbl">عميل راضٍ</div></div>
+    <div class="stat-item"><span class="stat-num">500+</span><div class="stat-lbl">خدمة متاحة</div></div>
+    <div class="stat-item"><span class="stat-num">24/7</span><div class="stat-lbl">دعم مستمر</div></div>
+  </div>
+
+  <!-- Platforms -->
+  <div class="sec-head">
+    <span class="sec-more">عرض الكل ←</span>
+    <div class="sec-title">قسم دعم مواقع التواصل الاجتماعي</div>
+  </div>
+  
+  <div class="platforms-grid">
+    <div class="platform-card pc-tiktok" onclick="openPlatform(&quot;tiktok&quot;)">
+      <div class="pc-top"><div class="pc-brand-txt">PREMIUM STORE</div><div class="pc-logo-box"><svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.86a8.28 8.28 0 004.84 1.55V7.01a4.85 4.85 0 01-1.07-.32z"/></svg></div></div>
+      <div class="pc-bottom"><div class="pc-name-big">خدمـات تيك تـوك</div><div class="pc-site">premiumstore.com</div></div>
+    </div>
+    <div class="platform-card pc-instagram" onclick="openPlatform(&quot;instagram&quot;)">
+      <div class="pc-top"><div class="pc-brand-txt">PREMIUM STORE</div><div class="pc-logo-box"><svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div></div>
+      <div class="pc-bottom"><div class="pc-name-big">خدمـات انستقـرام</div><div class="pc-site">premiumstore.com</div></div>
+    </div>
+    <div class="platform-card pc-twitter" onclick="openPlatform(&quot;twitter&quot;)">
+      <div class="pc-top"><div class="pc-brand-txt">PREMIUM STORE</div><div class="pc-logo-box"><svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div></div>
+      <div class="pc-bottom"><div class="pc-name-big">خدمـات تـويـتـر</div><div class="pc-site">premiumstore.com</div></div>
+    </div>
+    <div class="platform-card pc-snapchat" onclick="openPlatform(&quot;snapchat&quot;)">
+      <div class="pc-top"><div class="pc-brand-txt">PREMIUM STORE</div><div class="pc-logo-box"><svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M12.065.006C10.068-.03 6.389.956 4.76 4.758c-.473 1.091-.37 2.931-.37 3.93-.5.118-1.04-.177-1.544-.177-.63 0-1.286.343-1.286.956 0 .527.565.977 1.31 1.18.07.019.143.036.214.055-.18.584-.478 1.005-1.184 1.22-.372.115-.747.23-.747.68 0 .432.359.714.793.814.116.026.24.048.362.073.05.01.117.017.144.062.135.219-.024.798-.108 1.042-.117.337.02.708.404.708.188 0 .326-.13.513-.195.567-.203.676-.312 1.044-.312.38 0 .736.146 1.248.54.554.42 1.118 1.18 2.408 1.18.106 0 .214-.005.325-.015.132-.01.26-.015.387-.015.48 0 .926.105 1.41.487.522.41 1.018.94 2.095.94 1.07 0 1.57-.526 2.091-.938.483-.382.928-.489 1.41-.489.127 0 .255.005.383.016.112.01.222.015.33.015 1.29 0 1.855-.76 2.41-1.18.512-.392.866-.54 1.247-.54.368 0 .479.11.684.313.187.19.325.195.513.195.384 0 .52-.371.404-.708-.083-.244-.243-.823-.108-1.042.027-.044.095-.051.145-.062.122-.025.245-.047.361-.073.435-.1.793-.382.793-.814 0-.45-.374-.565-.746-.68-.706-.215-1.005-.636-1.185-1.22.072-.02.144-.036.214-.055.745-.203 1.31-.653 1.31-1.18 0-.613-.655-.956-1.285-.956-.506 0-1.043.295-1.543.176 0-1-.103-2.839-.375-3.93C17.607.955 13.927.04 12.065.006z"/></svg></div></div>
+      <div class="pc-bottom"><div class="pc-name-big">خدمـات سناب شات</div><div class="pc-site">premiumstore.com</div></div>
+    </div>
+    <div class="platform-card pc-youtube" onclick="openPlatform(&quot;youtube&quot;)">
+      <div class="pc-top"><div class="pc-brand-txt">PREMIUM STORE</div><div class="pc-logo-box"><svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></div></div>
+      <div class="pc-bottom"><div class="pc-name-big">خدمـات يوتيـوب</div><div class="pc-site">premiumstore.com</div></div>
+    </div>
+    <div class="platform-card pc-facebook" onclick="openPlatform(&quot;facebook&quot;)">
+      <div class="pc-top"><div class="pc-brand-txt">PREMIUM STORE</div><div class="pc-logo-box"><svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></div></div>
+      <div class="pc-bottom"><div class="pc-name-big">خدمـات فيس بـوك</div><div class="pc-site">premiumstore.com</div></div>
+    </div>
+    <div class="platform-card pc-telegram" onclick="openPlatform(&quot;telegram&quot;)">
+      <div class="pc-top"><div class="pc-brand-txt">PREMIUM STORE</div><div class="pc-logo-box"><svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></div></div>
+      <div class="pc-bottom"><div class="pc-name-big">خدمـات تليجـرام</div><div class="pc-site">premiumstore.com</div></div>
+    </div>
+    <div class="platform-card pc-google" onclick="openPlatform(&quot;google&quot;)">
+      <div class="pc-top"><div class="pc-brand-txt">PREMIUM STORE</div><div class="pc-logo-box"><svg viewBox="0 0 24 24" width="30" height="30" fill="white"><path d="M12 0C8.102 0 5 3.102 5 7c0 5.25 7 13 7 13s7-7.75 7-13c0-3.898-3.102-7-7-7zm0 9.5c-1.381 0-2.5-1.119-2.5-2.5S10.619 4.5 12 4.5s2.5 1.119 2.5 2.5S13.381 9.5 12 9.5z"/></svg></div></div>
+      <div class="pc-bottom"><div class="pc-name-big">خدمـات قوقـل ماب</div><div class="pc-site">premiumstore.com</div></div>
     </div>
   </div>
 
-  <div class="stats">
-    <div class="stat"><span class="stat-num">+5K</span><div class="stat-lbl">عميل</div></div>
-    <div class="stat"><span class="stat-num">+800</span><div class="stat-lbl">خدمة</div></div>
-    <div class="stat"><span class="stat-num">24/7</span><div class="stat-lbl">دعم</div></div>
-    <div class="stat"><span class="stat-num">⚡</span><div class="stat-lbl">فوري</div></div>
+  <!-- Packages -->
+  <div class="sec-head">
+    <span class="sec-more">عرض الكل ←</span>
+    <div class="sec-title">البكجات وعروض التوفير</div>
   </div>
-
-  <!-- SOCIAL TAB -->
-  <div id="tab-social">
-    <div class="section"><div class="section-head"><div class="section-title">منصات التواصل الاجتماعي</div></div></div>
-    <div class="platforms-grid">
-      <div class="platform-card pc-ig" onclick="openPlatform('instagram')"><div class="pc-deco pc-deco-1"></div><div class="pc-deco pc-deco-2"></div><div class="pc-icon">📸</div><div><div class="pc-name">انستقرام</div><div class="pc-count">12 خدمة</div></div></div>
-      <div class="platform-card pc-tt" onclick="openPlatform('tiktok')"><div class="pc-deco pc-deco-1"></div><div class="pc-deco pc-deco-2"></div><div class="pc-icon">🎵</div><div><div class="pc-name">تيك توك</div><div class="pc-count">10 خدمة</div></div></div>
-      <div class="platform-card pc-sc" onclick="openPlatform('snapchat')"><div class="pc-deco pc-deco-1"></div><div class="pc-deco pc-deco-2"></div><div class="pc-icon">👻</div><div><div class="pc-name">سناب شات</div><div class="pc-count">8 خدمة</div></div></div>
-      <div class="platform-card pc-tw" onclick="openPlatform('twitter')"><div class="pc-deco pc-deco-1"></div><div class="pc-deco pc-deco-2"></div><div class="pc-icon">🐦</div><div><div class="pc-name">تويتر / X</div><div class="pc-count">9 خدمة</div></div></div>
-      <div class="platform-card pc-fb" onclick="openPlatform('facebook')"><div class="pc-deco pc-deco-1"></div><div class="pc-deco pc-deco-2"></div><div class="pc-icon">📘</div><div><div class="pc-name">فيسبوك</div><div class="pc-count">11 خدمة</div></div></div>
-      <div class="platform-card pc-yt" onclick="openPlatform('youtube')"><div class="pc-deco pc-deco-1"></div><div class="pc-deco pc-deco-2"></div><div class="pc-icon">▶️</div><div><div class="pc-name">يوتيوب</div><div class="pc-count">7 خدمة</div></div></div>
-    </div>
-  </div>
-
-  <!-- PACKAGES SECTION -->
-  <div class="section">
-    <div class="section-head">
-      <div class="section-title">باقات التوفير المجمعة</div>
-    </div>
-  </div>
-
-  <div class="packages-section">
-    <div class="packages-tabs">
-      <div class="pkg-tab active" onclick="switchPkg('tiktok',this)">🎵 تيك توك</div>
-      <div class="pkg-tab" onclick="switchPkg('instagram',this)">📸 انستقرام</div>
-      <div class="pkg-tab" onclick="switchPkg('twitter',this)">🐦 تويتر</div>
-      <div class="pkg-tab" onclick="switchPkg('snapchat',this)">👻 سناب</div>
+  <div class="pkg-section">
+    <!-- نوع الباقة -->
+    <div class="pkg-type-tabs" style="display:flex;gap:8px;margin-bottom:14px;">
+      <div class="pkg-type-tab active" onclick="switchPkgType(&quot;savings&quot;,this)" style="flex:1;text-align:center;padding:10px;border-radius:12px;font-family:'Cairo',sans-serif;font-size:12px;font-weight:700;cursor:pointer;background:var(--primary);color:white;border:none;">⚡ بكجات التفاعل</div>
+      <div class="pkg-type-tab" onclick="switchPkgType(&quot;engagement&quot;,this)" style="flex:1;text-align:center;padding:10px;border-radius:12px;font-family:'Cairo',sans-serif;font-size:12px;font-weight:700;cursor:pointer;background:#f0f0f5;color:#666;border:none;">💎 بكجات التوفير</div>
     </div>
 
-    <!-- TikTok Packages -->
-    <div id="pkg-tiktok" class="packages-grid">
-      <div class="pkg-card pkg-bronze" onclick="orderPackage('tiktok','bronze')">
-        <div class="pkg-badge">🥉 برونزي</div>
-        <div style="margin-top:20px">
-          <div class="pkg-icon">🎵</div>
+    <!-- المنصة -->
+    <div class="pkg-tabs">
+      <div class="pkg-tab active" onclick="switchPkg(&quot;tiktok&quot;,this)">🎵 تيك توك</div>
+      <div class="pkg-tab" onclick="switchPkg(&quot;instagram&quot;,this)">📸 انستقرام</div>
+      <div class="pkg-tab" onclick="switchPkg(&quot;twitter&quot;,this)">🐦 تويتر</div>
+      <div class="pkg-tab" onclick="switchPkg(&quot;snapchat&quot;,this)">👻 سناب</div>
+    </div>
+
+    <div id="pkg-tiktok" class="pkg-grid">
+      <div class="pkg-card pkg-bronze" onclick="orderPkg(&quot;tiktok&quot;,&quot;bronze&quot;,149)">
+        <div class="pkg-tier">🥉 برونزي</div>
+        <div class="pkg-body">
+          <div class="pkg-emoji"><svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.86a8.28 8.28 0 004.84 1.55V7.01a4.85 4.85 0 01-1.07-.32z"/></svg></div>
           <div class="pkg-name">البكج البرونزي</div>
           <div class="pkg-platform">تيك توك — تنفيذ فوري</div>
           <div class="pkg-items">
@@ -369,16 +402,15 @@ body{font-family:'Cairo',sans-serif;background:var(--dark);color:#fff;overflow-x
             <div class="pkg-item"><div class="pkg-check">✓</div>500 حفظ</div>
           </div>
           <div class="pkg-footer">
-            <div><div class="pkg-price">149 <span class="pkg-currency">ر.س</span></div></div>
+            <div class="pkg-price-wrap"><div class="pkg-price">149 <span class="pkg-currency">﷼</span></div><div class="pkg-old">199 ﷼</div></div>
             <button class="pkg-btn">اطلب الآن</button>
           </div>
         </div>
       </div>
-
-      <div class="pkg-card pkg-silver" onclick="orderPackage('tiktok','silver')">
-        <div class="pkg-badge">🥈 فضي</div>
-        <div style="margin-top:20px">
-          <div class="pkg-icon">🎵</div>
+      <div class="pkg-card pkg-silver" onclick="orderPkg(&quot;tiktok&quot;,&quot;silver&quot;,299)">
+        <div class="pkg-tier">🥈 فضي</div>
+        <div class="pkg-body">
+          <div class="pkg-emoji"><svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.86a8.28 8.28 0 004.84 1.55V7.01a4.85 4.85 0 01-1.07-.32z"/></svg></div>
           <div class="pkg-name">البكج الفضي</div>
           <div class="pkg-platform">تيك توك — تنفيذ فوري</div>
           <div class="pkg-items">
@@ -389,16 +421,15 @@ body{font-family:'Cairo',sans-serif;background:var(--dark);color:#fff;overflow-x
             <div class="pkg-item"><div class="pkg-check">✓</div>1,000 حفظ</div>
           </div>
           <div class="pkg-footer">
-            <div><div class="pkg-price">299 <span class="pkg-currency">ر.س</span></div></div>
+            <div class="pkg-price-wrap"><div class="pkg-price">299 <span class="pkg-currency">﷼</span></div><div class="pkg-old">399 ﷼</div></div>
             <button class="pkg-btn">اطلب الآن</button>
           </div>
         </div>
       </div>
-
-      <div class="pkg-card pkg-gold" onclick="orderPackage('tiktok','gold')">
-        <div class="pkg-badge">🥇 ذهبي</div>
-        <div style="margin-top:20px">
-          <div class="pkg-icon">🎵</div>
+      <div class="pkg-card pkg-gold" onclick="orderPkg(&quot;tiktok&quot;,&quot;gold&quot;,549)">
+        <div class="pkg-tier">🥇 ذهبي</div>
+        <div class="pkg-body">
+          <div class="pkg-emoji"><svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.86a8.28 8.28 0 004.84 1.55V7.01a4.85 4.85 0 01-1.07-.32z"/></svg></div>
           <div class="pkg-name">البكج الذهبي</div>
           <div class="pkg-platform">تيك توك — تنفيذ فوري</div>
           <div class="pkg-items">
@@ -407,19 +438,18 @@ body{font-family:'Cairo',sans-serif;background:var(--dark);color:#fff;overflow-x
             <div class="pkg-item"><div class="pkg-check">✓</div>25,000 لايك</div>
             <div class="pkg-item"><div class="pkg-check">✓</div>5,000 حركة اكسبلور</div>
             <div class="pkg-item"><div class="pkg-check">✓</div>3,000 حفظ</div>
-            <div class="pkg-item"><div class="pkg-check">✓</div>20 تعليق عربي</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>20 تعليق عربي حقيقي</div>
           </div>
           <div class="pkg-footer">
-            <div><div class="pkg-price">549 <span class="pkg-currency">ر.س</span></div></div>
+            <div class="pkg-price-wrap"><div class="pkg-price">549 <span class="pkg-currency">﷼</span></div><div class="pkg-old">699 ﷼</div></div>
             <button class="pkg-btn">اطلب الآن</button>
           </div>
         </div>
       </div>
-
-      <div class="pkg-card pkg-diamond" onclick="orderPackage('tiktok','diamond')">
-        <div class="pkg-badge">💎 ماسي</div>
-        <div style="margin-top:20px">
-          <div class="pkg-icon">🎵</div>
+      <div class="pkg-card pkg-diamond" onclick="orderPkg(&quot;tiktok&quot;,&quot;diamond&quot;,999)">
+        <div class="pkg-tier">💎 ماسي</div>
+        <div class="pkg-body">
+          <div class="pkg-emoji"><svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.86a8.28 8.28 0 004.84 1.55V7.01a4.85 4.85 0 01-1.07-.32z"/></svg></div>
           <div class="pkg-name">البكج الماسي</div>
           <div class="pkg-platform">تيك توك — تنفيذ فوري</div>
           <div class="pkg-items">
@@ -428,110 +458,142 @@ body{font-family:'Cairo',sans-serif;background:var(--dark);color:#fff;overflow-x
             <div class="pkg-item"><div class="pkg-check">✓</div>50,000 لايك</div>
             <div class="pkg-item"><div class="pkg-check">✓</div>10,000 حركة اكسبلور</div>
             <div class="pkg-item"><div class="pkg-check">✓</div>5,000 حفظ</div>
-            <div class="pkg-item"><div class="pkg-check">✓</div>50 تعليق عربي</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>50 تعليق عربي حقيقي</div>
           </div>
           <div class="pkg-footer">
-            <div><div class="pkg-price">999 <span class="pkg-currency">ر.س</span></div></div>
+            <div class="pkg-price-wrap"><div class="pkg-price">999 <span class="pkg-currency">﷼</span></div><div class="pkg-old">1299 ﷼</div></div>
             <button class="pkg-btn">اطلب الآن</button>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- Instagram Packages -->
-    <div id="pkg-instagram" class="packages-grid" style="display:none">
-      <div class="pkg-card pkg-bronze" onclick="orderPackage('instagram','bronze')">
-        <div class="pkg-badge">🥉 برونزي</div>
-        <div style="margin-top:20px">
-          <div class="pkg-icon">📸</div>
-          <div class="pkg-name">البكج البرونزي</div>
-          <div class="pkg-platform">انستقرام — تنفيذ فوري</div>
+    <div id="pkg-instagram" class="pkg-grid" style="display:none">
+      <div class="pkg-card pkg-bronze" onclick="orderPkg(&quot;instagram&quot;,&quot;bronze&quot;,129)"><div class="pkg-tier">🥉 برونزي</div><div class="pkg-body"><div class="pkg-emoji"><svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div><div class="pkg-name">البكج البرونزي</div><div class="pkg-platform">انستقرام — تنفيذ فوري</div><div class="pkg-items"><div class="pkg-item"><div class="pkg-check">✓</div>2,000 متابع عربي</div><div class="pkg-item"><div class="pkg-check">✓</div>5,000 لايك</div><div class="pkg-item"><div class="pkg-check">✓</div>20,000 مشاهدة ريلز</div></div><div class="pkg-footer"><div class="pkg-price-wrap"><div class="pkg-price">129 <span class="pkg-currency">﷼</span></div><div class="pkg-old">179 ﷼</div></div><button class="pkg-btn">اطلب الآن</button></div></div></div>
+      <div class="pkg-card pkg-gold" onclick="orderPkg(&quot;instagram&quot;,&quot;gold&quot;,499)"><div class="pkg-tier">🥇 ذهبي</div><div class="pkg-body"><div class="pkg-emoji"><svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div><div class="pkg-name">البكج الذهبي</div><div class="pkg-platform">انستقرام — تنفيذ فوري</div><div class="pkg-items"><div class="pkg-item"><div class="pkg-check">✓</div>10,000 متابع عربي</div><div class="pkg-item"><div class="pkg-check">✓</div>20,000 لايك</div><div class="pkg-item"><div class="pkg-check">✓</div>100,000 مشاهدة ريلز</div><div class="pkg-item"><div class="pkg-check">✓</div>15 تعليق عربي</div></div><div class="pkg-footer"><div class="pkg-price-wrap"><div class="pkg-price">499 <span class="pkg-currency">﷼</span></div><div class="pkg-old">649 ﷼</div></div><button class="pkg-btn">اطلب الآن</button></div></div></div>
+    </div>
+
+    <div id="pkg-twitter" class="pkg-grid" style="display:none">
+      <div class="pkg-card pkg-bronze" onclick="orderPkg(&quot;twitter&quot;,&quot;bronze&quot;,79)"><div class="pkg-tier">🥉 برونزي</div><div class="pkg-body"><div class="pkg-emoji"><svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><div class="pkg-name">البكج البرونزي</div><div class="pkg-platform">تويتر X — تنفيذ فوري</div><div class="pkg-items"><div class="pkg-item"><div class="pkg-check">✓</div>1,000 متابع</div><div class="pkg-item"><div class="pkg-check">✓</div>500 لايك</div><div class="pkg-item"><div class="pkg-check">✓</div>200 ريتويت</div><div class="pkg-item"><div class="pkg-check">✓</div>15,000 مشاهدة</div></div><div class="pkg-footer"><div class="pkg-price-wrap"><div class="pkg-price">79 <span class="pkg-currency">﷼</span></div><div class="pkg-old">99 ﷼</div></div><button class="pkg-btn">اطلب الآن</button></div></div></div>
+      <div class="pkg-card pkg-gold" onclick="orderPkg(&quot;twitter&quot;,&quot;gold&quot;,299)"><div class="pkg-tier">🥇 ذهبي</div><div class="pkg-body"><div class="pkg-emoji"><svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></div><div class="pkg-name">البكج الذهبي</div><div class="pkg-platform">تويتر X — تنفيذ فوري</div><div class="pkg-items"><div class="pkg-item"><div class="pkg-check">✓</div>5,000 متابع</div><div class="pkg-item"><div class="pkg-check">✓</div>2,000 لايك</div><div class="pkg-item"><div class="pkg-check">✓</div>1,000 ريتويت</div><div class="pkg-item"><div class="pkg-check">✓</div>50,000 مشاهدة</div><div class="pkg-item"><div class="pkg-check">✓</div>30 بوك مارك</div></div><div class="pkg-footer"><div class="pkg-price-wrap"><div class="pkg-price">299 <span class="pkg-currency">﷼</span></div><div class="pkg-old">399 ﷼</div></div><button class="pkg-btn">اطلب الآن</button></div></div></div>
+    </div>
+
+    <div id="pkg-snapchat" class="pkg-grid" style="display:none">
+      <div class="pkg-card pkg-silver" onclick="orderPkg(&quot;snapchat&quot;,&quot;silver&quot;,199)"><div class="pkg-tier">🥈 فضي</div><div class="pkg-body"><div class="pkg-emoji"><svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M12.065.006C10.068-.03 6.389.956 4.76 4.758c-.473 1.091-.37 2.931-.37 3.93-.5.118-1.04-.177-1.544-.177-.63 0-1.286.343-1.286.956 0 .527.565.977 1.31 1.18.07.019.143.036.214.055-.18.584-.478 1.005-1.184 1.22-.372.115-.747.23-.747.68 0 .432.359.714.793.814.116.026.24.048.362.073.05.01.117.017.144.062.135.219-.024.798-.108 1.042-.117.337.02.708.404.708.188 0 .326-.13.513-.195.567-.203.676-.312 1.044-.312.38 0 .736.146 1.248.54.554.42 1.118 1.18 2.408 1.18.106 0 .214-.005.325-.015.132-.01.26-.015.387-.015.48 0 .926.105 1.41.487.522.41 1.018.94 2.095.94 1.07 0 1.57-.526 2.091-.938.483-.382.928-.489 1.41-.489.127 0 .255.005.383.016.112.01.222.015.33.015 1.29 0 1.855-.76 2.41-1.18.512-.392.866-.54 1.247-.54.368 0 .479.11.684.313.187.19.325.195.513.195.384 0 .52-.371.404-.708-.083-.244-.243-.823-.108-1.042.027-.044.095-.051.145-.062.122-.025.245-.047.361-.073.435-.1.793-.382.793-.814 0-.45-.374-.565-.746-.68-.706-.215-1.005-.636-1.185-1.22.072-.02.144-.036.214-.055.745-.203 1.31-.653 1.31-1.18 0-.613-.655-.956-1.285-.956-.506 0-1.043.295-1.543.176 0-1-.103-2.839-.375-3.93C17.607.955 13.927.04 12.065.006z"/></svg></div><div class="pkg-name">البكج الفضي</div><div class="pkg-platform">سناب شات — تنفيذ فوري</div><div class="pkg-items"><div class="pkg-item"><div class="pkg-check">✓</div>2,000 متابع</div><div class="pkg-item"><div class="pkg-check">✓</div>10,000 مشاهدة قصة</div></div><div class="pkg-footer"><div class="pkg-price-wrap"><div class="pkg-price">199 <span class="pkg-currency">﷼</span></div><div class="pkg-old">249 ﷼</div></div><button class="pkg-btn">اطلب الآن</button></div></div></div>
+    </div>
+    <!-- بكجات التفاعل - تيك توك -->
+    <div id="eng-tiktok" class="pkg-grid" style="display:none">
+      <div class="pkg-card" style="background:linear-gradient(135deg,#1a0a3e,#2d1060);border:1.5px solid #9b5de5;" onclick="orderPkg(&quot;tiktok&quot;,&quot;eng_saving&quot;,19.99)">
+        <div class="pkg-tier" style="background:rgba(155,93,229,0.2);color:#9b5de5;border:1px solid #9b5de5;">⚡ بكج التوفير</div>
+        <div class="pkg-body">
+          <div class="pkg-emoji"><svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.86a8.28 8.28 0 004.84 1.55V7.01a4.85 4.85 0 01-1.07-.32z"/></svg></div>
+          <div class="pkg-name" style="color:white;">بكج التوفير</div>
+          <div class="pkg-platform">تيك توك — تنفيذ فوري</div>
           <div class="pkg-items">
-            <div class="pkg-item"><div class="pkg-check">✓</div>2,000 متابع عربي</div>
-            <div class="pkg-item"><div class="pkg-check">✓</div>5,000 لايك</div>
-            <div class="pkg-item"><div class="pkg-check">✓</div>20,000 مشاهدة ريلز</div>
+            <div class="pkg-item"><div class="pkg-check" style="background:rgba(155,93,229,0.25);color:#9b5de5;">✓</div>10,000 مشاهدة</div>
+            <div class="pkg-item"><div class="pkg-check" style="background:rgba(155,93,229,0.25);color:#9b5de5;">✓</div>300 لايك</div>
+            <div class="pkg-item"><div class="pkg-check" style="background:rgba(155,93,229,0.25);color:#9b5de5;">✓</div>100 حفظ</div>
+            <div class="pkg-item"><div class="pkg-check" style="background:rgba(155,93,229,0.25);color:#9b5de5;">✓</div>100 حركة اكسبلور</div>
+            <div class="pkg-item"><div class="pkg-check" style="background:rgba(155,93,229,0.25);color:#9b5de5;">✓</div>5 تعليقات (من اختيارك)</div>
           </div>
           <div class="pkg-footer">
-            <div><div class="pkg-price">129 <span class="pkg-currency">ر.س</span></div></div>
+            <div class="pkg-price-wrap"><div class="pkg-price" style="color:#9b5de5;">19.99 <span class="pkg-currency">﷼</span></div><div class="pkg-old">29 ﷼</div></div>
+            <button class="pkg-btn" style="background:#9b5de5;color:white;">اطلب الآن</button>
+          </div>
+        </div>
+      </div>
+      <div class="pkg-card pkg-bronze" onclick="orderPkg(&quot;tiktok&quot;,&quot;eng_bronze&quot;,39.99)">
+        <div class="pkg-tier">🥉 بكج التوفير</div>
+        <div class="pkg-body">
+          <div class="pkg-emoji"><svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.86a8.28 8.28 0 004.84 1.55V7.01a4.85 4.85 0 01-1.07-.32z"/></svg></div>
+          <div class="pkg-name">بكج التوفير</div>
+          <div class="pkg-platform">تيك توك — تنفيذ فوري</div>
+          <div class="pkg-items">
+            <div class="pkg-item"><div class="pkg-check">✓</div>10,000 مشاهدة</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>300 لايك</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>100 حفظ</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>100 حركة اكسبلور</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>5 تعليقات عرب</div>
+          </div>
+          <div class="pkg-footer">
+            <div class="pkg-price-wrap"><div class="pkg-price">39.99 <span class="pkg-currency">﷼</span></div><div class="pkg-old">59 ﷼</div></div>
             <button class="pkg-btn">اطلب الآن</button>
           </div>
         </div>
       </div>
-      <div class="pkg-card pkg-gold" onclick="orderPackage('instagram','gold')">
-        <div class="pkg-badge">🥇 ذهبي</div>
-        <div style="margin-top:20px">
-          <div class="pkg-icon">📸</div>
+      <div class="pkg-card pkg-silver" onclick="orderPkg(&quot;tiktok&quot;,&quot;eng_silver&quot;,79.99)">
+        <div class="pkg-tier">🥈 البكج البرونزي</div>
+        <div class="pkg-body">
+          <div class="pkg-emoji"><svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.86a8.28 8.28 0 004.84 1.55V7.01a4.85 4.85 0 01-1.07-.32z"/></svg></div>
+          <div class="pkg-name">البكج البرونزي</div>
+          <div class="pkg-platform">تيك توك — تنفيذ فوري</div>
+          <div class="pkg-items">
+            <div class="pkg-item"><div class="pkg-check">✓</div>50,000 مشاهدة</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>500 لايك</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>200 حفظ</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>300 حركة اكسبلور</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>10 تعليقات عرب حقيقي</div>
+          </div>
+          <div class="pkg-footer">
+            <div class="pkg-price-wrap"><div class="pkg-price">79.99 <span class="pkg-currency">﷼</span></div><div class="pkg-old">99 ﷼</div></div>
+            <button class="pkg-btn">اطلب الآن</button>
+          </div>
+        </div>
+      </div>
+      <div class="pkg-card pkg-gold" onclick="orderPkg(&quot;tiktok&quot;,&quot;eng_gold&quot;,119.99)">
+        <div class="pkg-tier">🥇 البكج الذهبي</div>
+        <div class="pkg-body">
+          <div class="pkg-emoji"><svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.86a8.28 8.28 0 004.84 1.55V7.01a4.85 4.85 0 01-1.07-.32z"/></svg></div>
+          <div class="pkg-name">البكج الذهبي</div>
+          <div class="pkg-platform">تيك توك — تنفيذ فوري</div>
+          <div class="pkg-items">
+            <div class="pkg-item"><div class="pkg-check">✓</div>200,000 مشاهدة</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>1,500 لايك</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>800 حفظ</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>1,000 حركة اكسبلور</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>30 تعليق عربي حقيقي</div>
+          </div>
+          <div class="pkg-footer">
+            <div class="pkg-price-wrap"><div class="pkg-price">119.99 <span class="pkg-currency">﷼</span></div><div class="pkg-old">149 ﷼</div></div>
+            <button class="pkg-btn">اطلب الآن</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- بكجات التفاعل - انستقرام -->
+    <div id="eng-instagram" class="pkg-grid" style="display:none">
+      <div class="pkg-card pkg-bronze" onclick="orderPkg(&quot;instagram&quot;,&quot;eng_bronze&quot;,29.99)">
+        <div class="pkg-tier">🥉 بكج التوفير</div>
+        <div class="pkg-body">
+          <div class="pkg-emoji"><svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
+          <div class="pkg-name">بكج التوفير</div>
+          <div class="pkg-platform">انستقرام — تنفيذ فوري</div>
+          <div class="pkg-items">
+            <div class="pkg-item"><div class="pkg-check">✓</div>5,000 مشاهدة ريلز</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>200 لايك</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>50 حفظ</div>
+          </div>
+          <div class="pkg-footer">
+            <div class="pkg-price-wrap"><div class="pkg-price">29.99 <span class="pkg-currency">﷼</span></div><div class="pkg-old">45 ﷼</div></div>
+            <button class="pkg-btn">اطلب الآن</button>
+          </div>
+        </div>
+      </div>
+      <div class="pkg-card pkg-gold" onclick="orderPkg(&quot;instagram&quot;,&quot;eng_gold&quot;,99.99)">
+        <div class="pkg-tier">🥇 البكج الذهبي</div>
+        <div class="pkg-body">
+          <div class="pkg-emoji"><svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></div>
           <div class="pkg-name">البكج الذهبي</div>
           <div class="pkg-platform">انستقرام — تنفيذ فوري</div>
           <div class="pkg-items">
-            <div class="pkg-item"><div class="pkg-check">✓</div>10,000 متابع عربي</div>
-            <div class="pkg-item"><div class="pkg-check">✓</div>20,000 لايك</div>
-            <div class="pkg-item"><div class="pkg-check">✓</div>100,000 مشاهدة ريلز</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>50,000 مشاهدة ريلز</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>1,000 لايك</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>500 حفظ</div>
             <div class="pkg-item"><div class="pkg-check">✓</div>15 تعليق عربي</div>
           </div>
           <div class="pkg-footer">
-            <div><div class="pkg-price">499 <span class="pkg-currency">ر.س</span></div></div>
-            <button class="pkg-btn">اطلب الآن</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Twitter Packages -->
-    <div id="pkg-twitter" class="packages-grid" style="display:none">
-      <div class="pkg-card pkg-bronze" onclick="orderPackage('twitter','bronze')">
-        <div class="pkg-badge">🥉 برونزي</div>
-        <div style="margin-top:20px">
-          <div class="pkg-icon">🐦</div>
-          <div class="pkg-name">البكج البرونزي</div>
-          <div class="pkg-platform">تويتر X — تنفيذ فوري</div>
-          <div class="pkg-items">
-            <div class="pkg-item"><div class="pkg-check">✓</div>1,000 متابع</div>
-            <div class="pkg-item"><div class="pkg-check">✓</div>500 لايك</div>
-            <div class="pkg-item"><div class="pkg-check">✓</div>200 ريتويت</div>
-            <div class="pkg-item"><div class="pkg-check">✓</div>15,000 مشاهدة</div>
-          </div>
-          <div class="pkg-footer">
-            <div><div class="pkg-price">79 <span class="pkg-currency">ر.س</span></div></div>
-            <button class="pkg-btn">اطلب الآن</button>
-          </div>
-        </div>
-      </div>
-      <div class="pkg-card pkg-gold" onclick="orderPackage('twitter','gold')">
-        <div class="pkg-badge">🥇 ذهبي</div>
-        <div style="margin-top:20px">
-          <div class="pkg-icon">🐦</div>
-          <div class="pkg-name">البكج الذهبي</div>
-          <div class="pkg-platform">تويتر X — تنفيذ فوري</div>
-          <div class="pkg-items">
-            <div class="pkg-item"><div class="pkg-check">✓</div>5,000 متابع</div>
-            <div class="pkg-item"><div class="pkg-check">✓</div>2,000 لايك</div>
-            <div class="pkg-item"><div class="pkg-check">✓</div>1,000 ريتويت</div>
-            <div class="pkg-item"><div class="pkg-check">✓</div>50,000 مشاهدة</div>
-            <div class="pkg-item"><div class="pkg-check">✓</div>30 بوك مارك</div>
-          </div>
-          <div class="pkg-footer">
-            <div><div class="pkg-price">299 <span class="pkg-currency">ر.س</span></div></div>
-            <button class="pkg-btn">اطلب الآن</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Snapchat Packages -->
-    <div id="pkg-snapchat" class="packages-grid" style="display:none">
-      <div class="pkg-card pkg-silver" onclick="orderPackage('snapchat','silver')">
-        <div class="pkg-badge">🥈 فضي</div>
-        <div style="margin-top:20px">
-          <div class="pkg-icon">👻</div>
-          <div class="pkg-name">البكج الفضي</div>
-          <div class="pkg-platform">سناب شات — تنفيذ فوري</div>
-          <div class="pkg-items">
-            <div class="pkg-item"><div class="pkg-check">✓</div>2,000 متابع</div>
-            <div class="pkg-item"><div class="pkg-check">✓</div>10,000 مشاهدة قصة</div>
-          </div>
-          <div class="pkg-footer">
-            <div><div class="pkg-price">199 <span class="pkg-currency">ر.س</span></div></div>
+            <div class="pkg-price-wrap"><div class="pkg-price">99.99 <span class="pkg-currency">﷼</span></div><div class="pkg-old">139 ﷼</div></div>
             <button class="pkg-btn">اطلب الآن</button>
           </div>
         </div>
@@ -539,597 +601,773 @@ body{font-family:'Cairo',sans-serif;background:var(--dark);color:#fff;overflow-x
     </div>
   </div>
 
-  <!-- FAQ SECTION -->
+  <!-- Features -->
+  <div class="features-section">
+    <div class="features-title">مميزاتنا</div>
+    <div class="features-grid">
+      <div class="feature-item"><div class="feature-icon-wrap">💰</div><div class="feature-name">أقل سعر</div><div class="feature-sub">تبدأ من 3.99 ﷼</div></div>
+      <div class="feature-item"><div class="feature-icon-wrap">🏆</div><div class="feature-name">ضمان كامل</div><div class="feature-sub">لجميع منتجاتنا</div></div>
+      <div class="feature-item"><div class="feature-icon-wrap">🚀</div><div class="feature-name">تنفيذ فوري</div><div class="feature-sub">وبشكل آلي</div></div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div class="sec-head"><div class="sec-title">الأسئلة الشائعة</div></div>
   <div class="faq-section">
-    <div class="faq-title">الأسئلة الشائعة</div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">لماذا تختار شامل ستور؟ <span class="faq-icon">+</span></div>
-      <div class="faq-a">نقدم أفضل الخدمات بأقل الأسعار مع ضمان كامل على جميع الطلبات وتنفيذ فوري آلي.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">كم يستغرق تسليم الخدمة؟ <span class="faq-icon">+</span></div>
-      <div class="faq-a">معظم الخدمات تبدأ فوراً خلال دقائق، والخدمات الكبيرة قد تستغرق من 1-24 ساعة حسب الكمية.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">هل أحتاج لكلمة مرور حسابي؟ <span class="faq-icon">+</span></div>
-      <div class="faq-a">لا! نحن نحتاج فقط رابط حسابك أو منشورك. لا نطلب أي بيانات خاصة.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">هل الخدمات آمنة لحسابي؟ <span class="faq-icon">+</span></div>
-      <div class="faq-a">نعم، خدماتنا آمنة ومتوافقة مع سياسات المنصات. نستخدم طرقاً طبيعية لتنمية حسابك.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">هل يوجد ضمان على الخدمة؟ <span class="faq-icon">+</span></div>
-      <div class="faq-a">نعم! جميع خدماتنا مضمونة. في حال حدوث أي مشكلة نعيد تنفيذ الطلب أو نسترجع المبلغ.</div>
-    </div>
-    <div class="faq-item" onclick="toggleFaq(this)">
-      <div class="faq-q">كيف أتواصل مع الدعم؟ <span class="faq-icon">+</span></div>
-      <div class="faq-a">يمكنك التواصل معنا عبر واتساب على مدار الساعة. اضغط على زر الواتساب في أسفل الصفحة.</div>
-    </div>
+    <div class="faq-card" onclick="toggleFaq(this)"><div class="faq-q">لماذا تختار بريميوم ستور؟ <span class="faq-icon">+</span></div><div class="faq-a">نقدم أفضل الخدمات بأقل الأسعار مع ضمان كامل وتنفيذ فوري آلي.</div></div>
+    <div class="faq-card" onclick="toggleFaq(this)"><div class="faq-q">كم يستغرق تسليم الخدمة؟ <span class="faq-icon">+</span></div><div class="faq-a">معظم الخدمات تبدأ فوراً خلال دقائق. الخدمات الكبيرة 1-24 ساعة.</div></div>
+    <div class="faq-card" onclick="toggleFaq(this)"><div class="faq-q">هل أحتاج كلمة مرور حسابي؟ <span class="faq-icon">+</span></div><div class="faq-a">لا! نحتاج فقط رابط حسابك أو منشورك. لا نطلب أي بيانات خاصة.</div></div>
+    <div class="faq-card" onclick="toggleFaq(this)"><div class="faq-q">هل الخدمات آمنة لحسابي؟ <span class="faq-icon">+</span></div><div class="faq-a">نعم، خدماتنا آمنة ومتوافقة مع سياسات المنصات.</div></div>
+    <div class="faq-card" onclick="toggleFaq(this)"><div class="faq-q">هل يوجد ضمان على الخدمة؟ <span class="faq-icon">+</span></div><div class="faq-a">نعم! جميع خدماتنا مضمونة. في حال أي مشكلة نعيد التنفيذ أو نسترجع المبلغ.</div></div>
+    <div class="faq-card" onclick="toggleFaq(this)"><div class="faq-q">كيف أتواصل مع الدعم؟ <span class="faq-icon">+</span></div><div class="faq-a">عبر واتساب على مدار الساعة. اضغط على زر الواتساب في أسفل الصفحة.</div></div>
+    <div class="faq-card" onclick="toggleFaq(this)"><div class="faq-q">كيف أعرف حالة طلبي؟ <span class="faq-icon">+</span></div><div class="faq-a">من قسم "طلباتي" في الشريط السفلي تقدر تتابع حالة جميع طلباتك.</div></div>
   </div>
 
-  <!-- REVIEWS SECTION -->
+  <!-- Reviews -->
+  <div class="sec-head"><div class="sec-title">آراء عملائنا</div><span class="sec-more">عرض الكل ←</span></div>
   <div class="reviews-section">
-    <div class="reviews-title">آراء عملائنا</div>
-    <div class="review-card">
-      <div class="review-head"><div class="review-name">محمد العمري</div><div class="review-stars">★★★★★</div></div>
-      <div class="review-text">خدمة ممتازة وسريعة جداً! طلبت متابعين انستقرام وجاءوا خلال ساعة. أنصح الجميع.</div>
-      <div class="review-service">📸 متابعين انستقرام</div>
-    </div>
-    <div class="review-card">
-      <div class="review-head"><div class="review-name">سارة الشمري</div><div class="review-stars">★★★★★</div></div>
-      <div class="review-text">تعاملت معهم أكثر من مرة والنتيجة دائماً ممتازة. أسعار منافسة وجودة عالية.</div>
-      <div class="review-service">🎵 مشاهدات تيك توك</div>
-    </div>
-    <div class="review-card">
-      <div class="review-head"><div class="review-name">فهد الدوسري</div><div class="review-stars">★★★★☆</div></div>
-      <div class="review-text">خدمة احترافية ودعم سريع. الباقة الذهبية تيك توك تستحق كل ريال.</div>
-      <div class="review-service">🎵 باقة تيك توك الذهبية</div>
-    </div>
+    <div class="review-card"><div class="review-head"><div class="review-name">محمد العمري</div><div class="review-stars">★★★★★</div></div><div class="review-text">خدمة ممتازة وسريعة! طلبت متابعين انستقرام وجاءوا خلال ساعة. أنصح الجميع.</div><div class="review-badge">📸 متابعين انستقرام</div></div>
+    <div class="review-card"><div class="review-head"><div class="review-name">سارة الشمري</div><div class="review-stars">★★★★★</div></div><div class="review-text">تعاملت معهم أكثر من مرة والنتيجة دائماً ممتازة. أسعار منافسة وجودة عالية.</div><div class="review-badge">🎵 مشاهدات تيك توك</div></div>
+    <div class="review-card"><div class="review-head"><div class="review-name">فهد الدوسري</div><div class="review-stars">★★★★☆</div></div><div class="review-text">خدمة احترافية ودعم سريع. الباقة الذهبية تيك توك تستحق كل ريال.</div><div class="review-badge">🎵 باقة تيك توك الذهبية</div></div>
   </div>
 
-  <!-- FOOTER -->
+  <!-- Footer -->
   <div class="site-footer">
-    <div class="footer-logo">شامل ستور</div>
+    <div class="footer-logo">بريميوم ستور 👑</div>
     <div class="footer-desc">وجهتك المتكاملة للتميز الرقمي الشامل</div>
-    <div class="footer-links">
-      <span class="footer-link" onclick="toggleFaq(document.querySelector('.faq-item'))">من نحن</span>
-      <span class="footer-link" onclick="openWA()">تواصل معنا</span>
-      <span class="footer-link">سياسة الخصوصية</span>
-      <span class="footer-link">الشروط والأحكام</span>
+    <div class="footer-socials">
+      <div class="footer-social" onclick="openWA()">💬</div>
+      <div class="footer-social">🎵</div>
+      <div class="footer-social">📸</div>
     </div>
-    <div class="footer-copy">© 2026 شامل ستور — جميع الحقوق محفوظة</div>
+    <div class="footer-links">
+      <span class="footer-link">من نحن</span>
+      <span class="footer-link" onclick="openWA()">تواصل معنا</span>
+      <span class="footer-link" onclick="showScreen(&quot;screen-privacy&quot;)">سياسة الخصوصية</span>
+      <span class="footer-link" onclick="showScreen(&quot;screen-terms&quot;)">الشروط والأحكام</span>
+      <span class="footer-link">لماذا نحن الأفضل؟</span>
+    </div>
+    <div class="footer-copy">© 2026 بريميوم ستور — جميع الحقوق محفوظة</div>
   </div>
 
   <nav class="bottom-nav">
-    <div class="bn-item" onclick="showCart()"><div class="bn-icon">🛒</div><div class="bn-label">عربتي</div></div>
-    <div class="bn-item" onclick="openPlatform('instagram')"><div class="bn-icon">📱</div><div class="bn-label">سوشيال</div></div>
+    <div class="bn-item" onclick="showOrders()"><div class="bn-icon">🛒</div><div class="bn-label">طلباتي</div></div>
+    <div class="bn-item"><div class="bn-icon">❤️</div><div class="bn-label">المفضلة</div></div>
     <div class="bn-wa" onclick="openWA()">💬</div>
-    <div class="bn-item" onclick="openPlatform('instagram')"><div class="bn-icon">🤖</div><div class="bn-label">AI</div></div>
+    <div class="bn-item" onclick="showSearch()"><div class="bn-icon">🔍</div><div class="bn-label">بحث</div></div>
     <div class="bn-item active"><div class="bn-icon">🏠</div><div class="bn-label">الرئيسية</div></div>
   </nav>
 </div>
 
-<!-- ===== SERVICES (Social) ===== -->
+<!-- ===== SERVICES ===== -->
 <div id="screen-services" class="screen">
-  <header class="header">
-    <button class="cart-btn" onclick="showCart()">🛒<div class="cart-count" id="cc-svc">0</div></button>
-    <div class="logo-wrap" onclick="showScreen('screen-home')"><div class="logo-name">شامل ستور</div><div class="logo-box">ش</div></div>
-  </header>
-  <div class="platform-hero" id="platform-hero">
-    <button class="ph-back" onclick="showScreen('screen-home')">← رجوع</button>
-    <div class="ph-info">
-      <div class="ph-icon" id="ph-icon">📸</div>
-      <div><div class="ph-name" id="ph-name">انستقرام</div><div class="ph-sub">اختر الخدمة المناسبة</div><div class="ph-count" id="ph-count">— خدمة</div></div>
-    </div>
+  <div class="svc-header">
+    <button class="svc-back" onclick="showScreen(&quot;screen-home&quot;)">←</button>
+    <div class="svc-title" id="svc-title">الخدمات</div>
+    <div style="width:30px"></div>
   </div>
-  <div class="api-status loading" id="api-status"><div class="api-dot"></div><span id="api-txt">جاري التحميل...</span></div>
-  <div class="filter-tabs">
-    <div class="filter-tab active" onclick="filterSvc('all',this)">الكل</div>
-    <div class="filter-tab" onclick="filterSvc('متابعين',this)">متابعين</div>
-    <div class="filter-tab" onclick="filterSvc('لايكات',this)">لايكات</div>
-    <div class="filter-tab" onclick="filterSvc('مشاهدات',this)">مشاهدات</div>
-    <div class="filter-tab" onclick="filterSvc('تعليقات',this)">تعليقات</div>
+  <div class="svc-hero" id="svc-hero" style="background:linear-gradient(135deg,#010101,#1a1a1a)">
+    <div class="svc-hero-icon" id="svc-icon">🎵</div>
+    <div><div class="svc-hero-name" id="svc-name">تيك توك</div><div class="svc-hero-count" id="svc-count">خدمات متاحة</div></div>
   </div>
-  <div class="services-list" id="services-list"></div>
+  <div class="api-bar loading" id="api-bar"><div class="api-dot"></div><span id="api-txt">جاري تحميل الخدمات...</span></div>
+  <div class="filter-row">
+    <div class="filter-btn active" onclick="filterSvc(&quot;all&quot;,this)">الكل</div>
+    <div class="filter-btn" onclick="filterSvc(&quot;Followers&quot;,this)">متابعين</div>
+    <div class="filter-btn" onclick="filterSvc(&quot;Likes&quot;,this)">لايكات</div>
+    <div class="filter-btn" onclick="filterSvc(&quot;Views&quot;,this)">مشاهدات</div>
+    <div class="filter-btn" onclick="filterSvc(&quot;Comments&quot;,this)">تعليقات</div>
+  </div>
+  <div class="svc-list" id="svc-list"></div>
   <nav class="bottom-nav">
-    <div class="bn-item" onclick="showCart()"><div class="bn-icon">🛒</div><div class="bn-label">عربتي</div></div>
-    <div class="bn-item active"><div class="bn-icon">📱</div><div class="bn-label">سوشيال</div></div>
+    <div class="bn-item" onclick="showOrders()"><div class="bn-icon">🛒</div><div class="bn-label">طلباتي</div></div>
+    <div class="bn-item"><div class="bn-icon">❤️</div><div class="bn-label">المفضلة</div></div>
     <div class="bn-wa" onclick="openWA()">💬</div>
-    <div class="bn-item"><div class="bn-icon">🤖</div><div class="bn-label">AI</div></div>
-    <div class="bn-item" onclick="showScreen('screen-home')"><div class="bn-icon">🏠</div><div class="bn-label">الرئيسية</div></div>
-  </nav>
-</div>
-
-<!-- ===== DIGITAL SERVICE DETAIL ===== -->
-<div id="screen-digital" class="screen">
-  <header class="header">
-    <button class="cart-btn" onclick="showCart()">🛒<div class="cart-count" id="cc-dig">0</div></button>
-    <div class="logo-wrap" onclick="showScreen('screen-home')"><div class="logo-name">شامل ستور</div><div class="logo-box">ش</div></div>
-  </header>
-  <div class="platform-hero" id="digital-hero" style="background:linear-gradient(135deg,#1a0547,#4a1090,#7c3aed)">
-    <button class="ph-back" onclick="showScreen('screen-home')">← رجوع</button>
-    <div class="ph-info">
-      <div class="ph-icon" id="dig-icon">🤖</div>
-      <div><div class="ph-name" id="dig-name">خدمات AI</div><div class="ph-sub" id="dig-sub">اختر الخدمة المناسبة</div></div>
-    </div>
-  </div>
-  <div style="height:14px"></div>
-  <div class="digital-detail" id="digital-detail"></div>
-  <nav class="bottom-nav">
-    <div class="bn-item" onclick="showCart()"><div class="bn-icon">🛒</div><div class="bn-label">عربتي</div></div>
-    <div class="bn-item"><div class="bn-icon">📱</div><div class="bn-label">سوشيال</div></div>
-    <div class="bn-wa" onclick="openWA()">💬</div>
-    <div class="bn-item active"><div class="bn-icon">🤖</div><div class="bn-label">رقمي</div></div>
-    <div class="bn-item" onclick="showScreen('screen-home')"><div class="bn-icon">🏠</div><div class="bn-label">الرئيسية</div></div>
+    <div class="bn-item active"><div class="bn-icon">🔍</div><div class="bn-label">بحث</div></div>
+    <div class="bn-item" onclick="showScreen(&quot;screen-home&quot;)"><div class="bn-icon">🏠</div><div class="bn-label">الرئيسية</div></div>
   </nav>
 </div>
 
 <!-- ===== ORDER ===== -->
 <div id="screen-order" class="screen">
-  <header class="header">
-    <div></div>
-    <div class="logo-wrap" onclick="showScreen('screen-home')"><div class="logo-name">شامل ستور</div><div class="logo-box">ش</div></div>
-  </header>
+  <div class="svc-header">
+    <button class="svc-back" id="order-back">←</button>
+    <div class="svc-title">تفاصيل الطلب</div>
+    <div style="width:30px"></div>
+  </div>
   <div class="order-wrap">
-    <button class="order-back" id="order-back-btn">← رجوع</button>
-    <div class="order-title">تفاصيل الطلب</div>
     <div class="order-card">
-      <div class="order-card-title">📦 الخدمة</div>
+      <div class="order-card-title">📦 الخدمة المختارة</div>
       <div style="display:flex;justify-content:space-between;align-items:center">
-        <div><div style="font-weight:700;font-size:14px" id="ord-name">—</div><div style="font-size:11px;color:var(--muted);margin-top:3px" id="ord-cat">—</div></div>
-        <div style="text-align:left"><div style="font-size:10px;color:var(--muted)" id="ord-price-lbl">السعر</div><div style="font-family:'Tajawal',sans-serif;font-size:17px;font-weight:900;color:var(--gold)" id="ord-price">—</div></div>
+        <div><div style="font-weight:700;font-size:14px;color:#1a1a2e" id="ord-name">—</div><div style="font-size:11px;color:var(--muted);margin-top:3px" id="ord-cat">—</div></div>
+        <div style="text-align:left"><div style="font-size:10px;color:var(--muted)" id="ord-price-lbl">السعر/1000</div><div style="font-family:'Tajawal',sans-serif;font-size:18px;font-weight:900;color:var(--primary)" id="ord-price">—</div></div>
       </div>
     </div>
-
-    <!-- Social order fields -->
-    <div id="social-fields">
-      <div class="order-card">
-        <div class="order-card-title">🔗 تفاصيل</div>
-        <div class="form-group">
-          <label class="form-label">رابط الحساب أو المنشور</label>
-          <input class="form-input" id="ord-link" type="url" placeholder="https://www.instagram.com/yourprofile"/>
-        </div>
-        <div class="form-group">
-          <label class="form-label">الكمية</label>
-          <div class="qty-row">
-            <button class="qty-btn" onclick="changeQty(-100)">−</button>
-            <div class="qty-val" id="qty-disp">1000</div>
-            <button class="qty-btn" onclick="changeQty(100)">+</button>
-            <div class="qty-total-lbl" id="qty-lbl">= $0.00</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Digital order fields -->
-    <div id="digital-fields" style="display:none">
-      <div class="order-card">
-        <div class="order-card-title">📝 تفاصيل الطلب</div>
-        <div class="form-group">
-          <label class="form-label">اسمك أو اسم المشروع</label>
-          <input class="form-input" id="dig-name-input" placeholder="مثال: متجر الشامل"/>
-        </div>
-        <div class="form-group">
-          <label class="form-label">تفاصيل ما تريده</label>
-          <textarea class="form-textarea" id="dig-details" placeholder="اشرح بالتفصيل ما تحتاجه..."></textarea>
-        </div>
-        <div class="form-group">
-          <label class="form-label">واتساب للتواصل</label>
-          <input class="form-input" id="dig-wa" placeholder="+966XXXXXXXXX" type="tel"/>
-        </div>
-      </div>
-    </div>
-
     <div class="order-card">
-      <div class="order-card-title">🧾 الملخص</div>
-      <div class="summary-row"><div class="summary-label" id="sum-qty-lbl">الكمية</div><div class="summary-val" id="sum-qty">—</div></div>
-      <div class="summary-row"><div class="summary-label">السعر</div><div class="summary-val" id="sum-rate">—</div></div>
-      <div class="summary-row summary-total"><div class="summary-label">الإجمالي</div><div class="summary-val" id="sum-total">—</div></div>
+      <div class="order-card-title">🔗 تفاصيل الطلب</div>
+      <div class="form-group"><label class="form-label">رابط الحساب أو المنشور</label><input class="form-input" id="ord-link" type="url" placeholder="ضع رابط حسابك أو منشورك هنا"/></div>
+      <div id="qty-section"><div class="form-group"><label class="form-label">الكمية</label>
+        <div class="qty-row">
+          <button class="qty-btn" onclick="changeQty(-100)">−</button>
+          <div class="qty-val" id="qty-disp">1000</div>
+          <button class="qty-btn" onclick="changeQty(100)">+</button>
+          <div class="qty-lbl" id="qty-lbl">= $0.00</div>
+        </div>
+      </div></div>
+      <div id="pkg-summary" style="display:none"></div>
     </div>
-
+    <div class="order-card">
+      <div class="order-card-title">🧾 ملخص الطلب</div>
+      <div class="sum-row"><div class="sum-lbl">الكمية</div><div class="sum-val" id="sum-qty">—</div></div>
+      <div class="sum-row"><div class="sum-lbl">السعر/1000</div><div class="sum-val" id="sum-rate">—</div></div>
+      <div class="sum-row sum-total"><div class="sum-lbl">الإجمالي</div><div class="sum-val" id="sum-total">—</div></div>
+    </div>
     <div class="order-card">
       <div class="order-card-title">💳 طريقة الدفع</div>
-      <div class="payment-option selected" onclick="selectPay(this,'usdt')">
-        <div class="payment-radio"><div class="payment-radio-dot"></div></div>
-        <div class="payment-icon">🪙</div>
-        <div><div class="payment-name">USDT (TRC20)</div><div class="payment-sub">دفع فوري بدون حدود</div></div>
-        <div class="payment-rec">موصى به</div>
+      <div class="pay-option selected" onclick="selectPay(this,&quot;usdt&quot;)">
+        <div class="pay-radio"><div class="pay-dot"></div></div>
+        <div style="font-size:20px">🪙</div>
+        <div><div class="pay-name">USDT (TRC20)</div><div class="pay-sub">دفع رقمي فوري</div></div>
+        <div class="pay-rec">موصى به</div>
       </div>
       <div id="usdt-box" class="usdt-box">
-        <div style="font-size:12px;color:var(--muted)">أرسل المبلغ لهذا العنوان:</div>
-        <div class="usdt-address" onclick="copyAddress()" id="usdt-addr">YOUR_USDT_WALLET_ADDRESS_HERE</div>
-        <div style="font-size:11px;color:var(--muted)">⚠️ شبكة TRC20 فقط | بعد الدفع أرسل صورة التحويل على واتساب</div>
-        <button class="usdt-copy-btn" onclick="copyAddress()">📋 نسخ العنوان</button>
+        <div style="font-size:12px;color:#666">أرسل المبلغ لهذا العنوان:</div>
+        <div class="usdt-addr" onclick="copyAddr()" id="usdt-addr">YOUR_USDT_WALLET_ADDRESS</div>
+        <div style="font-size:11px;color:#999">⚠️ شبكة TRC20 فقط — أرسل إيصال على واتساب بعد الدفع</div>
+        <button class="usdt-copy" onclick="copyAddr()">📋 نسخ العنوان</button>
       </div>
-      <div class="payment-option" onclick="selectPay(this,'paypal')">
-        <div class="payment-radio"><div class="payment-radio-dot"></div></div>
-        <div class="payment-icon">🅿️</div>
-        <div><div class="payment-name">PayPal</div><div class="payment-sub">آمن وسريع</div></div>
+      <div class="pay-option" onclick="selectPay(this,&quot;wa&quot;)">
+        <div class="pay-radio"><div class="pay-dot"></div></div>
+        <div style="font-size:20px">💬</div>
+        <div><div class="pay-name">واتساب</div><div class="pay-sub">تواصل مباشر للدفع</div></div>
       </div>
-      <div class="payment-error" id="pay-error"></div>
+      <div class="pay-error" id="pay-error"></div>
     </div>
-
-    <button class="place-order-btn" id="place-btn" onclick="placeOrder()">✅ تأكيد الطلب</button>
+    <button class="place-btn" id="place-btn" onclick="placeOrder()">✅ تأكيد الطلب والدفع</button>
   </div>
 </div>
 
 <!-- ===== SUCCESS ===== -->
 <div id="screen-success" class="screen">
-  <header class="header"><div></div><div class="logo-wrap" onclick="showScreen('screen-home')"><div class="logo-name">شامل ستور</div><div class="logo-box">ش</div></div></header>
+  <div class="svc-header"><button class="svc-back" onclick="showScreen(&quot;screen-home&quot;)">←</button><div class="svc-title">تم الطلب</div><div style="width:30px"></div></div>
   <div class="success-wrap fade-up">
     <div class="success-icon">✅</div>
     <div class="success-title">تم استلام طلبك!</div>
-    <div class="success-sub" id="suc-sub">بعد تأكيد الدفع سيتم تنفيذ طلبك فوراً.<br>تواصل معنا على واتساب لتأكيد التحويل.</div>
+    <div class="success-sub" id="suc-sub">أرسل إيصال الدفع على واتساب لتأكيد الطلب وتنفيذه فوراً.</div>
     <div class="order-id-box"><div class="order-id-lbl">رقم الطلب</div><div class="order-id-val" id="suc-id">#SH-000000</div></div>
-    <button class="btn-primary" onclick="openWA()" style="width:100%;margin-bottom:10px">💬 أرسل إيصال الدفع</button>
-    <button class="btn-outline" onclick="showScreen('screen-home')">العودة للرئيسية</button>
+    <button class="btn-primary" onclick="openWA()">💬 أرسل إيصال الدفع</button>
+    <button class="btn-outline" onclick="showScreen(&quot;screen-home&quot;)" style="margin-top:10px">العودة للرئيسية</button>
   </div>
 </div>
 
 <script>
-// ============================================================
-// CONFIG
-// ============================================================
 const CFG = {
-  whatsapp: '966537387647',
-  usdtAddress: 'YOUR_USDT_WALLET_ADDRESS_HERE', // ← ضع عنوان محفظتك هنا
-  markup: 30,
+  whatsapp: 'YOUR_WHATSAPP_NUMBER',
+  usdtAddress: 'YOUR_USDT_WALLET_ADDRESS',
+  markup: 50,
 };
 
-// ============================================================
-// DEMO DATA
-// ============================================================
-const SOCIAL_DATA = {
-  instagram:[
-    {id:1,name:'متابعين عرب حقيقيون',type:'متابعين',rate:1.20,min:100,max:50000,speed:'سريع',quality:'عالية'},
-    {id:2,name:'متابعين عالميون مع ضمان',type:'متابعين',rate:0.80,min:100,max:100000,speed:'فوري',quality:'عادية'},
-    {id:3,name:'لايكات عرب حقيقيون',type:'لايكات',rate:0.50,min:50,max:20000,speed:'فوري',quality:'عالية'},
-    {id:4,name:'لايكات عالميون',type:'لايكات',rate:0.20,min:50,max:50000,speed:'فوري',quality:'عادية'},
-    {id:5,name:'مشاهدات ريلز',type:'مشاهدات',rate:0.15,min:1000,max:1000000,speed:'فوري',quality:'عالية'},
-    {id:6,name:'تعليقات عشوائية',type:'تعليقات',rate:3.00,min:10,max:500,speed:'بطيء',quality:'عالية'},
-  ],
+const DEMO = {
   tiktok:[
-    {id:7,name:'متابعين تيك توك عرب',type:'متابعين',rate:1.50,min:100,max:50000,speed:'سريع',quality:'عالية'},
-    {id:8,name:'لايكات تيك توك',type:'لايكات',rate:0.30,min:100,max:100000,speed:'فوري',quality:'عالية'},
-    {id:9,name:'مشاهدات فيديو',type:'مشاهدات',rate:0.05,min:1000,max:10000000,speed:'فوري',quality:'عادية'},
+    {id:7,name:'متابعين تيك توك عرب حقيقيون',type:'Followers',rate:1.50,min:100,max:50000},
+    {id:8,name:'لايكات تيك توك عالية الجودة',type:'Likes',rate:0.30,min:100,max:100000},
+    {id:9,name:'مشاهدات فيديو تيك توك',type:'Views',rate:0.05,min:1000,max:10000000},
+    {id:10,name:'تعليقات تيك توك عربية',type:'Comments',rate:3.00,min:10,max:500},
   ],
-  snapchat:[
-    {id:10,name:'متابعين سناب',type:'متابعين',rate:2.00,min:100,max:10000,speed:'سريع',quality:'عالية'},
-    {id:11,name:'مشاهدات قصة',type:'مشاهدات',rate:0.20,min:500,max:100000,speed:'فوري',quality:'عادية'},
+  instagram:[
+    {id:1,name:'متابعين انستقرام عرب حقيقيون',type:'Followers',rate:1.20,min:100,max:50000},
+    {id:2,name:'متابعين انستقرام عالميون',type:'Followers',rate:0.80,min:100,max:100000},
+    {id:3,name:'لايكات انستقرام عرب',type:'Likes',rate:0.50,min:50,max:20000},
+    {id:4,name:'مشاهدات ريلز انستقرام',type:'Views',rate:0.15,min:1000,max:1000000},
   ],
   twitter:[
-    {id:12,name:'متابعين تويتر عرب',type:'متابعين',rate:1.80,min:100,max:50000,speed:'سريع',quality:'عالية'},
-    {id:13,name:'لايكات تويتر',type:'لايكات',rate:0.40,min:50,max:50000,speed:'فوري',quality:'عادية'},
+    {id:12,name:'متابعين تويتر عرب',type:'Followers',rate:1.80,min:100,max:50000},
+    {id:13,name:'لايكات تويتر',type:'Likes',rate:0.40,min:50,max:50000},
+    {id:14,name:'ريتويت تويتر',type:'Views',rate:0.80,min:50,max:10000},
+  ],
+  snapchat:[
+    {id:15,name:'متابعين سناب شات',type:'Followers',rate:2.00,min:100,max:10000},
+    {id:16,name:'مشاهدات قصة سناب',type:'Views',rate:0.20,min:500,max:100000},
   ],
   facebook:[
-    {id:15,name:'لايكات صفحة فيسبوك',type:'لايكات',rate:1.50,min:100,max:50000,speed:'سريع',quality:'عالية'},
-    {id:16,name:'متابعين صفحة',type:'متابعين',rate:1.20,min:100,max:50000,speed:'سريع',quality:'عالية'},
+    {id:17,name:'لايكات صفحة فيسبوك',type:'Likes',rate:1.50,min:100,max:50000},
+    {id:18,name:'متابعين صفحة فيسبوك',type:'Followers',rate:1.20,min:100,max:50000},
   ],
   youtube:[
-    {id:18,name:'مشاهدات يوتيوب',type:'مشاهدات',rate:2.00,min:500,max:1000000,speed:'بطيء',quality:'عالية'},
-    {id:19,name:'مشتركين',type:'متابعين',rate:3.50,min:50,max:5000,speed:'بطيء',quality:'عالية'},
+    {id:19,name:'مشاهدات يوتيوب حقيقية',type:'Views',rate:2.00,min:500,max:1000000},
+    {id:20,name:'مشتركين يوتيوب',type:'Followers',rate:3.50,min:50,max:5000},
   ],
-};
-
-const DIGITAL_DATA = {
-  'ai-content': {icon:'✍️',name:'كتابة محتوى AI',cat:'خدمات AI',bg:'linear-gradient(135deg,#1a0547,#4a1090)',services:[
-    {id:'ai1',name:'كتابة 10 بوستات سوشيال ميديا',buy:2,sell:15,desc:'بوستات احترافية بالذكاء الاصطناعي لمنصاتك'},
-    {id:'ai2',name:'سكريبت فيديو تيك توك (60 ثانية)',buy:1,sell:10,desc:'سكريبت جذاب ومحكم لفيديو تيك توك'},
-    {id:'ai3',name:'مقال SEO (1000 كلمة)',buy:3,sell:25,desc:'مقال متوافق مع محركات البحث'},
-  ]},
-  'ai-images': {icon:'🖼️',name:'صور AI',cat:'خدمات AI',bg:'linear-gradient(135deg,#1a0547,#4a1090)',services:[
-    {id:'ai4',name:'5 صور Midjourney احترافية',buy:5,sell:30,desc:'صور عالية الجودة لمنتجاتك أو علامتك'},
-    {id:'ai5',name:'10 صور لمنتج',buy:8,sell:50,desc:'صور منتج احترافية جاهزة للمتجر'},
-  ]},
-  'ai-prompts': {icon:'💬',name:'Prompts احترافية',cat:'خدمات AI',bg:'linear-gradient(135deg,#1a0547,#4a1090)',services:[
-    {id:'ai6',name:'حزمة 20 Prompt للتسويق',buy:1,sell:15,desc:'prompts جاهزة لإنشاء محتوى تسويقي'},
-    {id:'ai7',name:'Prompt مخصص لنشاطك',buy:2,sell:20,desc:'prompt مخصص حسب طلبك'},
-  ]},
-  'ai-voice': {icon:'🎙️',name:'تحويل نص لصوت',cat:'خدمات AI',bg:'linear-gradient(135deg,#1a0547,#4a1090)',services:[
-    {id:'ai8',name:'تحويل نص عربي لصوت (دقيقة)',buy:1,sell:8,desc:'صوت عربي احترافي طبيعي'},
-  ]},
-  'design-logo': {icon:'🏷️',name:'تصميم لوغو',cat:'تصاميم',bg:'linear-gradient(135deg,#0f4c81,#1565c0)',services:[
-    {id:'d1',name:'لوغو احترافي بسيط',buy:10,sell:50,desc:'لوغو بملفات PNG+SVG+PDF'},
-    {id:'d2',name:'لوغو مع هوية بصرية',buy:25,sell:120,desc:'لوغو + بطاقة عمل + ورق رسمي'},
-  ]},
-  'design-social': {icon:'📱',name:'قوالب سوشيال',cat:'تصاميم',bg:'linear-gradient(135deg,#0f4c81,#1565c0)',services:[
-    {id:'d3',name:'10 قوالب Canva انستقرام',buy:5,sell:30,desc:'قوالب جاهزة قابلة للتعديل'},
-    {id:'d4',name:'30 قالب شهري',buy:12,sell:80,desc:'مكتبة كاملة لشهر كامل'},
-  ]},
-  'design-identity': {icon:'🎯',name:'هوية بصرية',cat:'تصاميم',bg:'linear-gradient(135deg,#0f4c81,#1565c0)',services:[
-    {id:'d5',name:'هوية بصرية كاملة',buy:30,sell:150,desc:'لوغو+ألوان+خطوط+أنماط'},
-  ]},
-  'design-banner': {icon:'🖼️',name:'بانرات',cat:'تصاميم',bg:'linear-gradient(135deg,#0f4c81,#1565c0)',services:[
-    {id:'d6',name:'بانر إعلاني (5 أحجام)',buy:5,sell:25,desc:'بانرات لجميع منصات الإعلان'},
-  ]},
-  'video-reels': {icon:'🎞️',name:'مونتاج ريلز',cat:'فيديو',bg:'linear-gradient(135deg,#7f0000,#c62828)',services:[
-    {id:'v1',name:'مونتاج ريلز 30 ثانية',buy:5,sell:35,desc:'مونتاج احترافي مع موسيقى وتأثيرات'},
-    {id:'v2',name:'مونتاج تيك توك 60 ثانية',buy:8,sell:50,desc:'ريلز جاهز للنشر'},
-  ]},
-  'video-ads': {icon:'📺',name:'فيديو إعلاني',cat:'فيديو',bg:'linear-gradient(135deg,#7f0000,#c62828)',services:[
-    {id:'v3',name:'فيديو إعلاني 30 ثانية',buy:15,sell:80,desc:'فيديو إعلاني احترافي لمنتجك'},
-  ]},
-  'video-intro': {icon:'🎬',name:'إنترو',cat:'فيديو',bg:'linear-gradient(135deg,#7f0000,#c62828)',services:[
-    {id:'v4',name:'إنترو قناة يوتيوب',buy:8,sell:40,desc:'إنترو احترافي 5-10 ثوانٍ'},
-  ]},
-  'video-subtitle': {icon:'💬',name:'ترجمة فيديو',cat:'فيديو',bg:'linear-gradient(135deg,#7f0000,#c62828)',services:[
-    {id:'v5',name:'ترجمة فيديو (دقيقتين)',buy:3,sell:15,desc:'ترجمة دقيقة عربي/إنجليزي'},
-  ]},
-  'acc-whatsapp': {icon:'📱',name:'أرقام واتساب',cat:'حسابات',bg:'linear-gradient(135deg,#014d40,#00695c)',services:[
-    {id:'a1',name:'رقم واتساب أمريكي',buy:2,sell:15,desc:'رقم جاهز للتفعيل فوراً'},
-    {id:'a2',name:'5 أرقام واتساب',buy:8,sell:60,desc:'حزمة 5 أرقام بسعر مخفض'},
-  ]},
-  'acc-chatgpt': {icon:'🤖',name:'ChatGPT Plus',cat:'حسابات',bg:'linear-gradient(135deg,#014d40,#00695c)',services:[
-    {id:'a3',name:'حساب ChatGPT Plus شهر',buy:15,sell:50,desc:'حساب مفعل GPT-4 جاهز'},
-  ]},
-  'acc-netflix': {icon:'🎬',name:'نتفليكس',cat:'حسابات',bg:'linear-gradient(135deg,#014d40,#00695c)',services:[
-    {id:'a4',name:'اشتراك نتفليكس شهر',buy:8,sell:25,desc:'حساب 4K جاهز للاستخدام'},
-  ]},
-  'acc-spotify': {icon:'🎵',name:'سبوتيفاي',cat:'حسابات',bg:'linear-gradient(135deg,#014d40,#00695c)',services:[
-    {id:'a5',name:'سبوتيفاي بريميوم شهر',buy:4,sell:15,desc:'حساب بريميوم جاهز'},
-  ]},
+  telegram:[
+    {id:21,name:'أعضاء قناة تليجرام',type:'Followers',rate:1.00,min:100,max:50000},
+    {id:22,name:'مشاهدات منشور تليجرام',type:'Views',rate:0.10,min:100,max:100000},
+  ],
+  google:[
+    {id:23,name:'تقييمات قوقل ماب 5 نجوم',type:'Reviews',rate:5.00,min:5,max:500},
+    {id:24,name:'متابعين قوقل بيزنس',type:'Followers',rate:2.00,min:50,max:5000},
+  ],
 };
 
 const PI = {
-  instagram:{name:'انستقرام',icon:'📸',bg:'linear-gradient(135deg,#8b2fc9,#5851db,#c13584)'},
-  tiktok:{name:'تيك توك',icon:'🎵',bg:'linear-gradient(135deg,#010101,#1a1a1a,#ff0050 130%)'},
+  tiktok:{name:'تيك توك',icon:'🎵',bg:'linear-gradient(135deg,#010101,#1a1a1a,#2d0010)'},
+  instagram:{name:'انستقرام',icon:'📸',bg:'linear-gradient(135deg,#405de6,#833ab4,#c13584)'},
+  twitter:{name:'تويتر X',icon:'🐦',bg:'linear-gradient(135deg,#1565c0,#1da1f2)'},
   snapchat:{name:'سناب شات',icon:'👻',bg:'linear-gradient(135deg,#d4a017,#ffcc00)'},
-  twitter:{name:'تويتر / X',icon:'🐦',bg:'linear-gradient(135deg,#1565c0,#1da1f2)'},
   facebook:{name:'فيسبوك',icon:'📘',bg:'linear-gradient(135deg,#1877f2,#4267b2)'},
   youtube:{name:'يوتيوب',icon:'▶️',bg:'linear-gradient(135deg,#c62828,#ff0000)'},
+  telegram:{name:'تليجرام',icon:'✈️',bg:'linear-gradient(135deg,#0088cc,#00b0f0)'},
+  google:{name:'قوقل ماب',icon:'🗺️',bg:'linear-gradient(135deg,#34a853,#4285f4)'},
 };
 
-// STATE
-let platform=null, service=null, qty=1000, payMethod='usdt', cart=[], allSvc=[], orderType='social';
+let platform=null, service=null, qty=1000, payMethod='usdt', allSvc=[], myOrders=[];
 
-// ============================================================
-// NAVIGATION
-// ============================================================
 function showScreen(id){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
   window.scrollTo(0,0);
 }
-function showCart(){ if(!cart.length){alert('عربتك فارغة!');return;} openOrder(cart[cart.length-1]); }
-function scrollToCategories(){ document.getElementById('cats-anchor').scrollIntoView({behavior:'smooth'}); }
 
-// ============================================================
-// MAIN TAB SWITCH
-// ============================================================
-function switchMainTab(tab, btn){
-  ['social','ai','design','video','accounts'].forEach(t=>{
-    const el=document.getElementById('tab-'+t);
-    if(el) el.style.display = t===tab ? 'block' : 'none';
-  });
-  if(btn){
-    document.querySelectorAll('.main-tab').forEach(t=>t.classList.remove('active'));
-    btn.classList.add('active');
-  }
-  if(tab!=='social') showScreen('screen-home');
-}
-
-// ============================================================
-// SOCIAL PLATFORM
-// ============================================================
 function openPlatform(p){
   platform=p;
   const info=PI[p];
-  document.getElementById('ph-icon').textContent=info.icon;
-  document.getElementById('ph-name').textContent=info.name;
-  document.getElementById('platform-hero').style.background=info.bg;
+  document.getElementById('svc-title').textContent='خدمات '+info.name;
+  document.getElementById('svc-icon').textContent=info.icon;
+  document.getElementById('svc-name').textContent=info.name;
+  document.getElementById('svc-hero').style.background=info.bg;
   showScreen('screen-services');
-  loadServices(p);
+  loadSvc(p);
 }
 
-async function loadServices(p){
-  const st=document.getElementById('api-status'),tx=document.getElementById('api-txt'),li=document.getElementById('services-list');
-  st.className='api-status loading'; tx.textContent='جاري التحميل...';
-  li.innerHTML='<div class="skeleton" style="height:110px;margin-bottom:10px"></div>'.repeat(3);
-  await new Promise(r=>setTimeout(r,800));
-  allSvc=(SOCIAL_DATA[p]||[]).map(s=>({...s,rate:+(s.rate*(1+CFG.markup/100)).toFixed(4)}));
-  st.className='api-status loaded'; tx.textContent=`✓ تم تحميل ${allSvc.length} خدمة`;
-  document.getElementById('ph-count').textContent=`${allSvc.length} خدمة متاحة`;
+async function loadSvc(p){
+  const bar=document.getElementById('api-bar'),txt=document.getElementById('api-txt'),list=document.getElementById('svc-list');
+  bar.className='api-bar loading'; txt.textContent='جاري تحميل الخدمات من المورد...';
+  list.innerHTML='<div class="skeleton" style="height:110px;margin-bottom:10px;border-radius:14px"></div>'.repeat(3);
+
+  try {
+    // جلب الخدمات من Peakerr API
+    const r = await fetch('/api/services');
+    const data = await r.json();
+    if(data.success && data.platforms[p] && data.platforms[p].length > 0) {
+      // فلتر ذكي — أفضل 5 خدمات لكل نوع
+      const raw = data.platforms[p];
+      allSvc = smartFilter(raw, p).map(s=>({...s, sellRate:+(s.rate*(1+CFG.markup/100)).toFixed(4)}));
+      bar.className='api-bar loaded'; txt.textContent=`✓ تم تحميل ${allSvc.length} خدمة مختارة`;
+    } else {
+      throw new Error('no data');
+    }
+  } catch(e) {
+    // بيانات احتياطية
+    allSvc=(DEMO[p]||[]).map(s=>({...s,sellRate:+(s.rate*(1+CFG.markup/100)).toFixed(4)}));
+    bar.className='api-bar loaded'; txt.textContent=`✓ ${allSvc.length} خدمة متاحة`;
+  }
+
+  document.getElementById('svc-count').textContent=`${allSvc.length} خدمة متاحة`;
   renderSvc(allSvc);
 }
 
+// فلتر ذكي — يختار أفضل 5 خدمات لكل نوع
+function smartFilter(services, platform) {
+  const types = ['Followers','Likes','Views','Comments'];
+  const result = [];
+
+  // كلمات تدل على جودة عالية
+  const goodWords = ['real','hq','high quality','arab','عرب','حقيقي','authentic','organic'];
+  // كلمات نتجنبها
+  const badWords = ['bot','fake','drop','test'];
+
+  for(const type of types) {
+    let filtered = services.filter(s => {
+      const name = s.name.toLowerCase();
+      // تجنب الخدمات الرديئة
+      if(badWords.some(w => name.includes(w))) return false;
+      // تصفية حسب النوع
+      if(type === 'Followers') return name.includes('follow') || name.includes('متابع');
+      if(type === 'Likes') return name.includes('like') || name.includes('إعجاب') || name.includes('لايك');
+      if(type === 'Views') return name.includes('view') || name.includes('مشاهد');
+      if(type === 'Comments') return name.includes('comment') || name.includes('تعليق');
+      return false;
+    });
+
+    // رتّب: الأفضل جودة أولاً (Real/HQ) ثم الأرخص
+    filtered.sort((a,b) => {
+      const aGood = goodWords.some(w => a.name.toLowerCase().includes(w)) ? 0 : 1;
+      const bGood = goodWords.some(w => b.name.toLowerCase().includes(w)) ? 0 : 1;
+      if(aGood !== bGood) return aGood - bGood;
+      return parseFloat(a.rate) - parseFloat(b.rate);
+    });
+
+    // خذ أفضل 3 فقط من كل نوع
+    result.push(...filtered.slice(0,3).map(s=>({...s, type})));
+  }
+
+  return result.length > 0 ? result : services.slice(0,9);
+}
+
 function renderSvc(list){
-  const li=document.getElementById('services-list');
-  if(!list.length){li.innerHTML='<div style="text-align:center;color:var(--muted);padding:30px">لا توجد خدمات</div>';return;}
-  li.innerHTML=list.map(s=>`
-    <div class="service-card fade-up" onclick='openSocialOrder(${JSON.stringify(s)})'>
-      <div class="sc-head"><div class="sc-name">${s.name}</div><div class="sc-badge ${s.speed==='بطيء'?'slow':''}">${s.speed}</div></div>
-      <div class="sc-details">
-        <div><div class="sc-detail-val">${s.min.toLocaleString()}</div><div class="sc-detail-lbl">أدنى</div></div>
-        <div><div class="sc-detail-val">${(s.max/1000).toFixed(0)}K</div><div class="sc-detail-lbl">أقصى</div></div>
-        <div><div class="sc-detail-val">${s.quality}</div><div class="sc-detail-lbl">الجودة</div></div>
+  const el=document.getElementById('svc-list');
+  if(!list.length){el.innerHTML='<div style="text-align:center;color:var(--muted);padding:30px">لا توجد خدمات</div>';return;}
+  el.innerHTML=list.map(s=>`
+    <div class="svc-card fade-up" onclick='openOrder(${JSON.stringify(s)})'>
+      <div class="svc-card-head"><div class="svc-name">${s.name}</div><div class="svc-type">${s.type}</div></div>
+      <div class="svc-details">
+        <div><div class="svc-detail-val">${s.min.toLocaleString()}</div><div class="svc-detail-lbl">أدنى</div></div>
+        <div><div class="svc-detail-val">${(s.max/1000).toFixed(0)}K</div><div class="svc-detail-lbl">أقصى</div></div>
+        <div><div class="svc-detail-val">#${s.id}</div><div class="svc-detail-lbl">ID</div></div>
       </div>
-      <div class="sc-price-row">
-        <div><div class="sc-price">$${s.rate.toFixed(3)}</div><div class="sc-per">لكل 1000</div></div>
-        <button class="btn-add">اطلب →</button>
+      <div class="svc-footer">
+        <div><div class="svc-price">$${s.sellRate.toFixed(3)}</div><div class="svc-per">لكل 1000</div></div>
+        <button class="svc-btn">اطلب الآن</button>
       </div>
     </div>`).join('');
 }
 
 function filterSvc(type,btn){
-  document.querySelectorAll('.filter-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   renderSvc(type==='all'?allSvc:allSvc.filter(s=>s.type===type));
 }
 
-// ============================================================
-// DIGITAL SERVICE
-// ============================================================
-function openDigital(key){
-  const data=DIGITAL_DATA[key];
-  if(!data) return;
-  document.getElementById('dig-icon').textContent=data.icon;
-  document.getElementById('dig-name').textContent=data.name;
-  document.getElementById('dig-sub').textContent=data.cat;
-  document.getElementById('digital-hero').style.background=data.bg;
-  document.getElementById('digital-detail').innerHTML=data.services.map(s=>`
-    <div class="dd-card fade-up" onclick='openDigitalOrder(${JSON.stringify({...s,cat:data.cat,icon:data.icon})})'>
-      <div class="dd-head">
-        <div class="dd-name">${s.name}</div>
-        <div class="dd-profit-badge">ربح ${Math.round((s.sell-s.buy)/s.buy*100)}%</div>
-      </div>
-      <div class="dd-desc">${s.desc}</div>
-      <div class="dd-price-row">
-        <div>
-          <div class="dd-buy">تكلفتك: <span>$${s.buy}</span></div>
-          <div style="font-size:10px;color:var(--muted)">سعر البيع</div>
-          <div class="dd-sell">$${s.sell}</div>
-        </div>
-        <button class="btn-order">اطلب الآن →</button>
-      </div>
-    </div>`).join('');
-  showScreen('screen-digital');
-}
-
-// ============================================================
-// ORDER
-// ============================================================
-function openSocialOrder(svc){
-  orderType='social';
+function openOrder(svc){
   service=typeof svc==='string'?JSON.parse(svc):svc;
   qty=service.min||1000;
   const info=PI[platform]||{};
   document.getElementById('ord-name').textContent=service.name;
   document.getElementById('ord-cat').textContent=info.name||'';
-  document.getElementById('ord-price-lbl').textContent='السعر / 1000';
-  document.getElementById('ord-price').textContent=`$${service.rate.toFixed(3)}`;
-  document.getElementById('social-fields').style.display='block';
-  document.getElementById('digital-fields').style.display='none';
-  document.getElementById('order-back-btn').onclick=()=>showScreen('screen-services');
-  updateSummary();
+  orderType = 'service';
+  document.getElementById('qty-section').style.display='block';
+  document.getElementById('pkg-summary').style.display='none';
+  if(document.getElementById('ord-price-lbl')) document.getElementById('ord-price-lbl').textContent='السعر/1000';
+  // تغيير placeholder حسب المنصة
+  const placeholders = {
+    tiktok: 'https://www.tiktok.com/@username',
+    instagram: 'https://www.instagram.com/username',
+    twitter: 'https://www.twitter.com/username',
+    snapchat: 'اسم المستخدم فقط',
+    facebook: 'https://www.facebook.com/username',
+    youtube: 'https://www.youtube.com/channel/...',
+    telegram: 'https://t.me/username',
+    google: 'رابط صفحة قوقل بيزنس',
+  };
+  const linkInput = document.getElementById('ord-link');
+  if(linkInput) linkInput.placeholder = placeholders[platform] || 'ضع رابط حسابك هنا';
+  document.getElementById('ord-price').textContent=`$${service.sellRate.toFixed(3)}`;
+  document.getElementById('order-back').onclick=()=>showScreen('screen-services');
+  updateSum();
   showScreen('screen-order');
 }
 
-function openDigitalOrder(svc){
-  orderType='digital';
-  service=typeof svc==='string'?JSON.parse(svc):svc;
-  document.getElementById('ord-name').textContent=service.name;
-  document.getElementById('ord-cat').textContent=service.cat||'خدمة رقمية';
-  document.getElementById('ord-price-lbl').textContent='سعر البيع';
-  document.getElementById('ord-price').textContent=`$${service.sell}`;
-  document.getElementById('social-fields').style.display='none';
-  document.getElementById('digital-fields').style.display='block';
-  document.getElementById('sum-qty-lbl').textContent='النوع';
-  document.getElementById('sum-qty').textContent=service.name;
-  document.getElementById('sum-rate').textContent=`$${service.sell}`;
-  document.getElementById('sum-total').textContent=`$${service.sell}`;
-  document.getElementById('order-back-btn').onclick=()=>showScreen('screen-digital');
-  showScreen('screen-order');
-}
+function changeQty(d){qty=Math.min(service.max,Math.max(service.min,qty+d));updateSum();}
 
-function changeQty(d){
-  if(orderType!=='social') return;
-  qty=Math.min(service.max,Math.max(service.min,qty+d));
-  updateSummary();
-}
-
-function updateSummary(){
-  if(orderType!=='social') return;
-  const total=+((qty/1000)*service.rate).toFixed(3);
+function updateSum(){
+  const total=+((qty/1000)*service.sellRate).toFixed(3);
   document.getElementById('qty-disp').textContent=qty.toLocaleString();
   document.getElementById('qty-lbl').textContent=`= $${total}`;
-  document.getElementById('sum-qty-lbl').textContent='الكمية';
   document.getElementById('sum-qty').textContent=qty.toLocaleString();
-  document.getElementById('sum-rate').textContent=`$${service.rate.toFixed(3)}`;
+  document.getElementById('sum-rate').textContent=`$${service.sellRate.toFixed(3)}`;
   document.getElementById('sum-total').textContent=`$${total}`;
 }
 
-function getTotal(){ return orderType==='social' ? +((qty/1000)*service.rate).toFixed(3) : service.sell; }
+function getTotal(){return +((qty/1000)*service.sellRate).toFixed(3);}
 
-// ============================================================
-// PAYMENT
-// ============================================================
 function selectPay(el,method){
-  document.querySelectorAll('.payment-option').forEach(o=>o.classList.remove('selected'));
-  el.classList.add('selected');
-  payMethod=method;
+  document.querySelectorAll('.pay-option').forEach(o=>o.classList.remove('selected'));
+  el.classList.add('selected'); payMethod=method;
   document.getElementById('usdt-box').style.display=method==='usdt'?'block':'none';
 }
 
-function copyAddress(){
-  navigator.clipboard.writeText(CFG.usdtAddress).then(()=>alert('✅ تم نسخ العنوان!')).catch(()=>{
-    const el=document.getElementById('usdt-addr');
-    const range=document.createRange(); range.selectNode(el);
-    window.getSelection().removeAllRanges(); window.getSelection().addRange(range);
-  });
-}
+function copyAddr(){navigator.clipboard.writeText(CFG.usdtAddress).then(()=>alert('✅ تم نسخ العنوان!')).catch(()=>{});}
 
 async function placeOrder(){
-  let link = '';
-  if(orderType==='social'){
-    link=document.getElementById('ord-link').value.trim();
-    if(!link){showError('يرجى إدخال الرابط');return;}
-  } else {
-    const name=document.getElementById('dig-name-input').value.trim();
-    const wa=document.getElementById('dig-wa').value.trim();
-    if(!name||!wa){showError('يرجى إدخال الاسم والواتساب');return;}
-    link=wa;
-  }
-  hideError();
+  const link=document.getElementById('ord-link').value.trim();
+  if(!link){showErr('يرجى إدخال الرابط');return;}
+  hideErr();
   const btn=document.getElementById('place-btn');
-  btn.disabled=true; btn.textContent='⏳ جاري إنشاء رابط الدفع...';
+  btn.disabled=true; btn.textContent='⏳ جاري إرسال الطلب...';
+
   try {
-    const total=getTotal();
-    const r=await fetch('/api/create-nowpayment',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({amount:total,serviceId:service.id,serviceName:service.name,link,quantity:qty})
-    });
-    const data=await r.json();
-    if(data.paymentUrl){
-      const order={id:'SH-'+Math.random().toString(36).substr(2,6).toUpperCase(),serviceId:service.id,serviceName:service.name,platform,link,qty,price:total,status:'Pending',date:new Date().toLocaleString('ar')};
-      myOrders.unshift(order);
-      localStorage.setItem('sh_orders',JSON.stringify(myOrders));
-      window.location.href=data.paymentUrl;
-      return;
+    if(orderType === 'package' && currentPkg) {
+      // إرسال طلبات متعددة للباقة
+      const results = [];
+      const details = currentPkg.details;
+      const typeMap = {
+        followers: 'Followers', likes: 'Likes',
+        views: 'Views', saves: 'Views', retweets: 'Views'
+      };
+
+      for(const [key, qty] of Object.entries(details)) {
+        if(!qty) continue;
+        // جلب أفضل خدمة من الموقع حسب النوع
+        const svcType = typeMap[key] || 'Views';
+        const matchedSvc = allSvc.find(s => s.type === svcType);
+        if(matchedSvc) {
+          try {
+            const r = await fetch('/api/order', {
+              method:'POST',
+              headers:{'Content-Type':'application/json'},
+              body: JSON.stringify({serviceId: matchedSvc.id, link, quantity: qty})
+            });
+            const d = await r.json();
+            if(d.orderId) results.push(d.orderId);
+          } catch(e) { console.log('Order part failed:', e); }
+        }
+      }
+      const orderId = results[0] || 'SH-'+Math.random().toString(36).substr(2,6).toUpperCase();
+      document.getElementById('suc-id').textContent = '#'+orderId;
     } else {
-      showError(data.error||'فشل إنشاء رابط الدفع');
+      // طلب خدمة عادية
+      const r = await fetch('/api/order', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body: JSON.stringify({serviceId: service.id, link, quantity: qty})
+      });
+      const d = await r.json();
+      document.getElementById('suc-id').textContent = '#'+(d.orderId||'SH-'+Math.random().toString(36).substr(2,6).toUpperCase());
     }
-  } catch(e){showError('خطأ في الاتصال');}
-  btn.disabled=false; btn.textContent='✅ تأكيد الطلب';
+  } catch(e) {
+    const id='SH-'+Math.random().toString(36).substr(2,6).toUpperCase();
+    document.getElementById('suc-id').textContent='#'+id;
+  }
+
+  btn.disabled=false; btn.textContent='✅ تأكيد الطلب والدفع';
+  showScreen('screen-success');
 }
 
-function updateCartCounts(){
-  ['cc-home','cc-svc','cc-dig'].forEach(id=>{
-    const el=document.getElementById(id); if(el) el.textContent=cart.length;
+let currentPkgType = 'savings';
+
+function switchPkgType(type, btn) {
+  currentPkgType = type;
+  document.querySelectorAll('.pkg-type-tab').forEach(t => {
+    t.style.background = '#f0f0f5';
+    t.style.color = '#666';
   });
-}
-function showError(msg){const e=document.getElementById('pay-error');e.textContent=msg;e.style.display='block';}
-function hideError(){document.getElementById('pay-error').style.display='none';}
-
-// PACKAGES
-function switchPkg(platform, btn) {
-  document.querySelectorAll('[id^="pkg-"]').forEach(el => el.style.display = 'none');
-  document.getElementById('pkg-' + platform).style.display = 'flex';
+  btn.style.background = 'var(--primary)';
+  btn.style.color = 'white';
+  document.querySelectorAll('[id^="pkg-"],[id^="eng-"]').forEach(el => el.style.display = 'none');
+  const firstPlatform = type === 'savings' ? 'pkg-tiktok' : 'eng-tiktok';
+  const el = document.getElementById(firstPlatform);
+  if(el) el.style.display = 'flex';
   document.querySelectorAll('.pkg-tab').forEach(t => t.classList.remove('active'));
+  const firstTab = document.querySelector('.pkg-tab');
+  if(firstTab) firstTab.classList.add('active');
+}
+
+function switchPkg(platform,btn){
+  // إخفاء كل الباقات
+  document.querySelectorAll('[id^="pkg-"],[id^="eng-"]').forEach(el=>el.style.display='none');
+
+  // إظهار حسب النوع الحالي
+  const prefix = (typeof currentPkgType !== 'undefined' && currentPkgType === 'engagement') ? 'eng-' : 'pkg-';
+  const targetEl = document.getElementById(prefix+platform);
+  if(targetEl) targetEl.style.display='flex';
+
+  document.querySelectorAll('.pkg-tab').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
 }
 
-function orderPackage(platform, tier) {
-  const prices = {
-    tiktok: { bronze: 149, silver: 299, gold: 549, diamond: 999 },
-    instagram: { bronze: 129, silver: 199, gold: 499, diamond: 899 },
-    twitter: { bronze: 79, silver: 149, gold: 299, diamond: 599 },
-    snapchat: { bronze: 99, silver: 199, gold: 399, diamond: 699 },
-  };
-  const names = { bronze: 'البرونزي', silver: 'الفضي', gold: 'الذهبي', diamond: 'الماسي' };
-  const platforms = { tiktok: 'تيك توك', instagram: 'انستقرام', twitter: 'تويتر', snapchat: 'سناب شات' };
-  const price = prices[platform]?.[tier] || 0;
-  const msg = `مرحباً، أريد طلب البكج ${names[tier]} لـ${platforms[platform]} بسعر ${price} ر.س`;
-  window.open('https://wa.me/' + CFG.whatsapp + '?text=' + encodeURIComponent(msg), '_blank');
+// تفاصيل الباقات - كميات لكل خدمة
+const PKG_DETAILS = {
+  // بكجات التفاعل
+  tiktok_eng: {
+    eng_saving:  { views:10000, likes:300,  saves:100 },
+    eng_bronze:  { views:50000,  likes:500,  saves:200 },
+    eng_silver:  { views:200000, likes:1500, saves:800 },
+    eng_gold:    { views:500000, likes:5000, saves:2000 },
+  },
+  instagram_eng: {
+    eng_bronze:  { views:5000,  likes:200,  saves:50 },
+    eng_gold:    { views:50000, likes:1000, saves:500 },
+  },
+  tiktok: {
+    bronze:  { followers:3000,   views:50000,   likes:3000,   saves:500 },
+    silver:  { followers:5000,   views:100000,  likes:10000,  saves:1000 },
+    gold:    { followers:10000,  views:200000,  likes:25000,  saves:3000 },
+    diamond: { followers:25000,  views:500000,  likes:50000,  saves:5000 },
+  },
+  instagram: {
+    bronze:  { followers:2000,  likes:5000,   views:20000 },
+    silver:  { followers:5000,  likes:10000,  views:50000 },
+    gold:    { followers:10000, likes:20000,  views:100000 },
+    diamond: { followers:25000, likes:50000,  views:250000 },
+  },
+  twitter: {
+    bronze:  { followers:1000,  likes:500,   retweets:200 },
+    silver:  { followers:3000,  likes:1000,  retweets:500 },
+    gold:    { followers:5000,  likes:2000,  retweets:1000 },
+    diamond: { followers:10000, likes:5000,  retweets:3000 },
+  },
+  snapchat: {
+    silver:  { followers:2000,  views:10000 },
+    gold:    { followers:5000,  views:30000 },
+  },
+};
+
+async function orderPkg(platform, tier, price) {
+  // فتح صفحة الطلب للباقة
+  // تحديد مفتاح الباقة حسب النوع
+  const isEngagement = tier.startsWith('eng_');
+  const pkgKey = isEngagement ? platform+'_eng' : platform;
+  const details = PKG_DETAILS[pkgKey]?.[tier] || PKG_DETAILS[platform]?.[tier];
+  if(!details) { openWA(); return; }
+
+  // عرض popup تفاصيل الباقة
+  const names = {bronze:'البرونزي',silver:'الفضي',gold:'الذهبي',diamond:'الماسي'};
+  const platforms = {tiktok:'تيك توك',instagram:'انستقرام',twitter:'تويتر',snapchat:'سناب شات'};
+
+  // حفظ الباقة للاستخدام لاحقاً
+  currentPkg = { platform, tier, price, details, name: names[tier], platformName: platforms[platform] };
+
+  // عرض صفحة الطلب
+  document.getElementById('ord-name').textContent = `البكج ${names[tier]} - ${platforms[platform]}`;
+  document.getElementById('ord-cat').textContent = `باقة شاملة — ${price} ﷼`;
+  document.getElementById('ord-price-lbl').textContent = 'السعر الإجمالي';
+  document.getElementById('ord-price').textContent = `${price} ﷼`;
+
+  // إخفاء حقل الكمية وإظهار ملخص الباقة
+  document.getElementById('qty-section').style.display = 'none';
+  document.getElementById('pkg-summary').style.display = 'block';
+
+  // تفاصيل الباقة
+  let summaryHTML = '';
+  if(details.followers) summaryHTML += `<div class="sum-row"><div class="sum-lbl">متابعين</div><div class="sum-val">${details.followers.toLocaleString()}</div></div>`;
+  if(details.likes) summaryHTML += `<div class="sum-row"><div class="sum-lbl">لايكات</div><div class="sum-val">${details.likes.toLocaleString()}</div></div>`;
+  if(details.views) summaryHTML += `<div class="sum-row"><div class="sum-lbl">مشاهدات</div><div class="sum-val">${details.views.toLocaleString()}</div></div>`;
+  if(details.saves) summaryHTML += `<div class="sum-row"><div class="sum-lbl">حفظ</div><div class="sum-val">${details.saves.toLocaleString()}</div></div>`;
+  if(details.retweets) summaryHTML += `<div class="sum-row"><div class="sum-lbl">ريتويت</div><div class="sum-val">${details.retweets.toLocaleString()}</div></div>`;
+  summaryHTML += `<div class="sum-row sum-total"><div class="sum-lbl">الإجمالي</div><div class="sum-val">${price} ﷼</div></div>`;
+  document.getElementById('pkg-summary').innerHTML = summaryHTML;
+
+  // تغيير placeholder
+  const placeholders = {tiktok:'https://www.tiktok.com/@username',instagram:'https://www.instagram.com/username',twitter:'https://www.twitter.com/username',snapchat:'اسم المستخدم فقط'};
+  document.getElementById('ord-link').placeholder = placeholders[platform] || 'ضع رابط حسابك هنا';
+
+  document.getElementById('order-back').onclick = () => showScreen('screen-home');
+  orderType = 'package';
+  showScreen('screen-order');
 }
 
-// FAQ
-function toggleFaq(el) {
-  el.classList.toggle('open');
+let currentPkg = null;
+let orderType = 'service';
+
+function toggleFaq(el){el.classList.toggle('open');}
+function showOrders(){alert('قريباً: قسم الطلبات');}
+function showSearch(){openPlatform('tiktok');}
+function showErr(msg){const e=document.getElementById('pay-error');e.textContent=msg;e.style.display='block';}
+function hideErr(){document.getElementById('pay-error').style.display='none';}
+
+// ============ POPUP ============
+let popupType = 'savings';
+let popupPlatform = 'tiktok';
+
+const POPUP_PKGS = {
+  savings: {
+    tiktok: [
+      {tier:'saving', name:'بكج التوفير', price:19.99, oldPrice:29, items:['10,000 مشاهدة','300 لايك','100 حفظ','5 تعليقات']},
+      {tier:'bronze', name:'البكج البرونزي', price:39.99, oldPrice:59, items:['50,000 مشاهدة','500 لايك','200 حفظ','10 تعليقات']},
+      {tier:'gold', name:'البكج الذهبي', price:119.99, oldPrice:149, items:['200,000 مشاهدة','1,500 لايك','800 حفظ','30 تعليق']},
+    ],
+    instagram: [
+      {tier:'bronze', name:'البكج البرونزي', price:29.99, oldPrice:45, items:['5,000 مشاهدة ريلز','200 لايك','50 حفظ']},
+      {tier:'gold', name:'البكج الذهبي', price:99.99, oldPrice:139, items:['50,000 مشاهدة ريلز','1,000 لايك','500 حفظ']},
+    ],
+    twitter: [
+      {tier:'bronze', name:'البكج البرونزي', price:29.99, oldPrice:45, items:['5,000 مشاهدة','200 لايك','100 ريتويت']},
+    ],
+    snapchat: [
+      {tier:'silver', name:'البكج الفضي', price:49.99, oldPrice:69, items:['5,000 مشاهدة قصة','100 تفاعل']},
+    ],
+  },
+  engagement: {
+    tiktok: [
+      {tier:'bronze', name:'البكج البرونزي', price:149, oldPrice:199, items:['3,000 متابع','50,000 مشاهدة','3,000 لايك','500 حفظ']},
+      {tier:'silver', name:'البكج الفضي', price:299, oldPrice:399, items:['5,000 متابع','100,000 مشاهدة','10,000 لايك','1,000 حفظ']},
+      {tier:'gold', name:'البكج الذهبي', price:549, oldPrice:699, items:['10,000 متابع','200,000 مشاهدة','25,000 لايك','3,000 حفظ']},
+      {tier:'diamond', name:'البكج الماسي', price:999, oldPrice:1299, items:['25,000 متابع','500,000 مشاهدة','50,000 لايك','5,000 حفظ']},
+    ],
+    instagram: [
+      {tier:'bronze', name:'البكج البرونزي', price:129, oldPrice:179, items:['2,000 متابع','5,000 لايك','20,000 مشاهدة ريلز']},
+      {tier:'gold', name:'البكج الذهبي', price:499, oldPrice:649, items:['10,000 متابع','20,000 لايك','100,000 مشاهدة ريلز']},
+    ],
+    twitter: [
+      {tier:'bronze', name:'البكج البرونزي', price:79, oldPrice:99, items:['1,000 متابع','500 لايك','200 ريتويت']},
+      {tier:'gold', name:'البكج الذهبي', price:299, oldPrice:399, items:['5,000 متابع','2,000 لايك','1,000 ريتويت']},
+    ],
+    snapchat: [
+      {tier:'silver', name:'البكج الفضي', price:199, oldPrice:249, items:['2,000 متابع','10,000 مشاهدة قصة']},
+    ],
+  }
+};
+
+function openPopup() {
+  popupType = 'savings';
+  popupPlatform = 'tiktok';
+
+  // تفعيل زر التوفير
+  document.querySelectorAll('.popup-type-tab').forEach(t => {
+    const isSavings = t.textContent.includes('التوفير');
+    t.classList.toggle('active', isSavings);
+    t.style.background = isSavings ? 'var(--primary)' : '#f0f0f5';
+    t.style.color = isSavings ? 'white' : '#666';
+  });
+
+  // تفعيل تيك توك
+  document.querySelectorAll('.popup-platform-tab').forEach((t,i) => {
+    t.classList.toggle('active', i===0);
+  });
+
+  renderPopupPkgs();
+  document.getElementById('pkg-popup').classList.add('active');
+  document.body.style.overflow = 'hidden';
 }
 
-function openWA(){window.open(`https://wa.me/${CFG.whatsapp}?text=مرحباً، أريد الاستفسار عن الخدمات`,'_blank');}
+function closePopup(e) {
+  if(e.target === document.getElementById('pkg-popup')) closePopupDirect();
+}
+
+function closePopupDirect() {
+  document.getElementById('pkg-popup').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function switchPopupType(type, btn) {
+  popupType = type;
+  document.querySelectorAll('.popup-type-tab').forEach(t => {
+    t.classList.remove('active');
+    t.style.background = '#f0f0f5';
+    t.style.color = '#666';
+  });
+  btn.classList.add('active');
+  btn.style.background = 'var(--primary)';
+  btn.style.color = 'white';
+  renderPopupPkgs();
+}
+
+function switchPopupPlatform(platform, btn) {
+  popupPlatform = platform;
+  document.querySelectorAll('.popup-platform-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  renderPopupPkgs();
+}
+
+function renderPopupPkgs() {
+  const pkgs = POPUP_PKGS[popupType]?.[popupPlatform] || [];
+  const el = document.getElementById('popup-pkgs');
+  if(!pkgs.length) { el.innerHTML = '<div style="text-align:center;color:#999;padding:20px">لا توجد باقات لهذه المنصة</div>'; return; }
+  
+  el.innerHTML = pkgs.map(p => `
+    <div class="popup-pkg popup-pkg-${p.tier}">
+      <div class="popup-pkg-left">
+        <div class="popup-pkg-tier">${{saving:'⚡ توفير',bronze:'🥉 برونزي',silver:'🥈 فضي',gold:'🥇 ذهبي',diamond:'💎 ماسي'}[p.tier]}</div>
+        <div class="popup-pkg-name">${p.name}</div>
+        <div class="popup-pkg-items">${p.items.map(i=>`<div class="popup-pkg-item">✓ ${i}</div>`).join('')}</div>
+      </div>
+      <div class="popup-pkg-right">
+        <div>
+          <div class="popup-pkg-price">${p.price} <span style="font-size:11px">﷼</span></div>
+          <div class="popup-pkg-old">${p.oldPrice} ﷼</div>
+        </div>
+        <button class="popup-order-btn" onclick="closePopupDirect();orderPkg('${popupPlatform}','${p.tier==='saving'?'eng_saving':p.tier==='bronze'&&popupType==='engagement'?'eng_bronze':p.tier==='gold'&&popupType==='engagement'?'eng_gold':p.tier}',${p.price})">اطلب</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function scrollToPackages(){ const el=document.getElementById("packages-section"); if(el) el.scrollIntoView({behavior:"smooth"}); }
+function openWA(){window.open('https://wa.me/'+CFG.whatsapp+'?text=مرحباً، أريد الاستفسار عن الخدمات','_blank');}
 </script>
+
+<!-- POPUP -->
+<div class="popup-overlay" id="pkg-popup" onclick="closePopup(event)">
+  <div class="popup-sheet">
+    <button class="popup-close" onclick="closePopupDirect()">✕</button>
+    <div class="popup-handle"></div>
+    <div class="popup-title">⚡ اختر باقتك</div>
+    <div class="popup-sub">باقات التوفير والتفاعل — تنفيذ فوري</div>
+
+    <!-- نوع -->
+    <div class="popup-type-tabs" style="flex-direction:row-reverse">
+      <div class="popup-type-tab active" onclick="switchPopupType('engagement',this)">⚡ بكجات التفاعل</div>
+      <div class="popup-type-tab" onclick="switchPopupType('savings',this)">💎 بكجات التوفير</div>
+    </div>
+
+    <!-- منصة -->
+    <div class="popup-platform-tabs">
+      <div class="popup-platform-tab active" onclick="switchPopupPlatform('tiktok',this)">🎵 تيك توك</div>
+      <div class="popup-platform-tab" onclick="switchPopupPlatform('instagram',this)">📸 انستقرام</div>
+      <div class="popup-platform-tab" onclick="switchPopupPlatform('twitter',this)">🐦 تويتر</div>
+      <div class="popup-platform-tab" onclick="switchPopupPlatform('snapchat',this)">👻 سناب</div>
+    </div>
+
+    <!-- الباقات -->
+    <div class="popup-pkgs" id="popup-pkgs"></div>
+  </div>
+</div>
+
+<!-- PRIVACY SCREEN -->
+<div id="screen-privacy" class="screen">
+  <div class="svc-header">
+    <button class="svc-back" onclick="showScreen(&quot;screen-home&quot;)">←</button>
+    <div class="svc-title">سياسة الخصوصية</div>
+    <div style="width:30px"></div>
+  </div>
+  <div style="padding:16px;background:#f0f2f5;min-height:100vh;">
+    <div style="background:white;border-radius:16px;padding:20px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+      <h2 style="font-family:'Tajawal',sans-serif;font-size:18px;font-weight:900;color:#1a1a2e;margin-bottom:12px;">🔒 سياسة الخصوصية</h2>
+      <p style="font-size:12px;color:#666;line-height:1.9;">آخر تحديث: مارس 2026</p>
+
+      <h3 style="font-family:'Tajawal',sans-serif;font-size:15px;font-weight:700;color:#1a1a2e;margin:16px 0 8px;">1. المعلومات التي نجمعها</h3>
+      <p style="font-size:13px;color:#555;line-height:1.8;">نجمع فقط المعلومات الضرورية لتنفيذ طلبك، وتشمل: رابط حسابك أو منشورك على منصة التواصل الاجتماعي، وعنوان المحفظة الرقمية عند الدفع. لا نطلب كلمة المرور أو أي بيانات شخصية حساسة.</p>
+
+      <h3 style="font-family:'Tajawal',sans-serif;font-size:15px;font-weight:700;color:#1a1a2e;margin:16px 0 8px;">2. كيف نستخدم معلوماتك</h3>
+      <p style="font-size:13px;color:#555;line-height:1.8;">نستخدم المعلومات التي تقدمها حصراً لتنفيذ الخدمات المطلوبة. لا نشارك بياناتك مع أطراف ثالثة لأغراض تسويقية، ولا نبيع معلوماتك الشخصية لأي جهة.</p>
+
+      <h3 style="font-family:'Tajawal',sans-serif;font-size:15px;font-weight:700;color:#1a1a2e;margin:16px 0 8px;">3. أمان البيانات</h3>
+      <p style="font-size:13px;color:#555;line-height:1.8;">نلتزم بحماية بياناتك باستخدام أحدث تقنيات التشفير. جميع المعاملات المالية تتم عبر بوابات دفع آمنة ومعتمدة. لا نحتفظ ببيانات بطاقاتك الائتمانية.</p>
+
+      <h3 style="font-family:'Tajawal',sans-serif;font-size:15px;font-weight:700;color:#1a1a2e;margin:16px 0 8px;">4. ملفات الارتباط (Cookies)</h3>
+      <p style="font-size:13px;color:#555;line-height:1.8;">نستخدم ملفات الارتباط لتحسين تجربتك وتذكر تفضيلاتك. يمكنك تعطيل هذه الملفات من إعدادات متصفحك، مع العلم أن ذلك قد يؤثر على بعض وظائف الموقع.</p>
+
+      <h3 style="font-family:'Tajawal',sans-serif;font-size:15px;font-weight:700;color:#1a1a2e;margin:16px 0 8px;">5. حقوقك</h3>
+      <p style="font-size:13px;color:#555;line-height:1.8;">يحق لك طلب حذف بياناتك في أي وقت، أو تصحيح أي معلومات غير دقيقة. للتواصل معنا بشأن خصوصيتك، يرجى التواصل عبر واتساب.</p>
+
+      <h3 style="font-family:'Tajawal',sans-serif;font-size:15px;font-weight:700;color:#1a1a2e;margin:16px 0 8px;">6. التغييرات على السياسة</h3>
+      <p style="font-size:13px;color:#555;line-height:1.8;">نحتفظ بحق تعديل سياسة الخصوصية في أي وقت. سنخطرك بأي تغييرات جوهرية عبر الموقع. استمرارك في استخدام خدماتنا بعد التعديلات يعني موافقتك عليها.</p>
+    </div>
+  </div>
+</div>
+
+<!-- TERMS SCREEN -->
+<div id="screen-terms" class="screen">
+  <div class="svc-header">
+    <button class="svc-back" onclick="showScreen(&quot;screen-home&quot;)">←</button>
+    <div class="svc-title">الشروط والأحكام</div>
+    <div style="width:30px"></div>
+  </div>
+  <div style="padding:16px;background:#f0f2f5;min-height:100vh;">
+    <div style="background:white;border-radius:16px;padding:20px;margin-bottom:12px;box-shadow:0 1px 4px rgba(0,0,0,0.06);">
+      <h2 style="font-family:'Tajawal',sans-serif;font-size:18px;font-weight:900;color:#1a1a2e;margin-bottom:12px;">📋 الشروط والأحكام</h2>
+      <p style="font-size:12px;color:#666;line-height:1.9;">آخر تحديث: مارس 2026</p>
+
+      <h3 style="font-family:'Tajawal',sans-serif;font-size:15px;font-weight:700;color:#1a1a2e;margin:16px 0 8px;">1. قبول الشروط</h3>
+      <p style="font-size:13px;color:#555;line-height:1.8;">باستخدامك لخدمات بريميوم ستور، فإنك توافق على الالتزام بهذه الشروط والأحكام. إذا كنت لا توافق على أي من هذه الشروط، يرجى عدم استخدام خدماتنا.</p>
+
+      <h3 style="font-family:'Tajawal',sans-serif;font-size:15px;font-weight:700;color:#1a1a2e;margin:16px 0 8px;">2. الخدمات المقدمة</h3>
+      <p style="font-size:13px;color:#555;line-height:1.8;">نقدم خدمات تسويق وسائل التواصل الاجتماعي (SMM) تشمل زيادة المتابعين، اللايكات، المشاهدات والتعليقات. جميع الخدمات تُنفَّذ وفق أفضل الممارسات المتاحة.</p>
+
+      <h3 style="font-family:'Tajawal',sans-serif;font-size:15px;font-weight:700;color:#1a1a2e;margin:16px 0 8px;">3. سياسة الدفع</h3>
+      <p style="font-size:13px;color:#555;line-height:1.8;">جميع المدفوعات مسبقة وغير قابلة للاسترداد بعد بدء تنفيذ الخدمة. نقبل الدفع عبر USDT (TRC20). يُعتبر الدفع تأكيداً لقبول هذه الشروط.</p>
+
+      <h3 style="font-family:'Tajawal',sans-serif;font-size:15px;font-weight:700;color:#1a1a2e;margin:16px 0 8px;">4. الضمان واسترداد المبلغ</h3>
+      <p style="font-size:13px;color:#555;line-height:1.8;">نضمن تنفيذ جميع الطلبات خلال المدة المحددة. في حال عدم اكتمال الخدمة لأسباب تعود لنا، نلتزم بإعادة تنفيذ الطلب أو استرداد المبلغ كاملاً خلال 7 أيام عمل.</p>
+
+      <h3 style="font-family:'Tajawal',sans-serif;font-size:15px;font-weight:700;color:#1a1a2e;margin:16px 0 8px;">5. مسؤولية المستخدم</h3>
+      <p style="font-size:13px;color:#555;line-height:1.8;">أنت مسؤول عن التأكد من أن استخدامك لخدماتنا يتوافق مع شروط المنصات الاجتماعية. لسنا مسؤولين عن أي إجراءات تتخذها المنصات ضد حسابك.</p>
+
+      <h3 style="font-family:'Tajawal',sans-serif;font-size:15px;font-weight:700;color:#1a1a2e;margin:16px 0 8px;">6. تحديد المسؤولية</h3>
+      <p style="font-size:13px;color:#555;line-height:1.8;">لا نتحمل مسؤولية أي خسائر غير مباشرة ناجمة عن استخدام خدماتنا. مسؤوليتنا القصوى محدودة بقيمة الخدمة المدفوعة.</p>
+
+      <h3 style="font-family:'Tajawal',sans-serif;font-size:15px;font-weight:700;color:#1a1a2e;margin:16px 0 8px;">7. التواصل معنا</h3>
+      <p style="font-size:13px;color:#555;line-height:1.8;">لأي استفسارات أو شكاوى تتعلق بهذه الشروط، يرجى التواصل معنا عبر واتساب وسنرد خلال 24 ساعة.</p>
+    </div>
+  </div>
+</div>
 </body>
 </html>
