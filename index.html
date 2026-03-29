@@ -224,6 +224,76 @@ body{font-family:'Cairo',sans-serif;background:var(--dark);color:#fff;overflow-x
 @keyframes skel{0%{background-position:200% 0}100%{background-position:-200% 0}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 .fade-up{animation:fadeUp 0.35s ease both;}
+
+/* PACKAGES */
+.packages-section{padding:0 16px 20px;}
+.packages-title{font-family:'Tajawal',sans-serif;font-size:17px;font-weight:900;padding-right:11px;border-right:3px solid var(--primary);margin-bottom:14px;}
+.packages-tabs{display:flex;gap:7px;margin-bottom:14px;overflow-x:auto;}
+.packages-tabs::-webkit-scrollbar{display:none;}
+.pkg-tab{background:rgba(108,58,252,0.1);border:1px solid var(--border);color:var(--muted);padding:6px 14px;border-radius:18px;font-family:'Cairo',sans-serif;font-size:11px;cursor:pointer;white-space:nowrap;transition:all 0.2s;}
+.pkg-tab.active{background:var(--primary);border-color:var(--primary);color:white;font-weight:700;}
+.packages-grid{display:flex;flex-direction:column;gap:12px;}
+.pkg-card{border-radius:18px;padding:20px;position:relative;overflow:hidden;border:2px solid transparent;transition:all 0.3s;cursor:pointer;}
+.pkg-card:hover{transform:translateY(-3px);}
+.pkg-bronze{background:linear-gradient(135deg,#1a0e00,#3d2000);border-color:#cd7f32;}
+.pkg-silver{background:linear-gradient(135deg,#0d1117,#1e2a3a);border-color:#c0c0c0;}
+.pkg-gold{background:linear-gradient(135deg,#1a1400,#3d3000);border-color:#ffd700;}
+.pkg-diamond{background:linear-gradient(135deg,#0a001a,#1a0040);border-color:#b9f2ff;}
+.pkg-badge{position:absolute;top:14px;left:14px;padding:3px 10px;border-radius:10px;font-size:10px;font-weight:700;}
+.pkg-bronze .pkg-badge{background:rgba(205,127,50,0.2);color:#cd7f32;border:1px solid #cd7f32;}
+.pkg-silver .pkg-badge{background:rgba(192,192,192,0.2);color:#c0c0c0;border:1px solid #c0c0c0;}
+.pkg-gold .pkg-badge{background:rgba(255,215,0,0.2);color:#ffd700;border:1px solid #ffd700;}
+.pkg-diamond .pkg-badge{background:rgba(185,242,255,0.2);color:#b9f2ff;border:1px solid #b9f2ff;}
+.pkg-icon{font-size:40px;margin-bottom:10px;}
+.pkg-name{font-family:'Tajawal',sans-serif;font-size:20px;font-weight:900;color:white;margin-bottom:4px;}
+.pkg-platform{font-size:11px;color:var(--muted);margin-bottom:14px;}
+.pkg-items{display:flex;flex-direction:column;gap:6px;margin-bottom:16px;}
+.pkg-item{display:flex;align-items:center;gap:8px;font-size:12px;color:rgba(255,255,255,0.8);}
+.pkg-check{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:10px;flex-shrink:0;}
+.pkg-bronze .pkg-check{background:rgba(205,127,50,0.3);color:#cd7f32;}
+.pkg-silver .pkg-check{background:rgba(192,192,192,0.3);color:#c0c0c0;}
+.pkg-gold .pkg-check{background:rgba(255,215,0,0.3);color:#ffd700;}
+.pkg-diamond .pkg-check{background:rgba(185,242,255,0.3);color:#b9f2ff;}
+.pkg-footer{display:flex;justify-content:space-between;align-items:center;}
+.pkg-price{font-family:'Tajawal',sans-serif;font-size:26px;font-weight:900;}
+.pkg-bronze .pkg-price{color:#cd7f32;}
+.pkg-silver .pkg-price{color:#c0c0c0;}
+.pkg-gold .pkg-price{color:#ffd700;}
+.pkg-diamond .pkg-price{color:#b9f2ff;}
+.pkg-currency{font-size:13px;font-weight:700;}
+.pkg-btn{padding:10px 20px;border-radius:20px;border:none;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;cursor:pointer;}
+.pkg-bronze .pkg-btn{background:#cd7f32;color:white;}
+.pkg-silver .pkg-btn{background:#c0c0c0;color:#0d1117;}
+.pkg-gold .pkg-btn{background:#ffd700;color:#1a1400;}
+.pkg-diamond .pkg-btn{background:#b9f2ff;color:#0a001a;}
+
+/* FAQ */
+.faq-section{padding:0 16px 20px;}
+.faq-title{font-family:'Tajawal',sans-serif;font-size:17px;font-weight:900;padding-right:11px;border-right:3px solid var(--primary);margin-bottom:14px;}
+.faq-item{background:var(--card-bg);border:1px solid var(--border);border-radius:13px;margin-bottom:9px;overflow:hidden;}
+.faq-q{display:flex;justify-content:space-between;align-items:center;padding:14px;cursor:pointer;font-size:13px;font-weight:700;}
+.faq-icon{font-size:16px;transition:transform 0.3s;color:var(--accent);}
+.faq-item.open .faq-icon{transform:rotate(45deg);}
+.faq-a{padding:0 14px;max-height:0;overflow:hidden;transition:all 0.3s;font-size:12px;color:var(--muted);line-height:1.7;}
+.faq-item.open .faq-a{max-height:200px;padding:0 14px 14px;}
+
+/* REVIEWS */
+.reviews-section{padding:0 16px 20px;}
+.reviews-title{font-family:'Tajawal',sans-serif;font-size:17px;font-weight:900;padding-right:11px;border-right:3px solid var(--primary);margin-bottom:14px;}
+.review-card{background:var(--card-bg);border:1px solid var(--border);border-radius:14px;padding:14px;margin-bottom:10px;}
+.review-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;}
+.review-name{font-weight:700;font-size:13px;}
+.review-stars{color:#ffd700;font-size:13px;}
+.review-text{font-size:12px;color:var(--muted);line-height:1.6;}
+.review-service{font-size:10px;color:var(--accent);margin-top:6px;}
+
+/* FOOTER */
+.site-footer{background:#060612;border-top:1px solid var(--border);padding:24px 16px;text-align:center;margin-top:10px;}
+.footer-logo{font-family:'Tajawal',sans-serif;font-size:20px;font-weight:900;background:linear-gradient(90deg,var(--primary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:6px;}
+.footer-desc{font-size:12px;color:var(--muted);margin-bottom:16px;}
+.footer-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:16px;}
+.footer-link{font-size:11px;color:var(--muted);cursor:pointer;}
+.footer-copy{font-size:10px;color:rgba(255,255,255,0.2);}
 </style>
 </head>
 <body>
@@ -345,6 +415,269 @@ body{font-family:'Cairo',sans-serif;background:var(--dark);color:#fff;overflow-x
     <div class="promo-title">باقات الخدمات المجمعة</div>
     <div class="promo-sub">اشترِ باقة كاملة ووفّر أكثر</div>
     <button class="btn-orange" onclick="openWA()">تواصل للباقات</button>
+  </div>
+
+
+  <!-- PACKAGES SECTION -->
+  <div class="section">
+    <div class="section-head">
+      <div class="section-title">باقات التوفير المجمعة</div>
+    </div>
+  </div>
+
+  <div class="packages-section">
+    <div class="packages-tabs">
+      <div class="pkg-tab active" onclick="switchPkg('tiktok',this)">🎵 تيك توك</div>
+      <div class="pkg-tab" onclick="switchPkg('instagram',this)">📸 انستقرام</div>
+      <div class="pkg-tab" onclick="switchPkg('twitter',this)">🐦 تويتر</div>
+      <div class="pkg-tab" onclick="switchPkg('snapchat',this)">👻 سناب</div>
+    </div>
+
+    <!-- TikTok Packages -->
+    <div id="pkg-tiktok" class="packages-grid">
+      <div class="pkg-card pkg-bronze" onclick="orderPackage('tiktok','bronze')">
+        <div class="pkg-badge">🥉 برونزي</div>
+        <div style="margin-top:20px">
+          <div class="pkg-icon">🎵</div>
+          <div class="pkg-name">البكج البرونزي</div>
+          <div class="pkg-platform">تيك توك — تنفيذ فوري</div>
+          <div class="pkg-items">
+            <div class="pkg-item"><div class="pkg-check">✓</div>3,000 متابع حقيقي</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>50,000 مشاهدة</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>3,000 لايك</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>500 حفظ</div>
+          </div>
+          <div class="pkg-footer">
+            <div><div class="pkg-price">149 <span class="pkg-currency">ر.س</span></div></div>
+            <button class="pkg-btn">اطلب الآن</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pkg-card pkg-silver" onclick="orderPackage('tiktok','silver')">
+        <div class="pkg-badge">🥈 فضي</div>
+        <div style="margin-top:20px">
+          <div class="pkg-icon">🎵</div>
+          <div class="pkg-name">البكج الفضي</div>
+          <div class="pkg-platform">تيك توك — تنفيذ فوري</div>
+          <div class="pkg-items">
+            <div class="pkg-item"><div class="pkg-check">✓</div>5,000 متابع حقيقي</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>100,000 مشاهدة</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>10,000 لايك</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>3,000 حركة اكسبلور</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>1,000 حفظ</div>
+          </div>
+          <div class="pkg-footer">
+            <div><div class="pkg-price">299 <span class="pkg-currency">ر.س</span></div></div>
+            <button class="pkg-btn">اطلب الآن</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pkg-card pkg-gold" onclick="orderPackage('tiktok','gold')">
+        <div class="pkg-badge">🥇 ذهبي</div>
+        <div style="margin-top:20px">
+          <div class="pkg-icon">🎵</div>
+          <div class="pkg-name">البكج الذهبي</div>
+          <div class="pkg-platform">تيك توك — تنفيذ فوري</div>
+          <div class="pkg-items">
+            <div class="pkg-item"><div class="pkg-check">✓</div>10,000 متابع حقيقي</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>200,000 مشاهدة</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>25,000 لايك</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>5,000 حركة اكسبلور</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>3,000 حفظ</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>20 تعليق عربي</div>
+          </div>
+          <div class="pkg-footer">
+            <div><div class="pkg-price">549 <span class="pkg-currency">ر.س</span></div></div>
+            <button class="pkg-btn">اطلب الآن</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="pkg-card pkg-diamond" onclick="orderPackage('tiktok','diamond')">
+        <div class="pkg-badge">💎 ماسي</div>
+        <div style="margin-top:20px">
+          <div class="pkg-icon">🎵</div>
+          <div class="pkg-name">البكج الماسي</div>
+          <div class="pkg-platform">تيك توك — تنفيذ فوري</div>
+          <div class="pkg-items">
+            <div class="pkg-item"><div class="pkg-check">✓</div>25,000 متابع حقيقي</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>500,000 مشاهدة</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>50,000 لايك</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>10,000 حركة اكسبلور</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>5,000 حفظ</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>50 تعليق عربي</div>
+          </div>
+          <div class="pkg-footer">
+            <div><div class="pkg-price">999 <span class="pkg-currency">ر.س</span></div></div>
+            <button class="pkg-btn">اطلب الآن</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Instagram Packages -->
+    <div id="pkg-instagram" class="packages-grid" style="display:none">
+      <div class="pkg-card pkg-bronze" onclick="orderPackage('instagram','bronze')">
+        <div class="pkg-badge">🥉 برونزي</div>
+        <div style="margin-top:20px">
+          <div class="pkg-icon">📸</div>
+          <div class="pkg-name">البكج البرونزي</div>
+          <div class="pkg-platform">انستقرام — تنفيذ فوري</div>
+          <div class="pkg-items">
+            <div class="pkg-item"><div class="pkg-check">✓</div>2,000 متابع عربي</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>5,000 لايك</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>20,000 مشاهدة ريلز</div>
+          </div>
+          <div class="pkg-footer">
+            <div><div class="pkg-price">129 <span class="pkg-currency">ر.س</span></div></div>
+            <button class="pkg-btn">اطلب الآن</button>
+          </div>
+        </div>
+      </div>
+      <div class="pkg-card pkg-gold" onclick="orderPackage('instagram','gold')">
+        <div class="pkg-badge">🥇 ذهبي</div>
+        <div style="margin-top:20px">
+          <div class="pkg-icon">📸</div>
+          <div class="pkg-name">البكج الذهبي</div>
+          <div class="pkg-platform">انستقرام — تنفيذ فوري</div>
+          <div class="pkg-items">
+            <div class="pkg-item"><div class="pkg-check">✓</div>10,000 متابع عربي</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>20,000 لايك</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>100,000 مشاهدة ريلز</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>15 تعليق عربي</div>
+          </div>
+          <div class="pkg-footer">
+            <div><div class="pkg-price">499 <span class="pkg-currency">ر.س</span></div></div>
+            <button class="pkg-btn">اطلب الآن</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Twitter Packages -->
+    <div id="pkg-twitter" class="packages-grid" style="display:none">
+      <div class="pkg-card pkg-bronze" onclick="orderPackage('twitter','bronze')">
+        <div class="pkg-badge">🥉 برونزي</div>
+        <div style="margin-top:20px">
+          <div class="pkg-icon">🐦</div>
+          <div class="pkg-name">البكج البرونزي</div>
+          <div class="pkg-platform">تويتر X — تنفيذ فوري</div>
+          <div class="pkg-items">
+            <div class="pkg-item"><div class="pkg-check">✓</div>1,000 متابع</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>500 لايك</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>200 ريتويت</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>15,000 مشاهدة</div>
+          </div>
+          <div class="pkg-footer">
+            <div><div class="pkg-price">79 <span class="pkg-currency">ر.س</span></div></div>
+            <button class="pkg-btn">اطلب الآن</button>
+          </div>
+        </div>
+      </div>
+      <div class="pkg-card pkg-gold" onclick="orderPackage('twitter','gold')">
+        <div class="pkg-badge">🥇 ذهبي</div>
+        <div style="margin-top:20px">
+          <div class="pkg-icon">🐦</div>
+          <div class="pkg-name">البكج الذهبي</div>
+          <div class="pkg-platform">تويتر X — تنفيذ فوري</div>
+          <div class="pkg-items">
+            <div class="pkg-item"><div class="pkg-check">✓</div>5,000 متابع</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>2,000 لايك</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>1,000 ريتويت</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>50,000 مشاهدة</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>30 بوك مارك</div>
+          </div>
+          <div class="pkg-footer">
+            <div><div class="pkg-price">299 <span class="pkg-currency">ر.س</span></div></div>
+            <button class="pkg-btn">اطلب الآن</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Snapchat Packages -->
+    <div id="pkg-snapchat" class="packages-grid" style="display:none">
+      <div class="pkg-card pkg-silver" onclick="orderPackage('snapchat','silver')">
+        <div class="pkg-badge">🥈 فضي</div>
+        <div style="margin-top:20px">
+          <div class="pkg-icon">👻</div>
+          <div class="pkg-name">البكج الفضي</div>
+          <div class="pkg-platform">سناب شات — تنفيذ فوري</div>
+          <div class="pkg-items">
+            <div class="pkg-item"><div class="pkg-check">✓</div>2,000 متابع</div>
+            <div class="pkg-item"><div class="pkg-check">✓</div>10,000 مشاهدة قصة</div>
+          </div>
+          <div class="pkg-footer">
+            <div><div class="pkg-price">199 <span class="pkg-currency">ر.س</span></div></div>
+            <button class="pkg-btn">اطلب الآن</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ SECTION -->
+  <div class="faq-section">
+    <div class="faq-title">الأسئلة الشائعة</div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">لماذا تختار شامل ستور؟ <span class="faq-icon">+</span></div>
+      <div class="faq-a">نقدم أفضل الخدمات بأقل الأسعار مع ضمان كامل على جميع الطلبات وتنفيذ فوري آلي.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">كم يستغرق تسليم الخدمة؟ <span class="faq-icon">+</span></div>
+      <div class="faq-a">معظم الخدمات تبدأ فوراً خلال دقائق، والخدمات الكبيرة قد تستغرق من 1-24 ساعة حسب الكمية.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">هل أحتاج لكلمة مرور حسابي؟ <span class="faq-icon">+</span></div>
+      <div class="faq-a">لا! نحن نحتاج فقط رابط حسابك أو منشورك. لا نطلب أي بيانات خاصة.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">هل الخدمات آمنة لحسابي؟ <span class="faq-icon">+</span></div>
+      <div class="faq-a">نعم، خدماتنا آمنة ومتوافقة مع سياسات المنصات. نستخدم طرقاً طبيعية لتنمية حسابك.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">هل يوجد ضمان على الخدمة؟ <span class="faq-icon">+</span></div>
+      <div class="faq-a">نعم! جميع خدماتنا مضمونة. في حال حدوث أي مشكلة نعيد تنفيذ الطلب أو نسترجع المبلغ.</div>
+    </div>
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q">كيف أتواصل مع الدعم؟ <span class="faq-icon">+</span></div>
+      <div class="faq-a">يمكنك التواصل معنا عبر واتساب على مدار الساعة. اضغط على زر الواتساب في أسفل الصفحة.</div>
+    </div>
+  </div>
+
+  <!-- REVIEWS SECTION -->
+  <div class="reviews-section">
+    <div class="reviews-title">آراء عملائنا</div>
+    <div class="review-card">
+      <div class="review-head"><div class="review-name">محمد العمري</div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">خدمة ممتازة وسريعة جداً! طلبت متابعين انستقرام وجاءوا خلال ساعة. أنصح الجميع.</div>
+      <div class="review-service">📸 متابعين انستقرام</div>
+    </div>
+    <div class="review-card">
+      <div class="review-head"><div class="review-name">سارة الشمري</div><div class="review-stars">★★★★★</div></div>
+      <div class="review-text">تعاملت معهم أكثر من مرة والنتيجة دائماً ممتازة. أسعار منافسة وجودة عالية.</div>
+      <div class="review-service">🎵 مشاهدات تيك توك</div>
+    </div>
+    <div class="review-card">
+      <div class="review-head"><div class="review-name">فهد الدوسري</div><div class="review-stars">★★★★☆</div></div>
+      <div class="review-text">خدمة احترافية ودعم سريع. الباقة الذهبية تيك توك تستحق كل ريال.</div>
+      <div class="review-service">🎵 باقة تيك توك الذهبية</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="site-footer">
+    <div class="footer-logo">شامل ستور</div>
+    <div class="footer-desc">وجهتك المتكاملة للتميز الرقمي الشامل</div>
+    <div class="footer-links">
+      <span class="footer-link" onclick="toggleFaq(document.querySelector('.faq-item'))">من نحن</span>
+      <span class="footer-link" onclick="openWA()">تواصل معنا</span>
+      <span class="footer-link">سياسة الخصوصية</span>
+      <span class="footer-link">الشروط والأحكام</span>
+    </div>
+    <div class="footer-copy">© 2026 شامل ستور — جميع الحقوق محفوظة</div>
   </div>
 
   <nav class="bottom-nav">
@@ -806,27 +1139,38 @@ function copyAddress(){
 }
 
 async function placeOrder(){
+  let link = '';
   if(orderType==='social'){
-    const link=document.getElementById('ord-link').value.trim();
+    link=document.getElementById('ord-link').value.trim();
     if(!link){showError('يرجى إدخال الرابط');return;}
   } else {
     const name=document.getElementById('dig-name-input').value.trim();
     const wa=document.getElementById('dig-wa').value.trim();
     if(!name||!wa){showError('يرجى إدخال الاسم والواتساب');return;}
+    link=wa;
   }
   hideError();
   const btn=document.getElementById('place-btn');
-  btn.disabled=true; btn.textContent='⏳ جاري المعالجة...';
-  await new Promise(r=>setTimeout(r,1200));
-  const orderId='SH-'+Math.random().toString(36).substr(2,6).toUpperCase();
-  cart.push({...service, qty, orderType});
-  updateCartCounts();
-  document.getElementById('suc-id').textContent='#'+orderId;
-  document.getElementById('suc-sub').textContent = payMethod==='usdt'
-    ? 'أرسل المبلغ للعنوان أعلاه ثم تواصل معنا على واتساب مع صورة التحويل لتأكيد الطلب.'
-    : 'سيتم التواصل معك قريباً لإتمام الدفع وتنفيذ طلبك.';
+  btn.disabled=true; btn.textContent='⏳ جاري إنشاء رابط الدفع...';
+  try {
+    const total=getTotal();
+    const r=await fetch('/api/create-nowpayment',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({amount:total,serviceId:service.id,serviceName:service.name,link,quantity:qty})
+    });
+    const data=await r.json();
+    if(data.paymentUrl){
+      const order={id:'SH-'+Math.random().toString(36).substr(2,6).toUpperCase(),serviceId:service.id,serviceName:service.name,platform,link,qty,price:total,status:'Pending',date:new Date().toLocaleString('ar')};
+      myOrders.unshift(order);
+      localStorage.setItem('sh_orders',JSON.stringify(myOrders));
+      window.location.href=data.paymentUrl;
+      return;
+    } else {
+      showError(data.error||'فشل إنشاء رابط الدفع');
+    }
+  } catch(e){showError('خطأ في الاتصال');}
   btn.disabled=false; btn.textContent='✅ تأكيد الطلب';
-  showScreen('screen-success');
 }
 
 function updateCartCounts(){
@@ -836,6 +1180,34 @@ function updateCartCounts(){
 }
 function showError(msg){const e=document.getElementById('pay-error');e.textContent=msg;e.style.display='block';}
 function hideError(){document.getElementById('pay-error').style.display='none';}
+
+// PACKAGES
+function switchPkg(platform, btn) {
+  document.querySelectorAll('[id^="pkg-"]').forEach(el => el.style.display = 'none');
+  document.getElementById('pkg-' + platform).style.display = 'flex';
+  document.querySelectorAll('.pkg-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+function orderPackage(platform, tier) {
+  const prices = {
+    tiktok: { bronze: 149, silver: 299, gold: 549, diamond: 999 },
+    instagram: { bronze: 129, silver: 199, gold: 499, diamond: 899 },
+    twitter: { bronze: 79, silver: 149, gold: 299, diamond: 599 },
+    snapchat: { bronze: 99, silver: 199, gold: 399, diamond: 699 },
+  };
+  const names = { bronze: 'البرونزي', silver: 'الفضي', gold: 'الذهبي', diamond: 'الماسي' };
+  const platforms = { tiktok: 'تيك توك', instagram: 'انستقرام', twitter: 'تويتر', snapchat: 'سناب شات' };
+  const price = prices[platform]?.[tier] || 0;
+  const msg = `مرحباً، أريد طلب البكج ${names[tier]} لـ${platforms[platform]} بسعر ${price} ر.س`;
+  window.open('https://wa.me/' + CFG.whatsapp + '?text=' + encodeURIComponent(msg), '_blank');
+}
+
+// FAQ
+function toggleFaq(el) {
+  el.classList.toggle('open');
+}
+
 function openWA(){window.open(`https://wa.me/${CFG.whatsapp}?text=مرحباً، أريد الاستفسار عن الخدمات`,'_blank');}
 </script>
 </body>
