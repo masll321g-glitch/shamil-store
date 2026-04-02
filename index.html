@@ -990,54 +990,64 @@ async function placeOrder(){
   if(!link){showErr('يرجى إدخال الرابط');return;}
   hideErr();
   const btn=document.getElementById('place-btn');
-  btn.disabled=true; btn.textContent='⏳ جاري إرسال الطلب...';
+  btn.disabled=true; btn.textContent='⏳ جاري إنشاء رابط الدفع...';
 
   try {
-    if(orderType === 'package' && currentPkg) {
-      // إرسال طلبات متعددة للباقة
-      const results = [];
-      const details = currentPkg.details;
-      const typeMap = {
-        followers: 'Followers', likes: 'Likes',
-        views: 'Views', saves: 'Views', retweets: 'Views'
-      };
+    // حساب المبلغ
+    let amount = 0;
+    let serviceName = '';
+    let serviceId = '';
+    let quantity = 0;
 
-      for(const [key, qty] of Object.entries(details)) {
-        if(!qty) continue;
-        // جلب أفضل خدمة من الموقع حسب النوع
-        const svcType = typeMap[key] || 'Views';
-        const matchedSvc = allSvc.find(s => s.type === svcType);
-        if(matchedSvc) {
-          try {
-            const r = await fetch('/api/order', {
-              method:'POST',
-              headers:{'Content-Type':'application/json'},
-              body: JSON.stringify({serviceId: matchedSvc.id, link, quantity: qty})
-            });
-            const d = await r.json();
-            if(d.orderId) results.push(d.orderId);
-          } catch(e) { console.log('Order part failed:', e); }
-        }
-      }
-      const orderId = results[0] || 'SH-'+Math.random().toString(36).substr(2,6).toUpperCase();
+    if(orderType === 'package' && currentPkg) {
+      amount = currentPkg.price / 3.75; // تحويل ريال لدولار تقريبي
+      serviceName = `البكج ${currentPkg.name} - ${currentPkg.platformName}`;
+      serviceId = 'PKG';
+      quantity = 1;
+    } else if(service) {
+      amount = getTotal();
+      serviceName = service.name;
+      serviceId = service.id;
+      quantity = qty;
+    }
+
+    if(amount <= 0) {
+      showErr('خطأ في حساب المبلغ');
+      btn.disabled=false; btn.textContent='✅ تأكيد الطلب والدفع';
+      return;
+    }
+
+    // إنشاء رابط الدفع من NOWPayments
+    const r = await fetch('/api/create-nowpayment', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        amount: amount,
+        serviceId: serviceId,
+        serviceName: serviceName,
+        link: link,
+        quantity: quantity
+      })
+    });
+    const data = await r.json();
+
+    if(data.paymentUrl) {
+      // حفظ الطلب
+      const orderId = 'SH-'+Math.random().toString(36).substr(2,6).toUpperCase();
       document.getElementById('suc-id').textContent = '#'+orderId;
+      btn.disabled=false; btn.textContent='✅ تأكيد الطلب والدفع';
+      // تحويل للدفع
+      window.location.href = data.paymentUrl;
+      return;
     } else {
-      // طلب خدمة عادية
-      const r = await fetch('/api/order', {
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({serviceId: service.id, link, quantity: qty})
-      });
-      const d = await r.json();
-      document.getElementById('suc-id').textContent = '#'+(d.orderId||'SH-'+Math.random().toString(36).substr(2,6).toUpperCase());
+      showErr(data.error || 'فشل إنشاء رابط الدفع — تواصل معنا على واتساب');
     }
   } catch(e) {
-    const id='SH-'+Math.random().toString(36).substr(2,6).toUpperCase();
-    document.getElementById('suc-id').textContent='#'+id;
+    showErr('خطأ في الاتصال — تحقق من الإنترنت');
+    console.error(e);
   }
 
   btn.disabled=false; btn.textContent='✅ تأكيد الطلب والدفع';
-  showScreen('screen-success');
 }
 
 let currentPkgType = 'savings';
