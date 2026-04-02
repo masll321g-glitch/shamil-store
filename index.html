@@ -1017,30 +1017,36 @@ async function placeOrder(){
       return;
     }
 
-    // إنشاء رابط الدفع من NOWPayments
-    const r = await fetch('/api/create-nowpayment', {
+    // إنشاء رابط الدفع من NOWPayments مباشرة
+    const amountUSD = Math.max(0.5, amount).toFixed(2);
+    const orderId = 'SH-'+Math.random().toString(36).substr(2,6).toUpperCase();
+    
+    // استدعاء NOWPayments API
+    const r = await fetch('https://api.nowpayments.io/v1/invoice', {
       method: 'POST',
-      headers: {'Content-Type': 'application/json'},
+      headers: {
+        'x-api-key': CFG.nowpaymentsKey,
+        'Content-Type': 'application/json',
+      },
       body: JSON.stringify({
-        amount: amount,
-        serviceId: serviceId,
-        serviceName: serviceName,
-        link: link,
-        quantity: quantity
+        price_amount: amountUSD,
+        price_currency: 'usd',
+        pay_currency: 'usdtsol',
+        order_id: orderId,
+        order_description: serviceName,
+        success_url: window.location.origin + '/?payment=success',
+        cancel_url: window.location.origin + '/?payment=cancelled',
       })
     });
     const data = await r.json();
 
-    if(data.paymentUrl) {
-      // حفظ الطلب
-      const orderId = 'SH-'+Math.random().toString(36).substr(2,6).toUpperCase();
+    if(data.invoice_url) {
       document.getElementById('suc-id').textContent = '#'+orderId;
       btn.disabled=false; btn.textContent='✅ تأكيد الطلب والدفع';
-      // تحويل للدفع
-      window.location.href = data.paymentUrl;
+      window.location.href = data.invoice_url;
       return;
     } else {
-      showErr(data.error || 'فشل إنشاء رابط الدفع — تواصل معنا على واتساب');
+      showErr(data.message || 'فشل إنشاء رابط الدفع');
     }
   } catch(e) {
     showErr('خطأ في الاتصال — تحقق من الإنترنت');
