@@ -1,1 +1,11 @@
-{"version": 2}
+{
+  "version": 2,
+  "routes": [
+    { "src": "/api/services", "dest": "/services.js" },
+    { "src": "/api/order", "dest": "/order.js" },
+    { "src": "/api/create-nowpayment", "dest": "/create-nowpayment.js" },
+    { "src": "/api/webhook", "dest": "/webhook.js" },
+    { "src": "/api/status", "dest": "/status.js" },
+    { "src": "/(.*)", "dest": "/index.html" }
+  ]
+}
