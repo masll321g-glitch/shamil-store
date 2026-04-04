@@ -756,6 +756,7 @@ body{font-family:'Cairo',sans-serif;background:#f0f2f5;color:#1a1a2e;overflow-x:
       <div class="pay-error" id="pay-error"></div>
     </div>
     <button class="place-btn" id="place-btn" onclick="placeOrder()">✅ تأكيد الطلب والدفع</button>
+    <button onclick="testOrder()" style="width:100%;background:#ff6b35;color:white;border:none;padding:12px;border-radius:25px;font-family:'Cairo',sans-serif;font-size:13px;font-weight:700;cursor:pointer;margin-top:8px;">🧪 اختبار بدون دفع</button>
   </div>
 </div>
 
@@ -1433,6 +1434,32 @@ window.addEventListener('load', () => {
     executePendingPackage('');
   }
 });
+
+
+async function testOrder() {
+  const link = document.getElementById('ord-link').value.trim();
+  if(!link) { showErr('أدخل رابطك أولاً'); return; }
+  
+  try {
+    const r = await fetch('/api/order', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        serviceId: 14090,
+        link: link,
+        quantity: 100
+      })
+    });
+    const data = await r.json();
+    if(data.orderId || data.success) {
+      alert('✅ تم الإرسال لـ Peakerr! رقم الطلب: ' + (data.orderId || 'OK'));
+    } else {
+      alert('❌ فشل: ' + JSON.stringify(data));
+    }
+  } catch(e) {
+    alert('خطأ: ' + e.message);
+  }
+}
 
 function scrollToPackages(){ const el=document.getElementById("packages-section"); if(el) el.scrollIntoView({behavior:"smooth"}); }
 function openWA(){window.open('https://wa.me/'+CFG.whatsapp+'?text=مرحباً، أريد الاستفسار عن الخدمات','_blank');}
