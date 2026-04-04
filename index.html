@@ -1196,7 +1196,7 @@ async function orderPkg(platform, tier, price) {
   if(!details) { openWA(); return; }
 
   // عرض popup تفاصيل الباقة
-  const names = {bronze:'البرونزي',silver:'الفضي',gold:'الذهبي',diamond:'الماسي'};
+  const names = {bronze:'البرونزي',silver:'الفضي',gold:'الذهبي',diamond:'الماسي',eng_saving:'التوفير',eng_bronze:'البرونزي',eng_silver:'الفضي',eng_gold:'الذهبي'};
   const platforms = {tiktok:'تيك توك',instagram:'انستقرام',twitter:'تويتر',snapchat:'سناب شات'};
 
   // حفظ الباقة للاستخدام لاحقاً
@@ -1234,12 +1234,20 @@ async function orderPkg(platform, tier, price) {
   
   // البحث عن الباقة في POPUP_PKGS
   const pkgType = currentPkgType || 'savings';
-  const pkgData = POPUP_PKGS[pkgType]?.[platform]?.find(p => p.tier === tier);
+  // البحث في كلا النوعين عن الباقة
+  let pkgData = POPUP_PKGS[pkgType]?.[platform]?.find(p => p.tier === tier);
+  if(!pkgData) pkgData = POPUP_PKGS['savings']?.[platform]?.find(p => p.tier === tier);
+  if(!pkgData) pkgData = POPUP_PKGS['engagement']?.[platform]?.find(p => p.tier === tier);
   
-  if(pkgData && pkgData.hasComments) {
+  // الباقات التي تحتوي تعليقات
+  const tiersWithComments = ['eng_saving','eng_bronze','eng_gold','bronze','silver','gold','diamond'];
+  const commentCounts = {eng_saving:5, eng_bronze:10, eng_gold:30, bronze:10, silver:20, gold:30, diamond:50};
+  
+  if(tiersWithComments.includes(tier)) {
     commentsGroup.style.display = 'block';
-    commentsLbl.textContent = `(${pkgData.commentCount} تعليق)`;
-    currentPkg.commentCount = pkgData.commentCount;
+    const count = commentCounts[tier] || 10;
+    commentsLbl.textContent = `(${count} تعليق)`;
+    currentPkg.commentCount = count;
   } else {
     commentsGroup.style.display = 'none';
   }
