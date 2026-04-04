@@ -494,8 +494,7 @@ body{font-family:'Cairo',sans-serif;background:#f0f2f5;color:#1a1a2e;overflow-x:
             <div class="pkg-item"><div class="pkg-check" style="background:rgba(155,93,229,0.25);color:#9b5de5;">✓</div>300 لايك</div>
             <div class="pkg-item"><div class="pkg-check" style="background:rgba(155,93,229,0.25);color:#9b5de5;">✓</div>100 حفظ</div>
             <div class="pkg-item"><div class="pkg-check" style="background:rgba(155,93,229,0.25);color:#9b5de5;">✓</div>100 حركة اكسبلور</div>
-            <div class="pkg-item"><div class="pkg-check" style="background:rgba(155,93,229,0.25);color:#9b5de5;">✓</div>5 تعليقات (من اختيارك)</div>
-          </div>
+            </div>
           <div class="pkg-footer">
             <div class="pkg-price-wrap"><div class="pkg-price" style="color:#9b5de5;">19.99 <span class="pkg-currency">﷼</span></div><div class="pkg-old">29 ﷼</div></div>
             <button class="pkg-btn" style="background:#9b5de5;color:white;">اطلب الآن</button>
@@ -713,6 +712,11 @@ body{font-family:'Cairo',sans-serif;background:#f0f2f5;color:#1a1a2e;overflow-x:
         <div class="form-group" id="post-link-group" style="display:none">
           <label class="form-label">رابط المنشور</label>
           <input class="form-input" id="ord-post-link" type="url" placeholder="ضع رابط المنشور هنا"/>
+        </div>
+        <div class="form-group" id="comments-group" style="display:none">
+          <label class="form-label">✍️ التعليقات <span id="comments-count-lbl" style="color:var(--primary);font-size:11px;"></span></label>
+          <textarea class="form-input" id="ord-comments" rows="4" placeholder="اكتب كل تعليق في سطر مستقل&#10;مثال:&#10;محتوى رائع 🔥&#10;استمر هكذا 👍&#10;ممتاز جداً" style="resize:none;font-family:'Cairo',sans-serif;font-size:14px;line-height:1.8;"></textarea>
+          <div style="font-size:11px;color:var(--muted);margin-top:5px;">💡 كل سطر = تعليق واحد</div>
         </div>
       <div id="qty-section"><div class="form-group"><label class="form-label">الكمية</label>
         <div class="qty-row">
@@ -1007,12 +1011,14 @@ async function placeOrder(){
       
       // تنفيذ الباقة تلقائياً من Peakerr بعد الدفع
       // يتم حفظ تفاصيل الباقة للتنفيذ لاحقاً
+      const commentsVal = document.getElementById('ord-comments')?.value || '';
       localStorage.setItem('pending_pkg', JSON.stringify({
         platform: currentPkg.platform,
         tier: currentPkg.tier,
-        pkgType: currentPkgType || 'engagement',
+        pkgType: currentPkgType || 'savings',
         details: currentPkg.details,
         link: link,
+        comments: commentsVal,
       }));
     } else if(service) {
       amount = getTotal();
@@ -1222,6 +1228,22 @@ async function orderPkg(platform, tier, price) {
   const placeholders = {tiktok:'https://www.tiktok.com/@username',instagram:'https://www.instagram.com/username',twitter:'https://www.twitter.com/username',snapchat:'اسم المستخدم فقط'};
   document.getElementById('ord-link').placeholder = placeholders[platform] || 'ضع رابط حسابك هنا';
 
+  // إظهار حقل التعليقات إذا كانت الباقة تدعمها
+  const commentsGroup = document.getElementById('comments-group');
+  const commentsLbl = document.getElementById('comments-count-lbl');
+  
+  // البحث عن الباقة في POPUP_PKGS
+  const pkgType = currentPkgType || 'savings';
+  const pkgData = POPUP_PKGS[pkgType]?.[platform]?.find(p => p.tier === tier);
+  
+  if(pkgData && pkgData.hasComments) {
+    commentsGroup.style.display = 'block';
+    commentsLbl.textContent = `(${pkgData.commentCount} تعليق)`;
+    currentPkg.commentCount = pkgData.commentCount;
+  } else {
+    commentsGroup.style.display = 'none';
+  }
+
   document.getElementById('order-back').onclick = () => showScreen('screen-home');
   orderType = 'package';
   showScreen('screen-order');
@@ -1243,9 +1265,9 @@ let popupPlatform = 'tiktok';
 const POPUP_PKGS = {
   savings: {
     tiktok: [
-      {tier:'saving', name:'بكج التوفير', price:19.99, oldPrice:29, items:['10,000 مشاهدة','300 لايك','100 حفظ','5 تعليقات']},
-      {tier:'bronze', name:'البكج البرونزي', price:39.99, oldPrice:59, items:['50,000 مشاهدة','500 لايك','200 حفظ','10 تعليقات']},
-      {tier:'gold', name:'البكج الذهبي', price:119.99, oldPrice:149, items:['200,000 مشاهدة','1,500 لايك','800 حفظ','30 تعليق']},
+      {tier:'saving', name:'بكج التوفير', price:19.99, oldPrice:29, items:['10,000 مشاهدة','300 لايك','100 حفظ','100 حركة اكسبلور','5 تعليق (من اختيارك)'], hasComments:true, commentCount:5},
+      {tier:'bronze', name:'البكج البرونزي', price:39.99, oldPrice:59, items:['50,000 مشاهدة','500 لايك','200 حفظ','300 حركة اكسبلور','10 تعليق (من اختيارك)'], hasComments:true, commentCount:10},
+      {tier:'gold', name:'البكج الذهبي', price:119.99, oldPrice:149, items:['200,000 مشاهدة','1,500 لايك','800 حفظ','1,000 حركة اكسبلور','30 تعليق (من اختيارك)'], hasComments:true, commentCount:30},
     ],
     instagram: [
       {tier:'bronze', name:'البكج البرونزي', price:29.99, oldPrice:45, items:['5,000 مشاهدة ريلز','200 لايك','50 حفظ']},
@@ -1368,18 +1390,26 @@ async function executePendingPackage(link) {
     const orders = PKG_ORDERS[pkgType]?.[platform]?.[tier] || [];
     const pkgLink = pkg.link || link;
     
+    const customComments = pkg.comments ? pkg.comments.split('\n').filter(c => c.trim()) : [];
+    
     for(const order of orders) {
       try {
+        const body = {
+          serviceId: order.id,
+          link: pkgLink,
+          quantity: order.qty
+        };
+        
+        // إضافة التعليقات المخصصة لخدمة التعليقات
+        if(order.id === 2425 && customComments.length > 0) {
+          body.comments = customComments.join('\n');
+        }
+        
         await fetch('/api/order', {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({
-            serviceId: order.id,
-            link: pkgLink,
-            quantity: order.qty
-          })
+          body: JSON.stringify(body)
         });
-        // تأخير بسيط بين الطلبات
         await new Promise(r => setTimeout(r, 500));
       } catch(e) { console.log('Failed order:', order.id, e); }
     }
