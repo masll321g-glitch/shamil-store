@@ -1000,10 +1000,20 @@ async function placeOrder(){
     let quantity = 0;
 
     if(orderType === 'package' && currentPkg) {
-      amount = currentPkg.price / 3.75; // تحويل ريال لدولار تقريبي
+      amount = currentPkg.price / 3.75;
       serviceName = `البكج ${currentPkg.name} - ${currentPkg.platformName}`;
       serviceId = 'PKG';
       quantity = 1;
+      
+      // تنفيذ الباقة تلقائياً من Peakerr بعد الدفع
+      // يتم حفظ تفاصيل الباقة للتنفيذ لاحقاً
+      localStorage.setItem('pending_pkg', JSON.stringify({
+        platform: currentPkg.platform,
+        tier: currentPkg.tier,
+        pkgType: currentPkgType || 'engagement',
+        details: currentPkg.details,
+        link: link,
+      }));
     } else if(service) {
       amount = getTotal();
       serviceName = service.name;
@@ -1089,6 +1099,52 @@ function switchPkg(platform,btn){
 }
 
 // تفاصيل الباقات - كميات لكل خدمة
+// IDs خدمات Peakerr
+const PEAKERR_IDS = {
+  tiktok: {
+    followers: 2422,   // متابعين حقيقيين
+    views: 14090,      // مشاهدات حقيقية
+    likes: 14091,      // إعجابات حقيقية
+    comments: 2425,    // تعليقات إيجابية
+    saves: 10052,      // حفظ
+    shares: 14566,     // إعادة نشر
+  },
+  instagram: {
+    followers: 2431,   // متابعين
+    views: 14576,      // مشاهدات
+    likes: 2432,       // إعجابات
+    comments: 2544,    // تعليقات
+    story_views: 14571, // مشاهدات قصص
+  },
+};
+
+// تفاصيل الباقات مع IDs
+const PKG_ORDERS = {
+  savings: {
+    tiktok: {
+      eng_saving:  [{id:14090, qty:10000}, {id:14091, qty:300},  {id:10052, qty:100}],
+      eng_bronze:  [{id:14090, qty:50000}, {id:14091, qty:500},  {id:10052, qty:200}, {id:2425, qty:10}],
+      eng_gold:    [{id:14090, qty:200000},{id:14091, qty:1500}, {id:10052, qty:800}, {id:2425, qty:30}],
+    },
+    instagram: {
+      eng_bronze:  [{id:14576, qty:5000},  {id:2432,  qty:200},  {id:14571, qty:1000}],
+      eng_gold:    [{id:14576, qty:50000}, {id:2432,  qty:1000}, {id:14571, qty:5000}],
+    },
+  },
+  engagement: {
+    tiktok: {
+      bronze:  [{id:2422, qty:3000},  {id:14090, qty:50000},  {id:14091, qty:3000},  {id:10052, qty:500}],
+      silver:  [{id:2422, qty:5000},  {id:14090, qty:100000}, {id:14091, qty:10000}, {id:10052, qty:1000}],
+      gold:    [{id:2422, qty:10000}, {id:14090, qty:200000}, {id:14091, qty:25000}, {id:10052, qty:3000}, {id:2425, qty:20}],
+      diamond: [{id:2422, qty:25000}, {id:14090, qty:500000}, {id:14091, qty:50000}, {id:10052, qty:5000}, {id:2425, qty:50}],
+    },
+    instagram: {
+      bronze:  [{id:2431, qty:2000},  {id:2432, qty:5000},   {id:14576, qty:20000}],
+      gold:    [{id:2431, qty:10000}, {id:2432, qty:20000},  {id:14576, qty:100000}, {id:2544, qty:15}],
+    },
+  },
+};
+
 const PKG_DETAILS = {
   // بكجات التفاعل
   tiktok_eng: {
@@ -1296,6 +1352,49 @@ function renderPopupPkgs() {
     </div>
   `).join('');
 }
+
+// تنفيذ الباقة بعد الدفع
+async function executePendingPackage(link) {
+  const pendingStr = localStorage.getItem('pending_pkg');
+  if(!pendingStr) return;
+  
+  try {
+    const pkg = JSON.parse(pendingStr);
+    const pkgType = pkg.pkgType || 'engagement';
+    const platform = pkg.platform || 'tiktok';
+    const tier = pkg.tier || 'bronze';
+    
+    // جلب قائمة الطلبات من PKG_ORDERS
+    const orders = PKG_ORDERS[pkgType]?.[platform]?.[tier] || [];
+    const pkgLink = pkg.link || link;
+    
+    for(const order of orders) {
+      try {
+        await fetch('/api/order', {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({
+            serviceId: order.id,
+            link: pkgLink,
+            quantity: order.qty
+          })
+        });
+        // تأخير بسيط بين الطلبات
+        await new Promise(r => setTimeout(r, 500));
+      } catch(e) { console.log('Failed order:', order.id, e); }
+    }
+    localStorage.removeItem('pending_pkg');
+    console.log('✅ تم تنفيذ الباقة بنجاح');
+  } catch(e) { console.error(e); }
+}
+
+// تحقق من الدفع عند فتح الموقع
+window.addEventListener('load', () => {
+  const params = new URLSearchParams(window.location.search);
+  if(params.get('payment') === 'success') {
+    executePendingPackage('');
+  }
+});
 
 function scrollToPackages(){ const el=document.getElementById("packages-section"); if(el) el.scrollIntoView({behavior:"smooth"}); }
 function openWA(){window.open('https://wa.me/'+CFG.whatsapp+'?text=مرحباً، أريد الاستفسار عن الخدمات','_blank');}
