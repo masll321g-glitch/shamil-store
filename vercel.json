@@ -1,18 +1,1 @@
-{
-  "version": 2,
-  "functions": {
-    "order.js": { "memory": 128, "maxDuration": 10 },
-    "services.js": { "memory": 128, "maxDuration": 10 },
-    "create-nowpayment.js": { "memory": 128, "maxDuration": 10 },
-    "webhook.js": { "memory": 128, "maxDuration": 10 },
-    "status.js": { "memory": 128, "maxDuration": 10 }
-  },
-  "routes": [
-    { "src": "/api/order", "dest": "/order.js" },
-    { "src": "/api/services", "dest": "/services.js" },
-    { "src": "/api/create-nowpayment", "dest": "/create-nowpayment.js" },
-    { "src": "/api/webhook", "dest": "/webhook.js" },
-    { "src": "/api/status", "dest": "/status.js" },
-    { "src": "/(.*)", "dest": "/index.html" }
-  ]
-}
+{"version":2}
